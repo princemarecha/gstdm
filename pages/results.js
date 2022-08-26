@@ -22,81 +22,52 @@ class Results extends Component {
             </Head>
             <Header/>
             
-  <div
-    class="flex flex-col sm:flex-row sm:h-20 px-6 border-b border-gray-300 bg-white relative z-50"
-  >
-    <div
-      class="w-full mx-auto mt-2 mb-4 sm:mx-0 sm:mb-0 sm:mt-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-1/2 sm:h-full justify-center items-center block sm:flex"
-    >
-    <form class="relative w-full flex">
-        <input
-          type="search"
-          class="w-full max-w-full border border-gray-300 rounded-sm pr-4 pl-10 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
-          placeholder="Search for something..."
-        />
-        <button class="inline-flex bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Search</button>
-      </form>
-    </div>
-  </div>
-  <div class="w-full flex flex-col lg:flex-row lg:px-6">
-    <div class="w-full lg:w-56 relative">
-      <div
-        class="py-3 bg-white w-full flex items-center justify-center lg:hidden cursor-pointer font-bold"
-      >
-        Change Filters
-        
+{/* Search item */}
+
+    <form class="max-w-screen-md w-full flex gap-4 bg-white p-10 rounded-xl">
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Destination, zone or hotel name</label>
+        <input name="first-name" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
       </div>
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">From</label>
+        <input name="first-name" type="date" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+      </div>
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">To</label>
+        <input name="first-name" type="date" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+      </div>
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Rooms</label>
+        <input name="first-name" type="number" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+      </div>
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Adults</label>
+        <input name="first-name" type="number" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+      </div>
+      <div class="grid grid-rows-2">
+        <label for="first-name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Children</label>
+        <input name="first-name" type="number" class="bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+      </div>
+
+      <div class="grid grid-rows-2">
+      <div></div>
+        <button class="inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Search</button>
+      </div>
+
+    </form>
+
+
+
+{/* Filters */}
+  <div class="w-full flex flex-col lg:flex-row lg:px-6">
+    <div class="w-full lg:w-60 relative">
       
       <div
         class="hidden absolute left-0 px-6 lg:px-auto bg-white w-full lg:w-auto z-50 mt-10 lg:mt-0 lg:sticky top-0 pt-6 pb-24 lg:flex flex-col lg:max-h-screen"
       >
-        <div class="border-b border-gray-300">
-          <a class="text-sm font-bold"
-            >Change Region</a
-          >
-          <div class="my-6">
-            <div class="">
-              <div class="">
-                <div class="flex items-center mb-3 last:mb-0">
-                  <input
-                    name="service"
-                    type="checkbox"
-                    class="appearance-none w-6 h-6 border border-gray-300 outline-none cursor-pointer checked:bg-blue-400"
-                    id="delivery-service"
-                    value="delivery"
-                    checked=""
-                  /><label class="ml-2 text-sm" for="delivery-service"
-                    >East Asia</label
-                  >
-                </div>
-                <div class="flex items-center mb-3 last:mb-0">
-                  <input
-                    name="service"
-                    type="checkbox"
-                    class="appearance-none w-6 h-6 border border-gray-300 outline-none cursor-pointer checked:bg-blue-400"
-                    id="curbside-service"
-                    value="curbside"
-                  /><label class="ml-2 text-sm" for="curbside-service"
-                    >West Europe</label
-                  >
-                </div>
-                <div class="flex items-center mb-3 last:mb-0">
-                  <input
-                    name="service"
-                    type="checkbox"
-                    class="appearance-none w-6 h-6 border border-gray-300 outline-none cursor-pointer checked:bg-blue-400"
-                    id="orderin-service"
-                    value="orderin"
-                  /><label class="ml-2 text-sm" for="orderin-service"
-                    >North America</label
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="flex-1 lg:overflow-y-scroll">
-          <div class="border-b border-gray-300 py-6">
+          {/*<div class="border-b border-gray-300 py-6">
             <div class="flex items-center justify-between cursor-pointer">
               <h5 class="text-sm font-bold">Sort</h5>
               
@@ -211,11 +182,289 @@ class Results extends Component {
                 /><label class="ml-2 text-sm" for="halal">Kids only</label>
               </div>
             </div>
+          </div> */}
+
+          <div class="border-b border-gray-300">
+          <a class="text-sm font-bold"
+            >Favourites</a
+          >
+          <div class="my-6">
+            <div class="">
+              <div class="">
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                  /><label class="ml-2 text-sm" for="delivery-service"
+                    ><i class="fa-regular fa-heart text-red-400"></i> Only Favourites</label
+                  >
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div class="border-b border-gray-300">
+          <a class="text-sm font-bold"
+            >Board</a
+          >
+          <div class="my-6">
+            <div class="">
+              <div class="">
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                  /><label class="ml-2 text-sm" for="delivery-service"
+                    >Half board</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="curbside-service"
+                    value="curbside"
+                  /><label class="ml-2 text-sm" for="curbside-service"
+                    >All inclusive</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="orderin-service"
+                    value="orderin"
+                  /><label class="ml-2 text-sm" for="orderin-service"
+                    >Incl. continental breakfast</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="orderin-service"
+                    value="orderin"
+                  /><label class="ml-2 text-sm" for="orderin-service"
+                    >Room only (hotels)</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="orderin-service"
+                    value="orderin"
+                  /><label class="ml-2 text-sm" for="orderin-service"
+                    >Incl. breakfast, lunch & dinner</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="orderin-service"
+                    value="orderin"
+                  /><label class="ml-2 text-sm" for="orderin-service"
+                    >Incl. breakfast</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="border-b border-gray-300">
+          <a class="text-sm font-bold"
+            >Category</a
+          >
+          <div class="my-6">
+            <div class="">
+              <div class="">
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm flex" for="delivery-service"
+                    > <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg></label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm flex" for="delivery-service"
+                    > <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    </label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm flex" for="delivery-service"
+                    > <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+   </label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm flex" for="delivery-service"
+                    > <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+   </label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm flex" for="delivery-service"
+                    > <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    </label
+                  >
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="border-b border-gray-300">
+          <a class="text-sm font-bold"
+            >Zone</a
+          >
+          <div class="my-6">
+            <div class="">
+              <div class="">
+                <div class="flex items-center mb-3 last:mb-0">
+                <select id="zone" name="zone">
+    <option value="volvo">All</option>
+    <option value="saab">Europe</option>
+    <option value="fiat">Asia</option>
+    <option value="audi">Oceania</option>
+  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="border-b border-gray-300">
+          <a class="text-sm font-bold"
+            >Accommodation type</a
+          >
+          <div class="my-6">
+            <div class="">
+              <div class="">
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="delivery-service"
+                    value="delivery"
+                    checked=""
+                  /><label class="ml-2 text-sm" for="delivery-service"
+                    >Resort</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="curbside-service"
+                    value="curbside"
+                  /><label class="ml-2 text-sm" for="curbside-service"
+                    >Boutique hotel</label
+                  >
+                </div>
+                <div class="flex items-center mb-3 last:mb-0">
+                  <input
+                    name="service"
+                    type="checkbox"
+                    id="orderin-service"
+                    value="orderin"
+                  /><label class="ml-2 text-sm" for="orderin-service"
+                    >Boutique</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         </div>
       </div>
   
     </div>
+
+    {/* Search results */}
+
     <div class="w-full lg:px-6 mb-10">
     <div class="lg:pl-12 py-6 px-6 lg:px-0">
       <div class="mt-12">
@@ -225,40 +474,80 @@ class Results extends Component {
           <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img1}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Victoria Falls</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Victoria Falls 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0001
+                    <span class="font-semibold">Mosi oa Tunya, </span> Victoria Falls
                   </div>
-                  <p class="font-semibold">$900</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>1500 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa-regular fa-heart text-red-500  fa-xl float-right mt-9 mr-10" ></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.7</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">3 x Suite Double Garden Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $1,999.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
@@ -268,126 +557,248 @@ class Results extends Component {
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img2}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Maldives</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Maldives 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0002
+                    <span class="font-semibold">Beach of Hope, </span> Maldives
                   </div>
-                  <p class="font-semibold">$1500</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>100 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.6</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">2 x Single Beach Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $1,799.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
 
 
 
+
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img3}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Sweden</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Sweden 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0003
+                    <span class="font-semibold">Geneva, </span> Sweden
                   </div>
-                  <p class="font-semibold">$700</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>500 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.5</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">1 x Suite Palace Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $2,599.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
 
 
 
+
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img4}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Toronto</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Toronto 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0004
+                    <span class="font-semibold">Lakeside, </span> Toronto
                   </div>
-                  <p class="font-semibold">$800</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>600 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.8</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">1 x Suite Double Lake Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $999.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
@@ -398,40 +809,80 @@ class Results extends Component {
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img5}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Kariba</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Kariba 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0005
+                    <span class="font-semibold">Mabvuku, </span> Kariba
                   </div>
-                  <p class="font-semibold">$1000</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>100 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.2</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">4 x Suite Triple River Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $1,999.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
@@ -442,84 +893,163 @@ class Results extends Component {
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img6}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Great Pyramids</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Great Pyramids 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0006
+                    <span class="font-semibold">Pyramid of Giza, </span> Egypt
                   </div>
-                  <p class="font-semibold">$1200</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>200 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.3</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">1 x Suite Single Mummy Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $2,999.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
 
 
 
-
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img7}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Norway</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Norway 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0007
+                    <span class="font-semibold">Oslo, </span> Norway
                   </div>
-                  <p class="font-semibold">$800</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>400 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.5</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">1 x Suite Double Country Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $975.95
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
@@ -529,51 +1059,83 @@ class Results extends Component {
             <a href="#">
           
           <div
-              class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
+              class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white"
             >
             
-              <div class="w-2/3 mt-1 ml-1">
+              <div class="w-full mt-1 ml-1">
               <Image
       src={img8}
       alt="Picture of the author"
+      class="relative"
     />
+    <i class="fa-regular fa-heart text-white fa-xl float-right mt-9 mr-2 absolute left-5" ></i>
               </div>
               
-              <div class="p-6">
               
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Mexico</h3>
+                <div class="text-sm p-6 col-span-2">
+                  <h3 class="font-bold text-base flex">Mexico 
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+    </svg>
+                  </h3>
+                  
+                  
                   
                   <div class="flex items-center">
-                    0008
+                    <span class="font-semibold">Encanto, </span> Mexico
                   </div>
-                  <p class="font-semibold">$700</p>
+                  
                   <p class="mt-1">
-                    <span>Luxury Hotel · </span><span>Breakfast · </span
-                    ><span>Dinner · </span><span>Pool </span>
+                  <i class="fas fa-wifi"></i> Wifi
                   </p>
-                  <p>300 km away</p>
+                  <p class="mt-1">
+                  <i class="fas fa-parking"></i> Car park
+                  </p>
+                  <p class="mt-1">
+                  <i class="fa fa-cutlery"></i> Restaurant
+                  </p>
+                  
+                  <div class="flex">
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Map
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Images
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Description
+                  </div>
+                  <div class="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
+                    Opinions
+                  </div>
+                  </div>
                 </div>
-              </div>
+              
 
-              <div class="grid grid-cols-1 grid-rows-2">
-              <div>
-            <i class="fa fa-heart text-red-500 fa-xl float-right mt-9 mr-10" aria-hidden="true"></i>
-            </div>
-            <div>
-              <p class="float-right mr-10 text-green-400">4.6</p>
-            </div>
+              <div class="bg-cyan-100">
+             <p class="text-blue-700 font-semibold p-3 text-sm">2 x Suite Single City Suite</p>
+             <p class="px-3 pb-3 text-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Non refundable</p>
+             <div class="bg-blue-700 text-white w-2/3 m-auto font-semibold py-1 text-center text-lg">
+               $899.99
+             </div>
+             <div class="flex justify-between items-center">
+        <button class="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2">Add to cart</button>
+      </div>
             </div>
 
             </div></a>
-
-
-
-            
-
-
-
-
 
 
 

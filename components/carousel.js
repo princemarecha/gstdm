@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import Image from 'next/image';
-import Img1 from "./../public/images/pic-thumb1.jpg";
-import Img2 from "./../public/images/pic-thumb2.jpg";
-import Img3 from "./../public/images/pic-thumb3.jpg";
+import Head from 'next/head';
+
 
 
 const content = [
@@ -33,6 +30,15 @@ class Carousel extends Component {
     render() {
         return (
             <div>
+            <Head>
+          <title>Getaway Specialised Tours</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+          <script src="https://cdn.tailwindcss.com"></script>
+          <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+          
+      </Head>
                 <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
   <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
     <button

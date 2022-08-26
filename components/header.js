@@ -30,7 +30,7 @@ class Header extends Component {
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75"
-                href="./../favourites"
+                href="./../results"
               >
                 Favourites
               </a>
@@ -39,7 +39,7 @@ class Header extends Component {
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75"
-                href="./../booking"
+                href="./../hotel"
               >
                 Bookings
               </a>
@@ -51,6 +51,15 @@ class Header extends Component {
                 href="./../notifications"
               >
                 Notifications
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75"
+                href="./../cart"
+              >
+                Cart
               </a>
             </li>
 

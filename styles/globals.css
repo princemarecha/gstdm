@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+font-family: Roboto;
+}
 
 .background-image {
   background-image: url(./../public/images/bnr1.jpg);
   
+}
+
+.container-custom {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.top-left {
+  position: absolute;
+  float: right;
+  margin-right: 10px;
+  margin-left:10px;
 }
 
 
