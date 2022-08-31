@@ -11,6 +11,7 @@ render () {
     <div>
     <Head>
           <title>GSTDM | Home</title>
+          <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
@@ -23,15 +24,6 @@ render () {
     <Header/>
     
 </div>
-<div className='relative'>
-{/*<Image
-      src={BG}
-      alt="Picture of the author"
-      width="1500px"
-      height="400px"
-    />*/}
-</div>
-
 
 <Search/>
 
@@ -40,6 +32,7 @@ render () {
 <div>
     <Footer/>
     </div>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
     </div>
   )
 }

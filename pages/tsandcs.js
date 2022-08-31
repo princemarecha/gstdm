@@ -11,8 +11,8 @@ class Tsandcs extends Component {
                     <Header/>
                 </div>
 
-                <div class="w-2/3 m-auto pb-20">
-                <h3 class="py-8"><b>LEGAL STATEMENT & PRIVACY POLICY</b></h3>
+                <div className="w-2/3 m-auto pb-20">
+                <h3 className="py-8"><b>LEGAL STATEMENT & PRIVACY POLICY</b></h3>
 
 <b>1.- General information on the website owner</b> <br/>
 <br/>

@@ -14,28 +14,28 @@ class Listings extends Component {
     render() {
         return (
             <div>
-  <div class="w-full flex flex-col lg:flex-row lg:px-6 mb-10">
-    <div class="flex-1 lg:pl-12 py-6 px-6 lg:px-0">
-      <div class="mt-12">
+  <div className="w-full flex flex-col lg:flex-row lg:px-6 mb-10">
+    <div className="flex-1 lg:pl-12 py-6 px-6 lg:px-0">
+      <div className="mt-12">
        
-        <div class="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 mt-12">
           <a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img1}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Victoria Falls</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Victoria Falls</h3>
+                  <div className="flex items-center text-green-400">
                     4.7
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -45,21 +45,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img2}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Maldives</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Maldives</h3>
+                  <div className="flex items-center text-green-400">
                     4.2
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -69,21 +69,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img3}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Sweden</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Sweden</h3>
+                  <div className="flex items-center text-green-400">
                     4.9
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -93,21 +93,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img4}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Toronto</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Toronto</h3>
+                  <div className="flex items-center text-green-400">
                     4.2
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -117,21 +117,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img5}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Kariba</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Kariba</h3>
+                  <div className="flex items-center text-green-400">
                     4.1
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -141,21 +141,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img6}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Great Pyramids</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Great Pyramids</h3>
+                  <div className="flex items-center text-green-400">
                     4.6
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -165,21 +165,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img7}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Norway</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Norway</h3>
+                  <div className="flex items-center text-green-400">
                     4.8
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>
@@ -189,21 +189,21 @@ class Listings extends Component {
             </div></a
           ><a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <Image
       src={img8}
       alt="Picture of the author"
     />
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">Mexico</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">Mexico</h3>
+                  <div className="flex items-center text-green-400">
                     4.3
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                     <span>Luxury Hotel · </span><span>Breakfast · </span
                     ><span>Dinner · </span><span>Pool </span>
                   </p>

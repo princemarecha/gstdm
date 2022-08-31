@@ -9,18 +9,18 @@ const ListItems = ({hotel}) => {
         <div>
             <a href="#"
             ><div
-              class="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
+              className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
-              <div class="w-full h-48">
+              <div className="w-full h-48">
               <img src={hotel.url} alt=""/>
               </div>
-              <div class="p-6">
-                <div class="text-sm">
-                  <h3 class="font-bold text-base">{hotel.title}</h3>
-                  <div class="flex items-center text-green-400">
+              <div className="p-6">
+                <div className="text-sm">
+                  <h3 className="font-bold text-base">{hotel.title}</h3>
+                  <div className="flex items-center text-green-400">
                   {hotel.rating}
                   </div>
-                  <p class="mt-1">
+                  <p className="mt-1">
                   Avg. Room Price: {hotel.currency} {hotel.rate}
                   </p>
                 
