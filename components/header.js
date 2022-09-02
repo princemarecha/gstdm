@@ -13,7 +13,7 @@ class Header extends Component {
             <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
             </Head>
 <Nav/>
-<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js" async></script>
 </header>
 
         );

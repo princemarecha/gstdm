@@ -49,7 +49,7 @@ const ResultsItems = ({hotel}) => {
                   <div className="list-disc pl-0">
                   {perks.map((value, index)=>{   
           return(
-                  <p className='pr-5'>{icons[index]} {value}</p>
+                  <p className='pr-5' key={index}>{icons[index]} {value}</p>
         )
       })}
       </div>

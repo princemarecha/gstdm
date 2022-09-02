@@ -35,7 +35,7 @@ const CreditCardPay = () => {
 
         <hr />
         <p className="pt-6  mt-6 font-medium  text-gray-500 mb-3">
-          Card Holder's Details
+          Card Holder&apos;s Details
         </p>
         <hr />
         <div className="mt-3"></div>

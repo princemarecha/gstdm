@@ -17,6 +17,7 @@ const Listings = (props) => {
                 perks: ['Luxury Hotel','Breakfast','Dinner','Pool'],
             },
             {
+
                 url: "images/slide-02-copy.jpg",
                 title: "Maldives",
                 rating: 4.2,
@@ -84,8 +85,8 @@ const Listings = (props) => {
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
           <link rel="stylesheet" href="../../styles/globals.css"/>
-          <script src="https://cdn.tailwindcss.com"></script>
-          <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+          <script src="https://cdn.tailwindcss.com" async></script>
+          <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
                 
         </Head>
       

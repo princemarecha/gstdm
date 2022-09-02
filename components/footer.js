@@ -6,9 +6,6 @@ import Img3 from "./../public/images/pic-thumb3.jpg";
 import Img4 from "./../public/images/pic-thumb4.jpg";
 import Img5 from "./../public/images/pic-thumb5.jpg";
 import Img6 from "./../public/images/pic-thumb6.jpg";
-import Img7 from "./../public/images/pic-thumb7.jpg";
-import Img8 from "./../public/images/pic-thumb8.jpg";
-import Img9 from "./../public/images/pic-thumb9.jpg";
 
 class Footer extends Component {
     render() {

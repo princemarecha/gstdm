@@ -27,7 +27,9 @@ const ListItems = ({hotel}) => {
                   <ul className="flex list-disc pl-3">
       {perks.map((perk)=>{   
           return(
-                  <li className='pr-5'>{perk}</li>
+                  <li className='pr-5' key={perk}>
+                  {perk}
+                  </li>
         )
       })}
       </ul>

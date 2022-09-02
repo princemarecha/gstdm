@@ -9,7 +9,11 @@ const ResultsContainer = ({hotels}) => {
                     <div className="mt-12">
                         <h1 className="text-3xl font-bold">Your search results</h1>
                             <div className="mt-12">
-                            {hotels.map( (hotel) => (<ResultsItems hotel={hotel}/>))}
+                            {hotels.map( (hotel) => (
+                                <div key={hotel}>
+                                <ResultsItems hotel={hotel}/>
+                                </div>
+                                ))}
                             </div>
                     </div>
                 </div>

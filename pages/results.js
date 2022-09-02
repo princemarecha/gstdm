@@ -20,7 +20,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Mosi oa Tunya",
                 place: "Victoria Falls",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
 
             },
             {
@@ -32,7 +32,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Beach of Hope",
                 place: "Maldives",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-03-copy.jpg",
@@ -43,7 +43,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Geneva",
                 place: "Sweden",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-04-copy.jpg",
@@ -54,7 +54,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Lakeside",
                 place: "Toronto",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-05-copy.jpg",
@@ -65,7 +65,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Mabvuku",
                 place: "Kariba",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-06-copy.jpg",
@@ -76,7 +76,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Pyramid of Giza",
                 place: "Egypt",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-07-copy.jpg",
@@ -87,7 +87,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Oslo",
                 place: "Norway",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
             {
                 url: "images/slide-08-copy.jpg",
@@ -98,7 +98,7 @@ const Results = (props) => {
                 perks: ['Wifi','Car Park','Restaurant'],
                 city: "Encanto",
                 place: "Mexico",
-                icons: [<i className="fas fa-wifi"></i>, <i className="fas fa-parking"></i>,  <i className="fa fa-cutlery"></i> ],
+                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
             },
           
         ]
@@ -112,8 +112,8 @@ const Results = (props) => {
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
           <link rel="stylesheet" href="../../styles/globals.css"/>
-          <script src="https://cdn.tailwindcss.com"></script>
-          <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+          <script src="https://cdn.tailwindcss.com" async></script>
+          <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
                 
         </Head>
       

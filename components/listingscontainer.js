@@ -9,7 +9,10 @@ const ListingsContainer = ({hotels}) => {
                     <div className="mt-12">
                         <h1 className="text-3xl font-bold">Recommended For You</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 mt-12">
-                            {hotels.map( (hotel) => (<ListItems hotel={hotel}/>))}
+                            {hotels.map((hotel) => (
+                                <div key={hotel}>
+                                <ListItems hotel={hotel}/>
+                                </div>))}
                         </div>
                     </div>
                 </div>

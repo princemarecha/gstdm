@@ -85,7 +85,7 @@ Shall not make any unauthorised, false or fraudulent bookings.<br/>
 
 <br/><br/><b>7.- Confidentiality and Personal Data Protection</b><br/>
 
-<br/>"Confidential information" is considered as any information or datum relating to this contract and commercial relationship.
+<br/>&quot;Confidential information&quot; is considered as any information or datum relating to this contract and commercial relationship.
 
 <br/>It is expressly prohibited to fully or partially disclose to third parties, be they natural persons or legal entities, which are not party to this commercial relationship, any confidential information that the parties may be able to access through the contracting and performance of this commercial relationship.
 
@@ -101,7 +101,7 @@ Shall not make any unauthorised, false or fraudulent bookings.<br/>
 
     <br/>The Personal Data owners may exercise their rights to request access to their Personal Data, rectification or erasure of such data, and their right to object, data portability and restriction of their processing, by means of a written request to the other Party, to the addresses indicated in the heading of this Agreement, in addition to filing a claim before the any relevant Data Protection Authority).
 
-    <br/>Each Party may contact the other Party's Data Protection Officer (DPO) though the following e-mail and/or postal addresses: dataprotection@GSTDM.com. 
+    <br/>Each Party may contact the other Party&apos;s Data Protection Officer (DPO) though the following e-mail and/or postal addresses: dataprotection@GSTDM.com. 
 
     <br/><br/><b>8.- Intellectual/industrial property and other rights</b><br/>
 
