@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Footer from "../components/footer";
-import Header from "../components/Header";
+import Header from "../components/header";
 import NextLink from "next/link";
 import Head from "next/head";
 import Payment from "../components/Payment";
