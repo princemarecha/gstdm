@@ -92,12 +92,20 @@ const BookingChange = () => {
               </div>
               <h1 className="text-lg mt-4">Room Information</h1>
               <div className="grid grid-cols-1">
-                <button type="button" id="add_room" onClick={GetSadza}>
-                  Button
-                </button>
+               
                 <div className="grid grid-cols-1 " id="roomOptions">
                   <div id="unitDiv"></div>
                 </div>
+                <button type="button" id="add_room" className="m-4 inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out" onClick={GetSadza}>
+                  Add Room
+                </button>
+                <div className="grid grid-cols-2" id="totals">
+
+                </div>
+               
+              </div>
+              <div className="grid grid-cols-12 m-4 ">
+               <button type="submit" className="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Submit</button> 
               </div>
             </div>
           </div>
