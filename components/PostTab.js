@@ -6,6 +6,7 @@ import SearchTransfers from "./SearchTranfers";
 import SearchResList from "./SearchResLists"
 import SearchBookingDetail from './SearchBookingDetail';
 import BookingCancellation from './BookingCancellation';
+import Change_book from './change_book';
 
 const PostTab = () => {
   return (
@@ -166,7 +167,7 @@ const PostTab = () => {
         role="tabpanel"
         aria-labelledby="tabs-contact-tab"
       >
-        <SearchTransfers />
+        <Change_book/>
       </div>
     </div>
   </div>
