@@ -87,7 +87,6 @@ const Listings = (props) => {
           <link rel="stylesheet" href="../../styles/globals.css"/>
           <script src="https://cdn.tailwindcss.com" async></script>
           <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
-                
         </Head>
       
     </div>

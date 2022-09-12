@@ -99,7 +99,7 @@ class Hotel extends Component {
 
             <div className='bg-white-200 shadow-2xl ' >
             <label htmlFor="message" className="block mb-2 font-medium bg-stone-700 text-zinc-50 text-left p-3">The Hotel</label>
-            <div className='flex grid grid-cols-12'>
+            <div className='grid grid-cols-12'>
                 <div className='p-3 col-span-8'>
             <p className='mx-12 text-slate-500 mb-4 text-sm text-justify'>RTG Virtual is a partnership platform between RTG and selected hotels in Zimbabwe in areas where RTG has few or no properties. This innovative one stop shop, allows RTG to process bookings on behalf of quality approved local partners. Partner hotels can be found in the Eastern Highlands, Masvingo, Hwange, Kariba, Victoria Falls, Harare and its environs. This foot print will continue to grow. RTG Virtual offers guests, wider choice, convenience and a competitive product portfolio through the one stop shop RTG Central Reservations.
                 <br/>

@@ -271,7 +271,7 @@ class Cart extends Component {
               <br></br>
               <label
                 htmlFor="message"
-                className="block mb-2 font-medium text-gray-900 dark:text-gray-400 lg:pl-8 mt-8 mb-6"
+                className="block font-medium text-gray-900 dark:text-gray-400 lg:pl-8 mt-8 mb-6"
               >
                 Comments
               </label>
