@@ -6,7 +6,7 @@ import SearchTransfers from "./SearchTranfers";
 import SearchResList from "./SearchResLists"
 import SearchBookingDetail from './SearchBookingDetail';
 import BookingCancellation from './BookingCancellation';
-import Change_book from './change_book';
+import Change_book from './Change_book';
 
 const PostTab = () => {
   return (
