@@ -66,7 +66,7 @@ const SearchHotel = () => {
             {
  
             arr.map((item) =>{
-              return(
+              return( 
                 <option value={item} key={item}>{item}</option>
               )
             }
