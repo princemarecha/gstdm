@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FetchingData from '../components/FetchingData'
 import WithAxios from '../components/WithAxios'
-import Integrate from './integrate'
+import Integrate from '../components/Integrate'
 import CryptoJS from 'crypto-js'
 
 export async function getStaticProps(){
