@@ -91,7 +91,8 @@ const Listings = (props) => {
       
     </div>
 
-              <ListingsContainer hotels={showHotel} />
+             {/* <ListingsContainer hotels={showHotel} >*/}
+              
         </div>
     )
 }

@@ -3,12 +3,16 @@ import CryptoJS from 'crypto-js'
 
   const Integrate = ({status}) => {
 
-    const [Hote, setHote] = useState([]);
+    const [Hote, setHote] = useState([status.hotels]);
 
-    //setHote(props);
     return (
       <div>
-        <p>{status.auditData.timestamp}</p>   
+  
+      {Hote.map((hotell)=>(
+        hotell.map((hoo)=>(
+          <p key = {hoo.code}>{hoo.name.content}</p>
+        ))
+      ))}
       </div>
     )
   }

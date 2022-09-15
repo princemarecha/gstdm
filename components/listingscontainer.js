@@ -1,7 +1,9 @@
 import React from 'react';
 import ListItems from './listitems';
 
-const ListingsContainer = ({hotels}) => {
+const ListingsContainer = ({status}) => {
+
+    console.log(status)
     return (
         <div>
             <div className="w-full flex flex-col lg:flex-row lg:px-6 mb-10">
@@ -9,7 +11,7 @@ const ListingsContainer = ({hotels}) => {
                     <div className="mt-12">
                         <h1 className="text-3xl font-bold">Recommended For You</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 mt-12">
-                            {hotels.map((hotel) => (
+                            {status.hotels.map((hotel) => (
                                 <div key={hotel}>
                                 <ListItems hotel={hotel}/>
                                 </div>))}
