@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import FetchingData from '../components/FetchingData'
-import WithAxios from '../components/withAxios'
+import WithAxios from '../components/WithAxios'
 import Integrate from './integrate'
 import CryptoJS from 'crypto-js'
 
