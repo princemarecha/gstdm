@@ -3,6 +3,7 @@ import FetchingData from '../components/FetchingData'
 import WithAxios from '../components/WithAxios'
 import Integrate from '../components/Integrate'
 import CryptoJS from 'crypto-js'
+import ListingsContainer from '../components/listingscontainer'
 
 export async function getStaticProps(){
 
@@ -31,7 +32,7 @@ var requestOptions = {
 
 
 
-const res = await fetch("https://api.test.hotelbeds.com/hotel-api/1.0/status", requestOptions);
+const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=100&useSecondaryLanguage=false", requestOptions);
 const data = await res.json();
     // .then((response) => response.json())
     // .then(result => setData(result))
@@ -53,7 +54,8 @@ const Nyama = ({status}) => {
   
   return (
     <div>
-     <Integrate status = {status}/>
+     {/*<Integrate status = {status}/>*/}
+     <ListingsContainer status={status} />
     </div>
   )
 }
