@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 const ListItems = ({hotel}) => {
 
@@ -13,7 +14,12 @@ const ListItems = ({hotel}) => {
             >
               <div className="w-full h-48">
                 
-              <img src={path} alt=""/>
+              {/*<img src={path} alt=""/>*/}
+              <Image
+                  src={path}
+                  alt="Picture of the hotel stuff"
+                  width="1000px"
+                  height="700px" />
               </div>
               <div className="p-6">
                 <div className="text-sm">
