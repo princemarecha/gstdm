@@ -12,7 +12,7 @@ const ListItems = ({hotel}) => {
               className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
               <div className="w-full h-48">
-              <img src="images/slide-01-copy.jpg" alt=""/>
+              <img src="http://photos.hotelbeds.com/giata/00/000040/000040a_hb_p_004.jpg" alt=""/>
               </div>
               <div className="p-6">
                 <div className="text-sm">
