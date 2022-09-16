@@ -4,7 +4,7 @@ const ListItems = ({hotel}) => {
 
     //const perks =   (hotel.perks.length>3 ? hotel.perks.slice(0,3) : hotel.perks );
   console.log(hotel.name.content);  
-
+  var path = 'http://photos.hotelbeds.com/giata/'+ hotel.images[0].path;
     return (
         <div>
            { <a href="#"
@@ -12,7 +12,8 @@ const ListItems = ({hotel}) => {
               className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
               <div className="w-full h-48">
-              <img src="images/slide-01-copy.jpg" alt=""/>
+                
+              <img src={path} alt=""/>
               </div>
               <div className="p-6">
                 <div className="text-sm">
