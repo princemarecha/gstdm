@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+
 const ListItems = ({hotel}) => {
 
     //const perks =   (hotel.perks.length>3 ? hotel.perks.slice(0,3) : hotel.perks );
@@ -9,7 +10,10 @@ const ListItems = ({hotel}) => {
     return (
         <div>
            { <a href="#"
-            ><div
+
+            >
+              
+              <div
               className="mx-auto cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full border border-gray-300 rounded-sm bg-white"
             >
               <div className="w-full h-48">
@@ -21,7 +25,15 @@ const ListItems = ({hotel}) => {
                   width="1000px"
                   height="700px" />
               </div>
+              
               <div className="p-6">
+                <div>
+                  <i className='fa fa-star text-yellow-500' key="tt"></i>
+                  <i className='fa fa-star text-yellow-500' key="tt"></i>
+                  <i className='fa fa-star text-yellow-500' key="tt"></i>
+                  <i className='fa fa-star text-yellow-500' key="tt"></i>
+                  <i className='fa-regular fa-star text-yellow-500'></i>
+                </div>
                 <div className="text-sm">
                   <h3 className="font-bold text-base">{hotel.name.content}</h3>
                   <div className="flex items-center text-green-400">
