@@ -48,7 +48,63 @@ const images = new mongoose.Schema({
     visualOrder: {type:Number, require:true},
 })
 
-const singleHotel = new mongoose.Schema({
+const interestPoints = new mongoose.Schema({
+    distance: {type:String, require:true}, 
+    facilityCode:  {type:Number, require:true},
+    facilityGroupCode: {type:Number, require:true},
+    order: {type:Number, require:true},
+    poiName: {type:String, require:true}, 
+})
+
+const issues = new mongoose.Schema({
+    alternative: {type:Boolean, require:true}, 
+    dateFrom:  {type:String, require:true},
+    dateTo: {type:String, require:true},
+    issueCode: {type:String, require:true}, 
+    issueType: {type:String, require:true}, 
+    order: {type:Number, require:true}, 
+})
+
+const name = new mongoose.Schema({
+    content:  {type:String, require:true},
+})
+
+const phones = new mongoose.Schema({
+    phoneNumber:  {type:String, require:true},
+    phoneType:  {type:String, require:true},
+})
+
+const rooms = new mongoose.Schema({
+    characteristicCode:  {type:String, require:true},
+    isParentRoom:  {type:Boolean, require:true},
+    maxAdults:{type:Number, require:true},
+    maxChildren:{type:Number, require:true},
+    maxPax:{type:Number, require:true},
+    maxPax:{type:Number, require:true},
+    minAdults: {type:Number, require:true},
+    minPax: {type:Number, require:true},
+    roomCode: {type:String, require:true},
+    roomType: {type:String, require:true},
+})
+
+const terminals = new mongoose.Schema({
+    distance:{type:Number, require:true},
+    terminalCode: {type:String, require:true},
+})
+
+const hotelRoomDescription = new mongoose.Schema({
+    content:{type:String, require:true},
+})
+
+
+const wildcards = new mongoose.Schema({
+    characteristicCode:{type:String, require:true},
+    hotelRoomDescription: [hotelRoomDescription],
+    roomCode:{type:String, require:true},
+    roomType:{type:String, require:true},
+})
+
+const singleHotelSchema = new mongoose.Schema({
 
     S2C: {type:String, require:true},
     accommodationTypeCode: {type:String, require:true},
@@ -66,20 +122,20 @@ const singleHotel = new mongoose.Schema({
     email: {type:String, require:true},
     facilities: [facilities],
     images: [images],
-    interestPoints: {type:Array, require:true}, //expand
-    issues: {type:Array, require:true}, //expand
+    interestPoints: [interestPoints],
+    issues: [issues],
     lastUpdate: {type:String, require:true},
     license: {type:String, require:true},
-    name: {type:Array, require:true}, //expand
-    phones: {type:Array, require:true}, //expand
+    name: [name],
+    phones: [phones],
     postalCode: {type:String, require:true},
     ranking: {type:Number, require:true, default: 0},
-    rooms: {type:Array, require:true}, //expand
-    segmentCodes: {type:Number, require:true, default: 0},
+    rooms: [rooms],
+    segmentCodes: {type:Array,'value':["Number"],require:true},
     stateCode: {type:String, require:true},
-    terminals: {type:Array, require:true}, //expand
+    terminals: [terminals], 
     web: {type:String, require:true},
-    wildcards:  {type:Array, require:true}, //expand
+    wildcards:  [wildcards], 
     zoneCode: {type:Number, require:true, default: 0},
 
 
@@ -88,5 +144,5 @@ const singleHotel = new mongoose.Schema({
 
 
 
-const Hotel = mongoose.models.Hotel || mongoose.model('Hotel', hotelSchema);
+const Hotel = mongoose.models.realHotel || mongoose.model('realHotel', singleHotelSchema);
 export default Hotel;

@@ -11,7 +11,8 @@ handler.get (async(req, res) =>{
     await Hotel.deleteMany();
     await Hotel.insertMany(data.hotels);
     await db.disconnect();
-    res.send("seede successfully");
+    res.send("seeded successfully");
+   
 })
 
 export default handler;
