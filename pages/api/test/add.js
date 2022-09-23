@@ -16,7 +16,7 @@ export default  async function addTest(req, res) {
     console.log('Connected to Mongo');
 
     console.log('Creating Document');   
-    const test = await Test.create(req.body);
+    const test = await Test.insertMany(req.body);
     console.log('Created Document'); 
 
     res.json({test})
