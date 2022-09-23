@@ -4,6 +4,7 @@ import WithAxios from '../components/WithAxios'
 import Integrate from '../components/Integrate'
 import CryptoJS from 'crypto-js'
 import ListingsContainer from '../components/listingscontainer'
+import data from '../utils/data'
 
 import Head from "next/head"
 
@@ -34,32 +35,28 @@ var requestOptions = {
 };
 
 
+  const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=10&useSecondaryLanguage=false", requestOptions);
+  const data = await res.json();
+      // .then((response) => response.json())
+      // .then(result => setData(result))
+      // .catch(error => console.log('error', error));
 
-
-
-const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=100&useSecondaryLanguage=false", requestOptions);
-const data = await res.json();
-    // .then((response) => response.json())
-    // .then(result => setData(result))
-    // .catch(error => console.log('error', error));
-  
- 
-
-
-
-
-  return{
-    props:{
-      status:data
+    return{
+      props:{
+        status:data
+      }
     }
-  }
 }
 
 const Nyama = ({status}) => {
-if (process.browser){
-  localStorage.setItem("ghost", JSON.stringify(status))
+  
+  if (process.browser){
+    localStorage.setItem("hotData2", JSON.stringify(status));
+    //console.log(JSON.parse(localStorage.getItem("hotData")));
+  }
+  
 
-}
+
 
   return (
     <div>

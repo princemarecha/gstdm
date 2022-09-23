@@ -3,7 +3,7 @@ import ListItems from './listitems';
 
 const ListingsContainer = ({status}) => {
 
-    console.log(status)
+    //console.log(status)
     return (
         <div>
             <div className="w-full flex flex-col lg:flex-row lg:px-6 mb-10">
