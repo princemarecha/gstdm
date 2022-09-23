@@ -56,7 +56,11 @@ const data = await res.json();
 }
 
 const Nyama = ({status}) => {
-  
+if (process.browser){
+  localStorage.setItem("ghost", JSON.stringify(status))
+
+}
+
   return (
     <div>
     <div>
