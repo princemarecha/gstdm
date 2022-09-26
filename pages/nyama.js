@@ -14,28 +14,7 @@ import Head from "next/head"
 export async function getStaticProps(){
 
 
-  var time = (Math.round(Date.now()/1000));
-let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
-let b = CryptoJS.SHA256(soup);
-let x_sig = b.toString(CryptoJS.enc.Hex);
-
-//end x-sig gen
-
-var myHeaders = new Headers();
-myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
-myHeaders.append("X-Signature", x_sig);
-myHeaders.append("Accept", "application/json");
-myHeaders.append("Accept-Encoding", "gzip");
-
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow',
-  mode: 'no-cors'
-};
-
-
-  const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=10&useSecondaryLanguage=false", requestOptions);
+  const res = await fetch("http://127.0.0.1:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
@@ -49,7 +28,7 @@ var requestOptions = {
 }
 
 const Nyama = ({status}) => {
-  
+  console.log(status);
   if (process.browser){
     localStorage.setItem("hotData2", JSON.stringify(status));
     //console.log(JSON.parse(localStorage.getItem("hotData")));

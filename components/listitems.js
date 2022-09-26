@@ -5,7 +5,7 @@ import Image from 'next/image';
 const ListItems = ({hotel}) => {
 
     //const perks =   (hotel.perks.length>3 ? hotel.perks.slice(0,3) : hotel.perks );
-  console.log(hotel.name.content);  
+  console.log(hotel.name[0].content);  
   var path = 'http://photos.hotelbeds.com/giata/'+ hotel.images[0].path;
     return (
         <div>
@@ -35,12 +35,12 @@ const ListItems = ({hotel}) => {
                   <i className='fa-regular fa-star text-yellow-500'></i>
                 </div>
                 <div className="text-sm">
-                  <h3 className="font-bold text-base">{hotel.name.content}</h3>
+                  <h3 className="font-bold text-base">{hotel.name[0].content}</h3>
                   <div className="flex items-center text-green-400">
                   {hotel.rating}
                   </div>
                   <p className="mt-1">
-                  <span className='font-bold'>Description:</span> <span className='italic'>{hotel.description.content.slice(0,90)}.....</span>
+                  <span className='font-bold'>Description:</span> <span className='italic'>{hotel.description[0].content.slice(0,90)}.....</span>
                   </p>
                 
                   <ul className="flex list-disc pl-3">

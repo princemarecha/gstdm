@@ -3,7 +3,7 @@ import ListItems from './listitems';
 
 const ListingsContainer = ({status}) => {
 
-    //console.log(status)
+    console.log(status)
     return (
         <div>
             <div className="w-full flex flex-col lg:flex-row lg:px-6 mb-10">
@@ -11,7 +11,7 @@ const ListingsContainer = ({status}) => {
                     <div className="mt-12">
                         <h1 className="text-3xl font-bold">Recommended For You</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 mt-12">
-                            {status.hotels.map((hotel) => (
+                            {status.map((hotel) => (
                                 <div key={hotel.name.content}>
                                 <ListItems hotel={hotel}/>
                                 </div>))}
