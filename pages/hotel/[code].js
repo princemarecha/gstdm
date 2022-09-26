@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import Footer from '../components/footer';
-import Header from '../components/header';
-import Image from 'next/image';
-import thumb from "./../public/images/thumb.jpg";
-import Nearby from './../components/nearby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
+import React from 'react'
+import {useRouter} from 'next/router'
+import CryptoJS from 'crypto-js';
+import thumb from "../../public/images/thumb.jpg"
+import Header from '../../components/header';
 import { faCalendar, faDotCircle, faHouse, faLocation, faMap } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import Nearby from "../../components/nearby"
+import Footer from '../../components/footer';
 
+const HotelScreen = (status) => {
 
-class Hotel extends Component {
-    render() {
-        return (
+    console.log(status.status.hotel.name.content);
+  return (
     <div>
-                <Header />
-                <div >
+        <Header />
+
+        <div >
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
                             <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-screen">
@@ -35,7 +37,7 @@ class Hotel extends Component {
 
                                     <div className="p-8 ">
                                         <h2 className="text-4xl font-bold ">
-                                        New Ambassador Hotel​
+                                        {status.status.hotel.name.content}
                                         </h2>
 
                                         <p className="mt-4 text-gray-600 text-justify">
@@ -55,8 +57,7 @@ class Hotel extends Component {
                         </div>
                             </section>
                 </div>
-           
-            <br></br>
+                <br></br>
             <div className='px-24 '>
 
             <div className='bg-white-200 shadow-2xl ' >
@@ -114,19 +115,52 @@ class Hotel extends Component {
                     </div>               
             </div>
             </div>
-<br></br>
-    <div className='pt-16 mx-4 '>
+            <div className='pt-16 mx-4 '>
     <label htmlFor="message" className="px-6 py-6 font-bold text-3xl" style={{color:'#7393B3'}}>Nearby Hotels</label>
     </div>
-<Nearby/>
+    <Nearby/>
              <br></br>
 
 
             <Footer />
-          </div>
- 
-        );
-    };
-};
-export default Hotel;
+    </div>
+  )
+}
 
+export default HotelScreen
+
+export async function getServerSideProps(context){
+    
+var time = (Math.round(Date.now()/1000));
+let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+let b = CryptoJS.SHA256(soup);
+let x_sig = b.toString(CryptoJS.enc.Hex);
+
+//end x-sig gen
+
+var myHeaders = new Headers();
+myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+myHeaders.append("X-Signature", x_sig);
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Accept-Encoding", "gzip");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow',
+  mode: 'no-cors'
+};
+
+  const code = context.params.code;
+  const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
+  const data = await res.json();
+      // .then((response) => response.json())
+      // .then(result => setData(result))
+      // .catch(error => console.log('error', error));
+
+    return{
+      props:{
+        status:data
+      }
+    }
+}
