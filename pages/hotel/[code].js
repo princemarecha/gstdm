@@ -11,7 +11,8 @@ import Footer from '../../components/footer';
 
 const HotelScreen = (status) => {
 
-    console.log(status.status.hotel.name.content);
+    //console.log(status.status.hotel.name.content);
+    console.log(status);
   return (
     <div>
         <Header />
