@@ -9,7 +9,7 @@ const ListItems = ({hotel}) => {
   var path = 'http://photos.hotelbeds.com/giata/'+ hotel.images[0].path;
     return (
         <div>
-           { <a href="#"
+           { <a href={`/hotel/${hotel.code}`}
 
             >
               
