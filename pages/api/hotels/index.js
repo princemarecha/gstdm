@@ -7,7 +7,7 @@ const handler = nc();
 
 handler.get (async(req, res) =>{
     await db.connect();
-    const hotels = await Work.find({"code": "1"});
+    const hotels = await Work.find({});
     await db.disconnect();
     res.send(hotels);
 })
