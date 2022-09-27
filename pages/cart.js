@@ -15,6 +15,7 @@ import NextLink from "next/link";
 import Passenger from "../components/Passenger";
 import Head from "next/head";
 import Payment from "../components/Payment";
+import Tab from "../components/tab-2";
 
 class Cart extends Component {
   render() {
@@ -367,7 +368,11 @@ class Cart extends Component {
                 htmlFor="message"
                 className="block mb-2  font-medium text-gray-700 dark:text-white-400 text-left"
               >
-                Payment Details
+                Step 1 - Check Availability
+                <div className="bg-gray-300 py-6 px-2 shadow-xl mx-4 ">
+                  <Tab/>
+                </div>
+                <p className="pt-8">Step 2 - Payment Details</p>
               </label>
               <Passenger />
 
@@ -375,7 +380,7 @@ class Cart extends Component {
                 htmlFor="message"
                 className="block mb-6 mt-20 font-medium  text-gray-900 dark:text-gray-400 text-left"
               >
-                Booking Confirmation
+                Step 3 - Booking Confirmation
               </label>
               <div className="bg-gray-300 py-6 px-2 shadow-xl">
                 <Payment />
