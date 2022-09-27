@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Head from 'next/head';
 import Footer from './../components/footer';
 import Header from './../components/header';
 import Search from './../components/search';
 import Listings from './../components/listings';
 
-class Index extends Component {
-render () {
+
+const index = () => {
+  
   return (
+
     <div>
     <Head>
           <title>GSTDM | Home</title>
@@ -36,7 +38,5 @@ render () {
     </div>
   )
 }
-}
 
-
-export default Index;
+export default index

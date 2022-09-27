@@ -9,7 +9,7 @@ import CryptoJS from 'crypto-js'
 export async function getStaticProps(){
 
 
-  var time = (Math.round(Date.now()/1000));
+var time = (Math.round(Date.now()/1000));
 let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
 let b = CryptoJS.SHA256(soup);
 let x_sig = b.toString(CryptoJS.enc.Hex);
