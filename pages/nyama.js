@@ -14,7 +14,7 @@ import Head from "next/head"
 export async function getStaticProps(){
 
 
-  const res = await fetch("http://127.0.0.1:3000/api/hotels");
+  const res = await fetch("http://192.168.100.8:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
@@ -30,7 +30,7 @@ export async function getStaticProps(){
 const Nyama = ({status}) => {
   console.log(status);
   if (process.browser){
-    localStorage.setItem("hotData2", JSON.stringify(status));
+    //localStorage.setItem("hotData2", JSON.stringify(status));
     //console.log(JSON.parse(localStorage.getItem("hotData")));
   }
   
