@@ -1,28 +1,31 @@
 import React, { Component } from "react";
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
 import Image from "next/image";
-import img1 from "./../public/images/slide-01-copy.jpg";
+import img1 from "./../../public/images/slide-01-copy.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faCalendar,
   faHouse,
   faLocation,
 } from "@fortawesome/free-solid-svg-icons";
-import CartComp from "./../components/CartComp";
+import CartComp from "../../components/CartComp";
 import NextLink from "next/link";
-import Passenger from "../components/Passenger";
+import Passenger from "../../components/Passenger";
 import Head from "next/head";
 import Payment from "../components/Payment";
 import Tab from "../components/tab-2";
 
-class Cart extends Component {
-  render() {
+
+
+const Cart = (status) => {
+  var path = 'http://photos.hotelbeds.com/giata/'+ status.status.hotel.images[0].path;
     return (
       <div className="m-2">
         <Head>
-          <title>Hello</title>
+          <title>Cart</title>
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -47,7 +50,7 @@ class Cart extends Component {
                   <div className="text-center sm:text-left flex ">
                     <div className="pr-4">
                       <Image
-                        src={img1}
+                        src={path}
                         alt="Picture of the author"
                         width="200px"
                         height="150px"
@@ -57,12 +60,12 @@ class Cart extends Component {
                     <div>
                       <h1 className="text-sm md:text-1xl font-bold text-green-600 light:text-green-200  pt-1 md:pt-3">
                         <FontAwesomeIcon icon={faHouse} />
-                        New Ambassador Hotel
+                        {status.status.hotel.name.content}
                       </h1>
                       <div className="pb-1 md:pb-0            "></div>
                       <p className="pb-2 text-xs sm:text-sm">
                         <FontAwesomeIcon icon={faLocation} className="mr-2" />
-                        Harare, Harare
+                        {status.status.hotel.address.content}
                       </p>
                       <p className="pb-2 text-xs sm:text-sm">
                         <FontAwesomeIcon icon={faCalendar} className="mr-2" />
@@ -113,19 +116,12 @@ class Cart extends Component {
                 Remarks{" "}
               </label>
 
-              <p className="text-sm">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using Content
-                here, content here, making it look like readable English. Many
-                desktop publishing packages and web page editors now use Lorem
-                Ipsum as their default model text, and a search htmlFor will
-                uncover many web sites still in their infancy.
+              <p className="text-sm mr-5">
+              {status.status.hotel.description.content}
               </p>
             </div>
             <br></br>
-            <label
+           {/* <label
               htmlFor="message"
               className="block font-medium text-green-500 light:text-green-200 mb-2 mt-4 pl-8"
             >
@@ -267,7 +263,8 @@ class Cart extends Component {
                     Late arrival
                   </label>
                 </div>
-              </div>
+              </div> */}
+              <div>
 
               <br></br>
               <label
@@ -405,6 +402,43 @@ class Cart extends Component {
         ></script>
       </div>
     );
-  }
 }
 export default Cart;
+
+
+export async function getServerSideProps(context){
+    
+  var time = (Math.round(Date.now()/1000));
+  let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+  let b = CryptoJS.SHA256(soup);
+  let x_sig = b.toString(CryptoJS.enc.Hex);
+  
+  //end x-sig gen
+  
+  var myHeaders = new Headers();
+  myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+  myHeaders.append("X-Signature", x_sig);
+  myHeaders.append("Accept", "application/json");
+  myHeaders.append("Accept-Encoding", "gzip");
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+    mode: 'no-cors'
+  };
+  
+    const code = context.params.code;
+    const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
+    const data = await res.json();
+        // .then((response) => response.json())
+        // .then(result => setData(result))
+        // .catch(error => console.log('error', error));
+  
+      return{
+        props:{
+          status:data
+        }
+      }
+  }
+  
