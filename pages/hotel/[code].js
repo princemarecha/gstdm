@@ -12,7 +12,9 @@ import Footer from '../../components/footer';
 const HotelScreen = (status) => {
 
     //console.log(status.status.hotel.name.content);
-    console.log(status);
+    const router = useRouter();
+    const data = router.query;
+    console.log(data);
   return (
     <div>
         <Header />

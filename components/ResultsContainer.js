@@ -2,12 +2,27 @@ import React from 'react';
 import ResultsItems from './ResultsItems';
 
 const ResultsContainer = ({hotels}) => {
+    console.log(hotels);
+    const [hydrated, setHydrated] = React.useState(false);
+    React.useEffect(() => {
+        setHydrated(true);
+    }, []);
+    if (!hydrated) {
+        // Returns null on first render, so the client and server match
+        return null;
+    }
+
+   
+
     return (
+
+        
         <div>
+
             <div className="w-full lg:px-6 mb-10">
                 <div className="py-6 px-6 lg:px-0">
                     <div className="mt-12">
-                        <h1 className="text-3xl font-bold">Your search results</h1>
+                        <h1 className="text-3xl font-bold italic">search Results ({hotels.length})</h1>
                             <div className="mt-12">
                             {hotels.map( (hotel) => (
                                 <div key={hotel}>

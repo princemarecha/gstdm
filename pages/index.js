@@ -5,6 +5,7 @@ import Header from './../components/header';
 import Search from './../components/search';
 import Listings from './../components/listings';
 import { hotelContext } from '../Helper/Context';
+import { searchContext } from '../Helper/Context';
 
 
 export async function getStaticProps(){
@@ -34,7 +35,8 @@ const Index = (status) => {
   console.log(res);
 }
 
-  const [working, setWorking] =useState(status);
+  const [working, setWorking] =useState([]);
+  const [results, setResults] = useState([]);
   return (
 
     <hotelContext.Provider value={{working, setWorking}}>
@@ -53,9 +55,7 @@ const Index = (status) => {
     <Header/>
     
 </div>
-
-<Search/>
-
+    <Search/>
 <Listings/>
 
 <div>
