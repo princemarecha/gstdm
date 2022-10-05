@@ -14,7 +14,7 @@ import Head from "next/head"
 export async function getStaticProps(){
 
 
-  const res = await fetch("http://192.168.100.8:3000/api/hotels");
+  const res = await fetch("http://192.168.100.5:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
