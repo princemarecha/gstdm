@@ -4,13 +4,40 @@ import Footer from './../components/footer';
 import Header from './../components/header';
 import Search from './../components/search';
 import Listings from './../components/listings';
+import { hotelContext } from '../Helper/Context';
 
 
-const index = () => {
+export async function getStaticProps(){
+
+
+  const res = await fetch("http://127.0.0.1:3000/api/hotels");
+  const data = await res.json();
+      // .then((response) => response.json())
+      // .then(result => setData(result))
+      // .catch(error => console.log('error', error));
+
+    return{
+      props:{
+        status:data
+      }
+    }
+}
+
+const Index = (status) => {
   
+
+  const search = async (num)=>{
+
+  const temp = num;
+  const data = await fetch(`http://localhost:3000/api/search?name=${temp}`);
+  const res = await data.json();
+  console.log(res);
+}
+
+  const [working, setWorking] =useState(status);
   return (
 
-    <div>
+    <hotelContext.Provider value={{working, setWorking}}>
     <Head>
           <title>GSTDM | Home</title>
           <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
@@ -35,8 +62,8 @@ const index = () => {
     <Footer/>
     </div>
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js" async></script>
-    </div>
+    </hotelContext.Provider>
   )
 }
 
-export default index
+export default Index
