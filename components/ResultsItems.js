@@ -16,11 +16,12 @@ const ResultsItems = ({ hotel }) => {
     if (process.browser) {
       const temporary = [];
       const analyser = [];
+      const checker = [];
 
       const fromC = JSON.parse(localStorage.getItem("cart"));
 
       if (!fromC) {
-        fromC = [hotel.code];
+        fromC = [hotel];
         analyser = fromC;
         console.log("pushed");
         localStorage.setItem("cart", JSON.stringify(analyser));
@@ -28,14 +29,18 @@ const ResultsItems = ({ hotel }) => {
       
       else if (fromC) {
 
-        if ((fromC.includes(hotel.code))){
+        fromC.map((check)=>{
+          checker.push(check.code);
+        }
+        )
+        if ((checker.includes(hotel.code))){
              
               console.log("pushed regardless")
               console.log("hotel already added")
               console.log(fromC)
         }
-        else if (!(fromC.includes(hotel.code))){
-           analyser = [...fromC, hotel.code];
+        else if (!(checker.includes(hotel.code))){
+           analyser = [...fromC, hotel];
            console.log(analyser);
            localStorage.setItem("cart", JSON.stringify(analyser));
 
