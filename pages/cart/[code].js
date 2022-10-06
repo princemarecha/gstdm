@@ -15,9 +15,9 @@ import CartComp from "../../components/CartComp";
 import NextLink from "next/link";
 import Passenger from "../../components/Passenger";
 import Head from "next/head";
-import Payment from "../components/Payment";
-import Tab from "../components/tab-2";
-
+import Payment from "../../components/Payment";
+import CryptoJS from "crypto-js";
+import Tab from "../../components/tab-3";
 
 
 const Cart = (status) => {
@@ -121,175 +121,10 @@ const Cart = (status) => {
               </p>
             </div>
             <br></br>
-           {/* <label
-              htmlFor="message"
-              className="block font-medium text-green-500 light:text-green-200 mb-2 mt-4 pl-8"
-            >
-              Requests For the accomodation
-            </label>
-
-            <label
-              htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 mt-4 pl-8"
-            >
-              For reference only, Hotelbeds Can not guarante them
-            </label>
-
-            <div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3  lg:divide-x m-4 pl-8">
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 "
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Double bed
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Two beds
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Client without voucher
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 "
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Smoking room
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Non-smoking room
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Honeymooon
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 "
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Adjacent room
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Except ground floor
-                  </label>
-                </div>
-                <div className="flex items-center mb-1">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-3 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"
-                  >
-                    Late arrival
-                  </label>
-                </div>
-              </div> */}
               <div>
 
               <br></br>
-              <label
-                htmlFor="message"
-                className="block font-medium text-gray-900 dark:text-gray-400 lg:pl-8 mt-8 mb-6"
-              >
-                Comments
-              </label>
-              <form>
-                <div className="lg:pl-12">
-                  <textarea
-                    id="message"
-                    rows="4"
-                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border  border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Your message..."
-                  ></textarea>
 
-                  <label
-                    htmlFor="message"
-                    className="block mb-2 text-sm font-medium text-gray-300  mt-2 italic"
-                  >
-                    character remaining:1000
-                  </label>
-                </div>
-              </form>
               <div className=" md:hidden lg:pb-40 border-y-2 border-dashed mt-10">
                 <CartComp />
               </div>
@@ -297,13 +132,7 @@ const Cart = (status) => {
               <br></br>
               <div className="border-b"></div>
               <br></br>
-              <label
-                htmlFor="message"
-                className="block mb-2  font-medium text-green-500 light:text-green-200"
-              >
-                1 x Single Standard, Room Only, 1 Adult, 0 Children
-              </label>
-
+              
               <div className="bg-white py-6 sm:py-8 lg:py-12">
                 <label
                   htmlFor="message"
@@ -314,8 +143,7 @@ const Cart = (status) => {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-y-10 sm:gap-y-12 lg:divide-x">
                   <div className="flex flex-col items-left gap-4 md:gap-6 sm:px-4 lg:px-8">
                     <div className="text-gray-600 text-left italic">
-                      “This is a section of some simple filler text, also known
-                      as placeholder text.”
+                      “Different cancellation dates generate different fees. Please refer to the terms and conditions at the bottom of the page.”
                     </div>
                   </div>
 
@@ -371,7 +199,7 @@ const Cart = (status) => {
                 </div>
                 <p className="pt-8">Step 2 - Payment Details</p>
               </label>
-              <Passenger />
+              <Passenger/>
 
               <label
                 htmlFor="message"
