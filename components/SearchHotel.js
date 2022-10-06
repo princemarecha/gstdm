@@ -16,7 +16,6 @@ const SearchHotel = () => {
   if (process.browser){
     localStorage.setItem("mytime",JSON.stringify(hot));
   }
-  
 
   const search = async (num,event)=>{
 
