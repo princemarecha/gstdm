@@ -17,22 +17,33 @@ const ResultsItems = ({ hotel }) => {
       const temporary = [];
       const analyser = [];
 
-      const fromC = [localStorage.getItem("cart")];
-      console.log(typeof fromC);
+      const fromC = JSON.parse(localStorage.getItem("cart"));
 
-      if (fromC[0] == null) {
-        fromC = [];
-        fromC.push(hotel.code);
+      if (!fromC) {
+        fromC = [hotel.code];
+        analyser = fromC;
         console.log("pushed");
-      } else if (fromC[0] == null) {
-        fromC.push(hotel.code);
-      }
-      //temporary = [...temporary,...];
+        localStorage.setItem("cart", JSON.stringify(analyser));
+      } 
+      
+      else if (fromC) {
 
-      analyser = [...fromC, hotel.code];
-      console.log(analyser);
-      localStorage.setItem("cart", JSON.stringify(analyser));
-      // console.log(localStorage.getItem("cart"));
+        if ((fromC.includes(hotel.code))){
+             
+              console.log("pushed regardless")
+              console.log("hotel already added")
+              console.log(fromC)
+        }
+        else if (!(fromC.includes(hotel.code))){
+           analyser = [...fromC, hotel.code];
+           console.log(analyser);
+           localStorage.setItem("cart", JSON.stringify(analyser));
+
+        }
+        
+        
+      }
+
     }
   };
 
