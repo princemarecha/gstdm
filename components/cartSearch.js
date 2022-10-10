@@ -1,9 +1,9 @@
 import React from "react";
-import multiplyRooms from "../scripts/homeRooms";
+import CryptoJS from "crypto-js";
+import { Axios } from "axios";
 
 const CheckAvailability = () => {
 
-  var arr = [1,2,3,4,5,6,7,8,9,10];
   return (
     <div>
       <form id="form">
@@ -11,28 +11,30 @@ const CheckAvailability = () => {
 
         <div className="sm:col-span-2">
           <label
-            htmlFor="company"
+            htmlFor="fromDate"
             className="inline-block text-gray-800 text-sm sm:text-base mb-2"
           >
             From
           </label>
           <input
-            name="company"
+            name="fromDate"
             type="date"
+            id="fromDate"
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
 
         <div className="sm:col-span-2">
           <label
-            htmlFor="company"
+            htmlFor="toDate"
             className="inline-block text-gray-800 text-sm sm:text-base mb-2"
           >
             To
           </label>
           <input
-            name="company"
+            name="toDate"
             type="date"
+            id="toDate"
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
@@ -40,76 +42,52 @@ const CheckAvailability = () => {
         <div className="flex justify-center">
           <div className="mb-3 xl:w-96">
             <label
-              htmlFor="exampleNumber1"
+              htmlFor="rooms"
               className="form-label inline-block mb-2 text-gray-700"
             >
               Rooms
             </label>
             
-            <select 
-              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-500 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleNumber1"
-             onChange={e=>multiplyRooms(e.target.value)}
-            >
-            {
- 
-            arr.map((item) =>{
-              return( 
-                <option value={item} key={item}>{item}</option>
-              )
-            }
-            )}
-            </select>
+            <input
+            type="number"
+            id="rooms"
+            name="rooms"
+            max="10"
+            min="1"></input>
           </div>
         </div>
    
           <div className="flex justify-center">
             <div className="mb-3 xl:w-96">
               <label
-                htmlFor="exampleNumber2"
+                htmlFor="adults"
                 className="form-label inline-block mb-2 text-gray-700"
               >
                 Adults
               </label>
-            <select
-                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-500 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleNumber2" 
-              ><option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              </select>
+              <input
+            type="number"
+            id="adults"
+            name="adults"
+            max="10"
+            min="1"></input>
             </div>
           </div>
 
           <div className="flex justify-center">
             <div className="mb-3 xl:w-96">
               <label
-                htmlFor="exampleNumber3"
+                htmlFor="children"
                 className="form-label inline-block mb-2 text-gray-700"
               >
                 Children
               </label>
-              <select
-                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-500 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleNumber3"
-              ><option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              </select>
+              <input
+            type="number"
+            id="children"
+            name="children"
+            max="10"
+            min="1"></input>
             </div>
           </div>
 
@@ -121,8 +99,101 @@ const CheckAvailability = () => {
           </div>
 </div>
       </form>
+      
     </div>
   );
 };
 
 export default CheckAvailability;
+
+if(process.browser) {
+  const form = document.getElementById('form');
+
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const payload = new FormData(form);
+
+    console.log([...payload]);
+    var fromDate = document.getElementById('fromDate').value;
+    var toDate = document.getElementById('toDate').value;
+    var rooms = document.getElementById('rooms').value;
+    var adults = document.getElementById('adults').value;
+    var children = document.getElementById('children').value;
+    console.log('Book from ' + fromDate + ' to ' + toDate)
+    console.log('Rooms: ' + rooms + ' with ' + adults + ' adults and ' + children + ' children.')
+  })
+}
+
+export async function getServerSideProps(context){
+    
+  var time = (Math.round(Date.now()/1000));
+  let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+  let b = CryptoJS.SHA256(soup);
+  let x_sig = b.toString(CryptoJS.enc.Hex);
+  
+  //end x-sig gen
+
+  //postman code
+  
+  var myHeaders = new Headers();
+  myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+  myHeaders.append("X-Signature", x_sig);
+  myHeaders.append("Accept", "application/json");
+  myHeaders.append("Accept-Encoding", "gzip");
+  myHeaders.append("Content-Type", "application/json");
+  
+  var raw = JSON.stringify({
+    "stay": {
+      "checkIn": fromDate,
+      "checkOut": toDate
+    },
+    "occupancies": [
+      {
+        "rooms": rooms,
+        "adults": adults,
+        "children": children
+      }
+    ],
+    "hotels": {
+      "hotel": [
+        1
+      ]
+    }
+  });
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  fetch("https://api.test.hotelbeds.com/hotel-api/1.0/hotels", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+
+    //end of postman code
+
+    //beginning of other page code
+  
+    //const code = context.params.code;
+    //const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
+    //const data = await res.json();
+        // .then((response) => response.json())
+        // .then(result => setData(result))
+        // .catch(error => console.log('error', error));
+  
+      return{
+        props:{
+          status:data
+        }
+      }
+  }
+
+
+
+
