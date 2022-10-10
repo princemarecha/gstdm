@@ -2,7 +2,7 @@ import React from 'react'
 import {useRouter} from 'next/router'
 import CryptoJS from 'crypto-js';
 import thumb from "../../public/images/thumb.jpg"
-import Header from "../../components/header";
+import Header from '../../components/header';
 import { faBars, faCalendar, faCheck, faDotCircle, faHouse, faLocation, faMap, faMapLocation, faMoneyBill, faPhone, faSquare, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';

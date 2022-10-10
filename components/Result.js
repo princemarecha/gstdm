@@ -1,4 +1,12 @@
+import { useContext } from "react";
+import { hotelContext } from "../Helper/Context";
+
+
 const Result =() =>{
+
+  const {working, setWorking} = useContext(hotelContext);
+  console.log(working);
+
   return(
     <div>
 <div className='pt-9 pb-5  pl-12 border border-dashed mt-6 pr-5'>

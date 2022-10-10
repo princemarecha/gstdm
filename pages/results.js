@@ -8,7 +8,15 @@ import Footer from '../components/footer';
 import Result from '../components/Result';
 
 const Results = (props) => {
-       
+  
+var x = [];    
+if (process.browser){
+    // console.log (JSON.parse(localStorage.getItem("mytime")));
+    x = JSON.parse(localStorage.getItem("mytime"))
+}
+
+    const [searchRes, setSearchRes] = useState(x)
+    console.log(searchRes)
     const [showHotel, setHotel] = useState(
         [
             {
@@ -122,7 +130,7 @@ const Results = (props) => {
     <Result/>
     <div className="flex">
             <Filters/>
-              <ResultsContainer hotels={showHotel} />
+              <ResultsContainer hotels={searchRes} />
     </div>
     <Footer/>
         </div>
