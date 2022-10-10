@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import Image from "next/image";
@@ -18,12 +18,29 @@ import Head from "next/head";
 import Payment from "../../components/Payment";
 import CryptoJS from "crypto-js";
 import Tab from "../../components/tab-3";
+import { cartContext } from "../../Helper/Context";
+import { useContext } from "react";
+import Link from "next/link"
 
 
 const Cart = (status) => {
-  var path = 'http://photos.hotelbeds.com/giata/'+ status.status.hotel.images[0].path;
+
+  const [current, setCurrent] = useState([]);
+
+  const [hydrated, setHydrated] = React.useState(false);
+    React.useEffect(() => {
+        setHydrated(true);
+    }, []);
+    if (!hydrated) {
+        // Returns null on first render, so the client and server match
+        return null;
+    }
+ 
+
+
     return (
-      <div className="m-2">
+      <cartContext.Provider value={{current, setCurrent}}>
+      {<div className="m-2">
         <Head>
           <title>Cart</title>
           <link
@@ -48,38 +65,40 @@ const Cart = (status) => {
               <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 shadow-xl">
                 <div className="sm:justify-between sm:items-center sm:flex ">
                   <div className="text-center sm:text-left flex ">
-                    <div className="pr-4">
+                    {current.length!=0?<div className="pr-4">
                       <Image
-                        src={path}
+                        src={`http://photos.hotelbeds.com/giata/${current.images[0].path}`}
                         alt="Picture of the author"
                         width="200px"
                         height="150px"
                         className="rounded"
                       />
-                    </div>
-                    <div>
+                    </div>: <div></div>}
+                    {current.length!=0?<div>
                       <h1 className="text-sm md:text-1xl font-bold text-green-600 light:text-green-200  pt-1 md:pt-3">
                         <FontAwesomeIcon icon={faHouse} />
-                        {status.status.hotel.name.content}
+                        {current.name[0].content}
                       </h1>
                       <div className="pb-1 md:pb-0            "></div>
                       <p className="pb-2 text-xs sm:text-sm">
                         <FontAwesomeIcon icon={faLocation} className="mr-2" />
-                        {status.status.hotel.address.content}
+                        {current.address[0].content}
                       </p>
                       <p className="pb-2 text-xs sm:text-sm">
                         <FontAwesomeIcon icon={faCalendar} className="mr-2" />
                         From 08/17/21(Wednesday) - 08/28/21(Wednesday)
                       </p>
-                    </div>
+                    </div>:<div>Click hotel in cart to view</div>}
                   </div>
 
                   <div className="flex flex-col gap-4 mt-4 sm:flex-row sm:mt-0 sm:items-center">
+                <Link
+                  href="/">
                     <button
                       className="inline-flex items-center justify-center px-5 py-3 text-gray-500 transition bg-white border border-gray-200 rounded-lg hover:text-gray-700 focus:outline-none focus:ring"
                       type="button"
                     >
-                      <span className="text-sm font-medium"> View Rooms </span>
+                      <span className="text-sm font-medium"> View Hotel </span>
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +115,7 @@ const Cart = (status) => {
                         />
                       </svg>
                     </button>
-
+                </Link>
                     <button
                       className="block px-5 py-3 text-sm font-medium text-white transition bg-red-600 rounded-lg hover:bg-gray-500 focus:outline-none focus:ring"
                       type="button"
@@ -108,7 +127,7 @@ const Cart = (status) => {
               </div>
             </header>
             <div className="border-b"></div>
-            <div className="pt-6 pl-3">
+            {current.length!=0?<div className="pt-6 pl-3">
               <label
                 htmlFor="message"
                 className="block mb-2 font-medium text-gray-900 dark:text-gray-400 "
@@ -116,16 +135,17 @@ const Cart = (status) => {
                 Remarks{" "}
               </label>
 
-              <p className="text-sm mr-5">
-              {status.status.hotel.description.content}
-              </p>
-            </div>
+              {<p className="text-sm mr-5">
+              {current.description[0].content}
+              </p>}
+            </div>:<div></div>}
             <br></br>
               <div>
 
               <br></br>
 
               <div className=" md:hidden lg:pb-40 border-y-2 border-dashed mt-10">
+
                 <CartComp />
               </div>
 
@@ -133,7 +153,7 @@ const Cart = (status) => {
               <div className="border-b"></div>
               <br></br>
               
-              <div className="bg-white py-6 sm:py-8 lg:py-12">
+              {current.length!=0?<div className="bg-white py-6 sm:py-8 lg:py-12">
                 <label
                   htmlFor="message"
                   className="block mb-2  font-medium text-gray-900 dark:text-gray-400 pb-2 italic"
@@ -186,10 +206,11 @@ const Cart = (status) => {
                     Total net amount : 11.243 ZAR
                   </label>
                 </div>
-              </div>
+              </div>:<div></div>}
 
               <br></br>
-              <label
+              
+             { current.length!=0?<label
                 htmlFor="message"
                 className="block mb-2  font-medium text-gray-700 dark:text-white-400 text-left"
               >
@@ -198,19 +219,19 @@ const Cart = (status) => {
                   <Tab/>
                 </div>
                 <p className="pt-8">Step 2 - Payment Details</p>
-              </label>
-              <Passenger/>
+              </label>:<div></div>}
+             {current.length!=0? <Passenger/>:<div></div>}
 
-              <label
+              {current.length!=0?<label
                 htmlFor="message"
                 className="block mb-6 mt-20 font-medium  text-gray-900 dark:text-gray-400 text-left"
               >
                 Step 3 - Booking Confirmation
-              </label>
-              <div className="bg-gray-300 py-6 px-2 shadow-xl">
+              </label>:<label></label>}
+              {current.length!=0?<div className="bg-gray-300 py-6 px-2 shadow-xl">
                 <Payment />
                 <div className="mt-3"></div>
-              </div>
+              </div>:<div></div>}
             </div>
           </div>
 
@@ -228,7 +249,8 @@ const Cart = (status) => {
           async
           src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"
         ></script>
-      </div>
+      </div>}
+      </cartContext.Provider>
     );
 }
 export default Cart;

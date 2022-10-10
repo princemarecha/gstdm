@@ -3,39 +3,50 @@ import {useRouter} from 'next/router'
 import CryptoJS from 'crypto-js';
 import thumb from "../../public/images/thumb.jpg"
 import Header from '../../components/header';
-import { faCalendar, faDotCircle, faHouse, faLocation, faMap } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCalendar, faCheck, faDotCircle, faHouse, faLocation, faMap, faMapLocation, faMoneyBill, faPhone, faSquare, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Nearby from "../../components/nearby"
 import Footer from '../../components/footer';
+//import { Carousel } from 'react-responsive-carousel';
 
 const HotelScreen = (status) => {
 
+
+
+    var path = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[0].path;
+    var path1 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[1].path;
+    var path2 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[2].path;
+    var path3 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[3].path;
+    var path4 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[4].path;
     //console.log(status.status.hotel.name.content);
-    const router = useRouter();
-    const data = router.query;
-    console.log(data);
+    console.log(status);
   return (
     <div>
         <Header />
-
-        <div >
+        <div className='px-24 '>
+        
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
                             <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-screen">
-                                <div className="relative z-10 lg:py-16 ">
+                                <div   className="relative z-10 lg:py-16 grid">
                                     <div className="relative h-64 sm:h-80 lg:h-full">
-                                        <Image
-                                            src={thumb}
-                                            alt="Picture of the author"
-                                            width="1000px"
-                                            height="700px" />
+                                        <Image src={path3} alt="  Picture of the author " width="900px" height="700px" className='rounded' />  
                                     </div>
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm" >
+                                    <Image src={path4} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
+                                    <Image src={path1} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
+                                    <Image src={path2} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
+                                    <Image src={path} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
+                                        </div>  
+                                        <div>
+
+                                        </div>
                                 </div>
 
-                                <div className="relative flex items-center bg-gray-100">
+                                <div className="relative flex items-center bg-blue-50">
                                     <span
-                                        className="hidden lg:inset-y-0 lg:absolute lg:w-16 lg:bg-gray-100 lg:block lg:-left-16"
+                                        className="hidden lg:inset-y-0 lg:absolute lg:w-16 lg:bg-blue-50 lg:block lg:-left-16"
                                     ></span>
 
                                     <div className="p-8 ">
@@ -43,89 +54,206 @@ const HotelScreen = (status) => {
                                         {status.status.hotel.name.content}
                                         </h2>
 
+                                        <br></br>
+
+                                        <div className="flex items-center mb-1"  >  
+                                        <FontAwesomeIcon icon={faStar} />   {status.status.hotel.S2C}
+                                                                    
+                                     </div>
+
+                                   <br></br>
+
+                                     <FontAwesomeIcon icon={faLocation} />   {status.status.hotel.city .content}
+
                                         <p className="mt-4 text-gray-600 text-justify">
-                                        Located in the Central Business District of Harare, the New Ambassador hotel is an ideal business hotel. It is within walking distance of all the main financial, commercial and government institutions. The hotel is also within easy reach of shops, cinemas, restaurants, the National museum and Art Gallery
+                                        {status.status.hotel.description.content}
                                         </p>
 
                                         <a
-                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-white bg-indigo-600 border border-indigo-600 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
+                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-white bg-blue-300 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
                                             href="/contact"
                                         >
-                                            <FontAwesomeIcon icon={faMap} />
-                                            Show Map
+                                            <FontAwesomeIcon icon={faTicket} /> 
+                                            Book 
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                             </section>
-                </div>
+            
                 <br></br>
-            <div className='px-24 '>
+    
 
             <div className='bg-white-200 shadow-2xl ' >
-            <label htmlFor="message" className="block mb-2 font-medium bg-stone-700 text-zinc-50 text-left p-3">The Hotel</label>
+            <label htmlFor="message" className="block mb-2 font-medium bg-blue-300 text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
             <div className='grid grid-cols-12'>
                 <div className='p-3 col-span-8'>
-            <p className='mx-12 text-slate-500 mb-4 text-sm text-justify'>RTG Virtual is a partnership platform between RTG and selected hotels in Zimbabwe in areas where RTG has few or no properties. This innovative one stop shop, allows RTG to process bookings on behalf of quality approved local partners. Partner hotels can be found in the Eastern Highlands, Masvingo, Hwange, Kariba, Victoria Falls, Harare and its environs. This foot print will continue to grow. RTG Virtual offers guests, wider choice, convenience and a competitive product portfolio through the one stop shop RTG Central Reservations.
-                <br/>
-             
+            <p className='mx-12 text-slate-500 mb-4 text-sm text-justify'>
+            {status.status.hotel.description.content}
              </p> </div>
                   <div className='ml-24 p-3 col-span-4 text-sm text-slate-500'>
                   <ul>
-                    <li style={{listStyleType:'square'}}>Year of Construction 2022</li>
-                    <li style={{listStyleType:'square'}}>Most Recent Innovation 2022</li>
-                    <li style={{listStyleType:'square'}}>Total Number of rooms</li>
-                    <li style={{listStyleType:'square'}}>Number of floors (3)</li>
+                    <li style={{listStyleType:'square'}}> {status.status.hotel.city.content}</li>
+                    <li style={{listStyleType:'square'}}> {status.status.hotel.country.code}</li>
+                    <li style={{listStyleType:'square'}}> {status.status.hotel.state.code}</li>
+                    <li style={{listStyleType:'square'}}> {status.status.hotel.state.name}</li>
+                    <li style={{listStyleType:'square'}}> {status.status.hotel.state.web}</li>
                   </ul>
                   </div>
                   </div>        
             </div>
             <br></br>
-            <div className='bg-gray-200 p-3 mt-4 shadow-lg' >
-            <label htmlFor="message" className="block mb-2   font-medium text-gray-900 dark:text-gray-400 text-left">Key Points</label>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+            <div className='bg-blue-50 p-3 mt-4 shadow-lg' >
+            <label htmlFor="message" className=" mb-2 bg-blue-200  font-large font-extrabold text-gray-900 dark:text-blue-200 text-left">KEY POINTS</label>
+            <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-y-5 sm:gap-y-6 lg:divide-x">
+
+                    <div className="flex items-center mb-1"  >
+                <FontAwesomeIcon icon={faSquareCheck} />
+                <label className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"> {status.status.hotel.categoryGroup.description.content}</label>
+                    </div>
+            <div className="flex items-center mb-1"  >
+                <FontAwesomeIcon icon={faSquareCheck} />
+                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.name.content}</label>
+                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.code}</label>
+                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.countryCode}</label>
+                    </div>
+                    <div className="flex items-center mb-1"  >
+                <FontAwesomeIcon icon={faSquareCheck} />
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.description.content}</label>
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.zoneCode}</label>
+                    </div>
+                    <div className="flex items-center mb-1"  >
+                <FontAwesomeIcon icon={faSquareCheck} />
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.zoneCode}</label>
+                    </div>
                 <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">Double bed</label>
+                <FontAwesomeIcon icon={faPhone} />
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.phones.postalCode}</label>
                     </div>
                     <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">Double bed</label>
+                <FontAwesomeIcon icon={faPhone} />
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.phones.ranking}</label>
                     </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">Double bed</label>
-                    </div>
+                    {status.status.hotel.phones.map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faPhone} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                            {hotell.code } - {hotell.phoneNumber}
+                            {hotell.code } - {hotell.phoneType}
+                                </label>                    
+                      </div>
+                        </div>
+  
+                ))}
+
                     </div>               
             </div>
             <br></br>
-            <div className='bg-gray-100 p-3 shadow-xl' >
-            <label htmlFor="message" className="block mb-2  font-medium text-gray-900 dark:text-gray-400 text-left pb-2">Establishment Profile</label>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
-                <div className="flex items-center mb-1 ml-2"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80 pb-2">Double bed</label>
-                    </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">Double bed</label>
-                    </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faDotCircle} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">Double bed</label>
-                    </div>
-                    </div>               
+
+            <div className='bg-blue-50 p-3 shadow-xl' >
+            <label htmlFor="message"  className="block mb-2 bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">ESTABLISHMENT PROFILE</label>
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+                {status.status.hotel.boards.map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                            {hotell.code } - {hotell.description.content}
+                                </label>                    
+                      </div>
+                        </div>
+                ))}
+
+                </div>
+                <br></br>
+
+         <label htmlFor="message" className="block mb-2  bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">FACILITIES</label>
+         
+         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+         {status.status.hotel.facilities.map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                            {hotell.code } - {hotell.description.content}
+                                </label>                    
+                      </div>
+                        </div>
+  
+                ))}
+
+                      
+                 
+            </div>
+            <br></br>
+            <label htmlFor="message" className="block mb-2 bg-blue-200  font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">ROOMS</label>
+         
+         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+         {status.status.hotel.rooms.map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                            {hotell.code } - {hotell.description.content}
+                            {hotell.code } - {hotell.characteristic.code}
+                            {hotell.code } - {hotell.characteristic.code}
+                                </label>                    
+                      </div>
+                        </div>
+  
+                ))}
+
+                      
+                 
+            </div>
+            <br></br>
+            <label htmlFor="message" className="block mb-2 bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">SEGMENTS</label>
+         
+         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+         {status.status.hotel.segments.map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                            {hotell.code } - {hotell.description.content}
+                          
+                                </label>                    
+                      </div>
+                        </div>
+  
+                ))}
+
+                      
+                 
             </div>
             </div>
-            <div className='pt-16 mx-4 '>
-    <label htmlFor="message" className="px-6 py-6 font-bold text-3xl" style={{color:'#7393B3'}}>Nearby Hotels</label>
-    </div>
-    <Nearby/>
              <br></br>
+        
 
+            <div className='bg-blue-100 p-3 mt-4 shadow-lg' >
+            <label htmlFor="message" className="block mb-2   font-medium text-gray-900 dark:text-gray-400 text-left">Map</label>
+           
+            <a
+                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-center text-white bg-indigo-600 border border-indigo-600 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
+                                            href="/contact"
+                                        >
+                                            <FontAwesomeIcon icon={faMapLocation} /> 
+                                            Location
+                                        </a>            
+            
+ 
+            </div>
+            
 
+            
+
+            <div className='pt-16 mx-4 '>
+   </div>
+   {/*<Nearby/> */}
             <Footer />
+    </div>
     </div>
   )
 }
