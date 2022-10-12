@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import React, { useState } from 'react'
 import FetchingData from '../components/FetchingData'
 import WithAxios from '../components/WithAxios'
@@ -14,7 +15,7 @@ import Head from "next/head"
 export async function getStaticProps(){
 
 
-  const res = await fetch("http://192.168.100.5:3000/api/hotels");
+  const res = await fetch("http://192.168.100.7:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
