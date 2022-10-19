@@ -11,7 +11,7 @@ import { searchContext } from '../Helper/Context';
 export async function getStaticProps(){
 
 
-  const res = await fetch("http://127.0.0.1:3000/api/hotels");
+  const res = await fetch("http://localhost:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
@@ -26,7 +26,6 @@ export async function getStaticProps(){
 
 const Index = (status) => {
   
-
   const search = async (num)=>{
 
   const temp = num;

@@ -12,6 +12,9 @@ const SearchHotel = () => {
 
   const [hot, setHot] = useState([]);
   const {working, setWorking} = useContext(hotelContext);
+  const [que, setQue] = useState([]);
+  const resultLink = (`../../results/${que}`);
+  const [loading, setLoading] = useState(false);
 
   if (process.browser){
     localStorage.setItem("mytime",JSON.stringify(hot));
@@ -21,12 +24,18 @@ const SearchHotel = () => {
 
     event.preventDefault();
     const temp = num;
-    const data = await fetch(`http://localhost:3000/api/search?name=${temp}`);
+    const data = await fetch(`http://localhost:3000/api/properties?name=${temp}`);
     const res = await data.json();
     await setHot(res);
     await setWorking(res);
-    
+  
+  }
 
+  const load = async (val, event)=>{
+    event.preventDefault();
+    setLoading(true);
+    window.location.href = resultLink;
+    document.getElementById("searchQ").value = "";
   }
   
   return (
@@ -46,27 +55,34 @@ const SearchHotel = () => {
           </label>
 
           
-    <div className="grid grid-cols-9">
+    <div className="grid grid-cols-10">
       <div className="col-span-8">
           <input 
           type="text"
+          id="searchQ"
           placeholder="Search..."
             name="first-name"
             className="w-full bg-gray-50 text-gray-800 border border-gray-500  rounded outline-none transition duration-100 px-3 py-2"  
-            onChange={event =>{search(event.target.value, event)}}             
+            onChange={event =>{search(event.target.value, event), setQue(event.target.value)}}             
           />
       </div>
 
       <div className="col-span-1  flex justify-between items-center">
-      <Link href= "../../results">
+      <Link href= {resultLink}>
             <button className="inline-block text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
-            // onClick={(e)=>search("Natural",e)}   
+            onClick={(event)=>load(true,event)}   
         > 
               <span className="fa fa-search text-slate-500"></span>
-            </button>
-      </Link>
-            
+            </button>          
+      </Link>              
+      </div>  
+
+      <div class="col-span-1">
+      {loading?<div class="spinner-grow inline-block w-10 h-10 bg-current rounded-full opacity-0" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>:<div></div>}
       </div>
+
           </div> <p className="italic text-slate-500 text-xs">({hot.length} matches)</p>
           <div className="max-h-52 overflow-auto">
           <div>

@@ -110,20 +110,7 @@ if(process.browser) {
   const form = document.getElementById('form');
 
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
 
-    const payload = new FormData(form);
-
-    console.log([...payload]);
-    var fromDate = document.getElementById('fromDate').value;
-    var toDate = document.getElementById('toDate').value;
-    var rooms = document.getElementById('rooms').value;
-    var adults = document.getElementById('adults').value;
-    var children = document.getElementById('children').value;
-    console.log('Book from ' + fromDate + ' to ' + toDate)
-    console.log('Rooms: ' + rooms + ' with ' + adults + ' adults and ' + children + ' children.')
-  })
 }
 
 export async function getServerSideProps(context){

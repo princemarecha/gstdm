@@ -1,19 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
-
-const { createProxyMiddleware } = require("http-proxy-middleware")
 
 
-module.exports = {nextConfig,
-  images: {
-    domains: ['photos.hotelbeds.com']
-  }
-}
 
-module.exports = () => {
+module.exports = () => { 
   const rewrites = () => {
     return [
       {
@@ -25,5 +14,10 @@ module.exports = () => {
 
   return {
     rewrites,
+  }
+}
+module.exports ={
+  images: {
+    domains: ['photos.hotelbeds.com'],
   }
 }

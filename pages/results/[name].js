@@ -1,22 +1,23 @@
 import React from 'react';
 import {useState} from 'react';
-import ResultsContainer from '../components/ResultsContainer';
+import ResultsContainer from '../../components/ResultsContainer';
 import Head from 'next/head';
-import Filters from '../components/filters';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Result from '../components/Result';
+import Filters from '../../components/filters';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+import Result from '../../components/Result';
 
 const Results = (props) => {
-  
+
+
+
 var x = [];    
 if (process.browser){
-    // console.log (JSON.parse(localStorage.getItem("mytime")));
     x = JSON.parse(localStorage.getItem("mytime"))
 }
 
-    const [searchRes, setSearchRes] = useState(x)
-    console.log(searchRes)
+    const [searchRes, setSearchRes] = useState(props.status)
+
     const [showHotel, setHotel] = useState(
         [
             {
@@ -138,3 +139,17 @@ if (process.browser){
 }
 
 export default Results
+
+export async function getServerSideProps(context){
+
+    const name = context.params.name
+    const res = await fetch(`http://localhost:3000/api/properties?name=${name}`);
+    const data = await res.json();
+
+  
+      return{
+        props:{
+          status:data
+        }
+      }
+  }

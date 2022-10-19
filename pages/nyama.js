@@ -8,6 +8,7 @@ import ListingsContainer from '../components/listingscontainer'
 import data from '../utils/data'
 
 import Head from "next/head"
+import Pagination from '../components/Pagination'
 
 
 
@@ -15,7 +16,7 @@ import Head from "next/head"
 export async function getStaticProps(){
 
 
-  const res = await fetch("http://192.168.100.7:3000/api/hotels");
+  const res = await fetch("http://localhost:3000/api/hotels");
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
@@ -56,7 +57,10 @@ const Nyama = ({status}) => {
 
      {/*<Integrate status = {status}/>*/}
      <ListingsContainer status={status} />
+
+      <Pagination />
     </div>
+    
   )
 }
 

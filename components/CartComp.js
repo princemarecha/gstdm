@@ -50,7 +50,7 @@ const view =(code) =>{
         <h2 className="text-xl font-semibold ml-2 text-white ">Your cart</h2>
       </div>
       <ul className="flex flex-col divide-y h-80 overflow-y-auto ">
-      {(cartHotel.length ==0 )? <h1>There are no items in the Cart</h1> : cartHotel.map((cart)=>
+      {(!cartHotel)? <h1>There are no items in the Cart</h1> : cartHotel.map((cart)=>
       
       
 

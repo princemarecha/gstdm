@@ -157,7 +157,7 @@ const Cart = (status) => {
                 <label
                   htmlFor="message"
                   className="block mb-2  font-medium text-gray-900 dark:text-gray-400 pb-2 italic"
-                >
+                > 
                   Cancellation Fees
                 </label>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-y-10 sm:gap-y-12 lg:divide-x">
