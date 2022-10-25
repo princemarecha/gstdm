@@ -10,30 +10,6 @@ const CheckAvailability = () => {
   const [grown, setGrown] = useState([]);
   const [small, setSmall] = useState([]);
 
-  function grow(e) { 
-  if(process.browser) {
-    
-      const form = document.getElementById('form');
-      e.preventDefault();
-  
-      const payload = new FormData(form);
-  
-      console.log([...payload]);
-      var fromDate = document.getElementById('fromDate').value;
-      setStart(fromDate);
-      var toDate = document.getElementById('toDate').value;
-      setStop(toDate);
-      var rooms = document.getElementById('rooms').value;
-      setLive(rooms);
-      var adults = document.getElementById('adults').value;
-      setGrown(adults);
-      var children = document.getElementById('children').value;
-      setSmall(children);
-      console.log('Book from ' + fromDate + ' to ' + toDate)
-      console.log('Rooms: ' + rooms + ' with ' + adults + ' adults and ' + children + ' children.')
-    }
-  }
-
 
   const [lovely, setLovely] = useState([]);
 
@@ -130,6 +106,7 @@ const CheckAvailability = () => {
             name="fromDate"
             type="date"
             id="fromDate"
+            onChange={event => setStart(event.target.value)}
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
@@ -145,6 +122,7 @@ const CheckAvailability = () => {
             name="toDate"
             type="date"
             id="toDate"
+            onChange={event => setStop(event.target.value)}
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
@@ -163,7 +141,9 @@ const CheckAvailability = () => {
             id="rooms"
             name="rooms"
             max="10"
-            min="1" className="border border-gray-500 ml-2"></input>
+            min="1" 
+            onChange={event => setLive(event.target.value)}
+            className="border border-gray-500 ml-2"></input>
           </div>
         </div>
    
@@ -180,7 +160,9 @@ const CheckAvailability = () => {
             id="adults"
             name="adults"
             max="10"
-            min="1" className="border border-gray-500 ml-2"></input>
+            min="1" 
+            onChange={event => setGrown(event.target.value)}
+            className="border border-gray-500 ml-2"></input>
             </div>
           </div>
 
@@ -197,16 +179,12 @@ const CheckAvailability = () => {
             id="children"
             name="children"
             max="10"
-            min="1" className="border border-gray-500 ml-2"></input>
+            min="1" 
+            onChange={event => setSmall(event.target.value)}
+            className="border border-gray-500 ml-2"></input>
             </div>
           </div>
 
-          </div>
-          <div className="col-span-full flex justify-between items-center">
-            <button className="inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" type="submit" onClick={grow}>
-              Submit Query
-            </button>
-           
           </div>
 </div>
       </form>
