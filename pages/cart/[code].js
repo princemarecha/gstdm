@@ -35,8 +35,10 @@ const Cart = (status) => {
         // Returns null on first render, so the client and server match
         return null;
     }
- 
-
+    const thisCartHotel =[]
+    if (process.browser){
+      thisCartHotel = JSON.parse(localStorage.getItem("cart"));
+    }
 
     return (
       <cartContext.Provider value={{current, setCurrent}}>
@@ -145,8 +147,7 @@ const Cart = (status) => {
               <br></br>
 
               <div className=" md:hidden lg:pb-40 border-y-2 border-dashed mt-10">
-
-                <CartComp />
+                <CartComp thisCartHotel = {thisCartHotel}/>
               </div>
 
               <br></br>
@@ -157,7 +158,7 @@ const Cart = (status) => {
                 <label
                   htmlFor="message"
                   className="block mb-2  font-medium text-gray-900 dark:text-gray-400 pb-2 italic"
-                >
+                > 
                   Cancellation Fees
                 </label>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-y-10 sm:gap-y-12 lg:divide-x">
@@ -216,7 +217,7 @@ const Cart = (status) => {
               >
                 Step 1 - Check Availability
                 <div className="bg-gray-300 py-6 px-2 shadow-xl mx-4 ">
-                  <Tab/>
+                  {/* <Tab/> */}
                 </div>
                 <p className="pt-8">Step 2 - Payment Details</p>
               </label>:<div></div>}

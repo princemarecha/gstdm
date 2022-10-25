@@ -1,6 +1,6 @@
 import React, { Component, useContext } from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { cartContext } from "../Helper/Context";
 
 
@@ -9,19 +9,33 @@ const CartComp = () => {
 
   const [prep, setPrep] = useState([]);
   const {current, setCurrent} = useContext(cartContext);
+  const[live, setLive] = useState([]);
+  const [someVar, setSomeVar] = useState(null); //force refresh component
   const cartHotel = [];
 
   if (process.browser){
     cartHotel = JSON.parse(localStorage.getItem("cart"));
   }
-console.log(cartHotel);
+const removeAll =()=>{
+  localStorage.setItem("cart", JSON.stringify([]));
+   if (!someVar){
+      setSomeVar(true)}
+    else if(someVar){
+      setSomeVar(false)}
+}
 
 const remove =(code) =>{
-    console.log(`item ${code} removed`);
-    
+
     for (let i=0; i<cartHotel.length;i++){
       if (cartHotel[i].code == code){
-        cartHotel.pop(cartHotel[i]);
+        const ke = cartHotel.indexOf(cartHotel[i]);
+        cartHotel.splice(ke, 1);
+
+        //update states for force refresh
+        if (!someVar){
+          setSomeVar(true)}
+        else if(someVar){
+          setSomeVar(false)}
       }
     }
     
@@ -45,12 +59,12 @@ const view =(code) =>{
     
     <div className="h-screen sticky top-3 " style={{ height: "500px" }}>
       
-      
       <div className="bg-cyan-900 py-1">
         <h2 className="text-xl font-semibold ml-2 text-white ">Your cart</h2>
       </div>
+     {!cartHotel.length==0?<p></p>:<p>There are no items in the cart</p>}
       <ul className="flex flex-col divide-y h-80 overflow-y-auto ">
-      {(cartHotel.length ==0 )? <h1>There are no items in the Cart</h1> : cartHotel.map((cart)=>
+      {(!cartHotel)? <h1>There are no items in the Cart</h1> : cartHotel.map((cart)=>
       
       
 
@@ -127,30 +141,24 @@ const view =(code) =>{
       </ul>
       <div className="space-y-1 text-right xs:bg-cyan-900 md:bg-gray-200">
         <p className="mr-2 text-slate-200 md:text-black">
-          Booking total:
+          Cart total:
           <span className="font-semibold text-lg text-white md:text-black">
             {" "}
-            $2559,94
+            {cartHotel.length}
           </span>
         </p>
-        <p className="text-xs text-slate-400 italic mr-2">
-          Not including taxes and shipping costs
-        </p>
+
       </div>
       <div className="bg-cyan-900 md:bg-gray-200">
         <div className="flex justify-end mr-2 pt-8 pb-2 space-x-4">
           <button
             type="button"
             className="px-6 py-2 border rounded-md bg-yellow-600"
+            onClick={event =>{removeAll()}}
           >
-            <p className="text-white">Empty</p>
+            <p className="text-white">Empty Cart</p>
           </button>
-          <button
-            type="button"
-            className="px-6 py-2 border rounded-md  bg-green-500"
-          >
-            <p className=" text-white">Quote</p>
-          </button>
+      
         </div>
       </div>
     </div>

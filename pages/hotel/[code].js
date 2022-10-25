@@ -155,17 +155,6 @@ const HotelScreen = (status) => {
             <div className='bg-blue-50 p-3 shadow-xl' >
             <label htmlFor="message"  className="block mb-2 bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">ESTABLISHMENT PROFILE</label>
             <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
-                {status.status.hotel.boards.map((hotell)=>(
-                       <div key={hotell.code}>
-                            <div className="flex items-center mb-1"  >
-                                <FontAwesomeIcon icon={faSquareCheck} />
-                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
-                            {hotell.code } - {hotell.description.content}
-                                </label>                    
-                      </div>
-                        </div>
-                ))}
-
                 </div>
                 <br></br>
 
