@@ -37,7 +37,7 @@ const Booking = () => {
           },
           "rooms": [
             {
-              "rateKey": "20230615|20230616|W|1|168|TPL.ST|CG-OPAQUE|RO||1~2~0||P@06~~21d97~1684271547~N~~~NOR~253D7FBCA04C42B166634081739000AAUK0000001000000000721d97",
+              "rateKey": "20230615|20230616|W|1|168|DBT.ST|CG-OPAQUE BB|BB||1~2~0||P@06~~21faa~124189921~N~~~NOR~6CAA5E81F8B842E166661931544200AAUK0000001000000000721faa",
               "paxes": [
                 {
                   "roomId": 1,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import CheckAvailability from "./cartSearch";
+import CheckAvailability from "./cartSearch";
 
 
 class Tab extends Component {
@@ -21,7 +21,7 @@ class Tab extends Component {
             role="tabpanel"
             aria-labelledby="tabs-home-tab"
           >
-            {/* <CheckAvailability /> */}
+            <CheckAvailability />
           </div>
              
         </div>

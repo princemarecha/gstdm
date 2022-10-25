@@ -221,3 +221,95 @@ const CheckAvailability = () => {
 };
 
 export default CheckAvailability;
+
+if(process.browser) {
+  const form = document.getElementById('form');
+
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const payload = new FormData(form);
+
+    console.log([...payload]);
+    var fromDate = document.getElementById('fromDate').value;
+    var toDate = document.getElementById('toDate').value;
+    var rooms = document.getElementById('rooms').value;
+    var adults = document.getElementById('adults').value;
+    var children = document.getElementById('children').value;
+    console.log('Book from ' + fromDate + ' to ' + toDate)
+    console.log('Rooms: ' + rooms + ' with ' + adults + ' adults and ' + children + ' children.')
+  })
+}
+
+export async function getServerSideProps(context){
+    
+  var time = (Math.round(Date.now()/1000));
+  let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+  let b = CryptoJS.SHA256(soup);
+  let x_sig = b.toString(CryptoJS.enc.Hex);
+  
+  //end x-sig gen
+
+  //postman code
+  
+  var myHeaders = new Headers();
+  myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+  myHeaders.append("X-Signature", x_sig);
+  myHeaders.append("Accept", "application/json");
+  myHeaders.append("Accept-Encoding", "gzip");
+  myHeaders.append("Content-Type", "application/json");
+  
+  var raw = JSON.stringify({
+    "stay": {
+      "checkIn": fromDate,
+      "checkOut": toDate
+    },
+    "occupancies": [
+      {
+        "rooms": rooms,
+        "adults": adults,
+        "children": children
+      }
+    ],
+    "hotels": {
+      "hotel": [
+        1
+      ]
+    }
+  });
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  fetch("https://api.test.hotelbeds.com/hotel-api/1.0/hotels", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+
+    //end of postman code
+
+    //beginning of other page code
+  
+    //const code = context.params.code;
+    //const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
+    //const data = await res.json();
+        // .then((response) => response.json())
+        // .then(result => setData(result))
+        // .catch(error => console.log('error', error));
+  
+      return{
+        props:{
+          status:data
+        }
+      }
+  }
+
+
+
+
