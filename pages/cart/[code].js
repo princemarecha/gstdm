@@ -21,7 +21,7 @@ import Tab from "../../components/tab-3";
 import { cartContext, RateURL } from "../../Helper/Context";
 import { useContext } from "react";
 import Link from "next/link"
-import Stepper from "../../components/stepper";
+import Stepper from "../../components/Stepper";
 import { NextOO, hotelContext } from "../../Helper/Context";
 
 
