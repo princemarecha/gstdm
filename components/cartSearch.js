@@ -266,8 +266,9 @@ const CheckAvailability = () => {
       <div>
         {rateKey.length==0?"":setNextCon(true)}
       {roomss? roomss.map((rate)=>
-       
-          <div className="my-4 grid grid-cols-9 shadow-xl rounded-xl  font-sans text-white">
+            
+          <div key={rate.rateKey} className="my-4 grid grid-cols-9 shadow-xl rounded-xl  font-sans text-white">
+            
         <div className="col-span-2 ml-2 grid grid-rows-4 bg-sky-700 rounded-tl-lg rounded-bl-lg"> 
             <div className="pl-3 pt-2 row-span-1 bg-cyan-700 rounded-tl-lg"><p className="font-semibold">Board Code/Name</p></div>
             <div className="row-span-3 my-auto rounded-bl-lg"><p className="text-center font-bold">{rate.boardCode}/{rate.boardName}</p></div>
