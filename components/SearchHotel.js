@@ -77,9 +77,9 @@ const SearchHotel = () => {
       </Link>              
       </div>  
 
-      <div class="col-span-1">
-      {loading?<div class="spinner-grow inline-block w-10 h-10 bg-current rounded-full opacity-0" role="status">
-          <span class="visually-hidden">Loading...</span>
+      <div className="col-span-1">
+      {loading?<div className="spinner-grow inline-block w-10 h-10 bg-current rounded-full opacity-0" role="status">
+          <span className="visually-hidden">Loading...</span>
       </div>:<div></div>}
       </div>
 
