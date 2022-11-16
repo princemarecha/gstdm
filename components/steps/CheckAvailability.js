@@ -1,8 +1,11 @@
 import React from 'react'
+import Check from '../cartSearch'
 
 const CheckAvailability = () => {
   return (
-    <div>CheckAvailability</div>
+    <div>
+      <Check/>
+    </div>
   )
 }
 

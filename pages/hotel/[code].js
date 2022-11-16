@@ -1,44 +1,122 @@
-import React from 'react'
-import {useRouter} from 'next/router'
+import React,{useState} from 'react';
 import CryptoJS from 'crypto-js';
-import thumb from "../../public/images/thumb.jpg"
 import Header from '../../components/header';
-import { faBars, faCalendar, faCheck, faDotCircle, faHouse, faLocation, faMap, faMapLocation, faMoneyBill, faPhone, faSquare, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
+import {faLocation, faMapLocation, faPhone, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import Nearby from "../../components/nearby"
 import Footer from '../../components/footer';
-//import { Carousel } from 'react-responsive-carousel';
+import LeftArrow from './../../public/images/left-arrow.png';
+import RightArrow from './../../public/images/right-arrow.png';
+import Link from 'next/link';
+
 
 const HotelScreen = (status) => {
 
 
+    const[bruh2, setBruh2]=useState(6);
 
-    var path = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[0].path;
-    var path1 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[1].path;
-    var path2 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[2].path;
-    var path3 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[3].path;
-    var path4 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[4].path;
-    //console.log(status.status.hotel.name.content);
+    const[pics, setPics] = useState(path0);
+ 
+
+    function Pictures(arg) {
+        setPics(arg)
+    }
+
+    const showmore = () => {
+        setBruh2()
+    }
+    
+    const showless = () => {
+        setBruh2(6)
+    }
+
+
+    const[left, setLeft] = useState(0);
+    const[right, setRight] = useState(4);
+    
+    function slideLeft() {
+        if(left == 0){
+            setLeft(left);
+            setRight(right);
+        }
+        else{
+            setLeft(left -1);
+            setRight(right -1);
+        }
+
+    }
+
+    function slideRight() {
+        if(right == status.status.hotel.images.length){
+            setLeft(left);
+            setRight(right);
+        }
+        else{
+            setLeft(left + 1);
+            setRight(right + 1);
+        }
+    }
+
+    const rating = [];
+    for (let i = 0; i < parseInt(status.status.hotel.S2C[0]); i++) {
+        rating.push(<FontAwesomeIcon icon={faStar} />);
+    }
+
+    
+
+    var coords = "https://maps.google.com/maps?q="+status.status.hotel.coordinates.latitude+",%20"+status.status.hotel.coordinates.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed";
+
+    var path0 = 'https://photos.hotelbeds.com/giata/' + status.status.hotel.images[0].path;
+   
+    var real = 'https://photos.hotelbeds.com/giata/';
+ 
     console.log(status);
+
   return (
     <div>
+    <div>
         <Header />
-        <div className='px-24 '>
+        </div>
+        <div className='px-24'>
         
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
                             <div className="grid grid-cols-1 lg:grid-cols-2 lg:h-screen">
                                 <div   className="relative z-10 lg:py-16 grid">
-                                    <div className="relative h-64 sm:h-80 lg:h-full">
-                                        <Image src={path3} alt="  Picture of the author " width="900px" height="700px" className='rounded' />  
+                                    <div className="relative h-64 sm:h-80 lg:h-full" id="image">
+                                    <Image src={pics ? pics : path0} alt="Picture of the hotel" width="900px" height="700px" className='rounded'/>
                                     </div>
-                                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm" >
-                                    <Image src={path4} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
-                                    <Image src={path1} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
-                                    <Image src={path2} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
-                                    <Image src={path} alt="  Picture of the author " width="300px" height="200px"className='rounded'/>
-                                        </div>  
+                                    <div className='flex'>
+                                    <button onClick={slideLeft}>
+                                        <Image
+                                            src={LeftArrow}
+                                            alt="right"
+                                            width="200px"
+                                            height="200px"
+                                        />
+                                    </button>
+                                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm" >
+                                    {/* start of map images code */}
+
+                                    {status.status.hotel.images.slice(left, right).map((hotell)=>(
+                       <div key={hotell.path.visualOrder}>
+                            <div>
+                             <Image src={real + hotell.path} alt="Picture of the hotel" width="300px" height="200px" className='rounded' onClick={() => Pictures(real + hotell.path)} key={hotell.path.visualOrder}/>    
+                      </div>
+                        </div>
+  
+                ))}
+                                    {/* end of map images code */}
+                                        </div>
+                                        <button onClick={slideRight}>
+                                            <Image
+                                                src={RightArrow}
+                                                alt="right"
+                                                width="200px"
+                                                height="200px"
+                                            />
+                                        </button>
+                                        </div>
                                         <div>
 
                                         </div>
@@ -49,7 +127,7 @@ const HotelScreen = (status) => {
                                         className="hidden lg:inset-y-0 lg:absolute lg:w-16 lg:bg-blue-50 lg:block lg:-left-16"
                                     ></span>
 
-                                    <div className="p-8 ">
+                                    <div className="p-8">
                                         <h2 className="text-4xl font-bold ">
                                         {status.status.hotel.name.content}
                                         </h2>
@@ -57,24 +135,23 @@ const HotelScreen = (status) => {
                                         <br></br>
 
                                         <div className="flex items-center mb-1"  >  
-                                        <FontAwesomeIcon icon={faStar} />   {status.status.hotel.S2C}
-                                                                    
+                                        {rating}                  
                                      </div>
 
                                    <br></br>
 
                                      <FontAwesomeIcon icon={faLocation} />   {status.status.hotel.city .content}
 
-                                        <p className="mt-4 text-gray-600 text-justify">
+                                        <p className="mt-4 text-gray-600 text-justify overflow-y-scroll h-72 pr-3">
                                         {status.status.hotel.description.content}
                                         </p>
 
                                         <a
-                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-white bg-blue-300 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
+                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600"
                                             href="/contact"
                                         >
-                                            <FontAwesomeIcon icon={faTicket} /> 
-                                            Book 
+                                            <FontAwesomeIcon icon={faTicket} />
+                                            &nbsp; Check Availability 
                                         </a>
                                     </div>
                                 </div>
@@ -85,8 +162,8 @@ const HotelScreen = (status) => {
                 <br></br>
     
 
-            <div className='bg-white-200 shadow-2xl ' >
-            <label htmlFor="message" className="block mb-2 font-medium bg-blue-300 text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
+            <div className='bg-white-200 shadow-2xl' id="description">
+            <label htmlFor="message" className="block mb-2 font-medium bg-yellow-500 text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
             <div className='grid grid-cols-12'>
                 <div className='p-3 col-span-8'>
             <p className='mx-12 text-slate-500 mb-4 text-sm text-justify'>
@@ -98,14 +175,15 @@ const HotelScreen = (status) => {
                     <li style={{listStyleType:'square'}}> {status.status.hotel.country.code}</li>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.state.code}</li>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.state.name}</li>
-                    <li style={{listStyleType:'square'}}> {status.status.hotel.state.web}</li>
                   </ul>
                   </div>
                   </div>        
             </div>
             <br></br>
+
+
             <div className='bg-blue-50 p-3 mt-4 shadow-lg' >
-            <label htmlFor="message" className=" mb-2 bg-blue-200  font-large font-extrabold text-gray-900 dark:text-blue-200 text-left">KEY POINTS</label>
+            <label htmlFor="message" className="block mb-2 bg-yellow-500 font-large font-extrabold text-gray-100 text-left pb-2 pl-2">CONTACT DETAILS</label>
             <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-y-5 sm:gap-y-6 lg:divide-x">
 
                     <div className="flex items-center mb-1"  >
@@ -115,33 +193,22 @@ const HotelScreen = (status) => {
             <div className="flex items-center mb-1"  >
                 <FontAwesomeIcon icon={faSquareCheck} />
                 <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.name.content}</label>
-                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.code}</label>
-                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.countryCode}</label>
                     </div>
                     <div className="flex items-center mb-1"  >
                 <FontAwesomeIcon icon={faSquareCheck} />
                 <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.description.content}</label>
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.zoneCode}</label>
                     </div>
                     <div className="flex items-center mb-1"  >
                 <FontAwesomeIcon icon={faSquareCheck} />
                 <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.zoneCode}</label>
-                    </div>
-                <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faPhone} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.phones.postalCode}</label>
-                    </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faPhone} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.phones.ranking}</label>
                     </div>
                     {status.status.hotel.phones.map((hotell)=>(
                        <div key={hotell.code}>
                             <div className="flex items-center mb-1"  >
                                 <FontAwesomeIcon icon={faPhone} />
                                 <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
-                            {hotell.code } - {hotell.phoneNumber}
-                            {hotell.code } - {hotell.phoneType}
+                            {hotell.code }  {hotell.phoneNumber}
+                            
                                 </label>                    
                       </div>
                         </div>
@@ -153,96 +220,64 @@ const HotelScreen = (status) => {
             <br></br>
 
             <div className='bg-blue-50 p-3 shadow-xl' >
-            <label htmlFor="message"  className="block mb-2 bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">ESTABLISHMENT PROFILE</label>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+
+         <label htmlFor="message" className="block mb-2 bg-yellow-500 font-large font-extrabold text-gray-100 text-left pb-2 pl-2">FACILITIES</label>
+         
+         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+         {status.status.hotel.facilities.slice(0,bruh2).map((hotell)=>(
+                       <div key={hotell.code}>
+                            <div className="flex items-center mb-1"  >
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
+                             {hotell.description.content}
+                                </label>                
+                      </div>
+                        </div>
+  
+                ))}
+
+                <button></button>
+                <div>
+
                 </div>
-                <br></br>
-
-         <label htmlFor="message" className="block mb-2  bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">FACILITIES</label>
-         
-         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
-         {status.status.hotel.facilities.map((hotell)=>(
-                       <div key={hotell.code}>
-                            <div className="flex items-center mb-1"  >
-                                <FontAwesomeIcon icon={faSquareCheck} />
-                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
-                            {hotell.code } - {hotell.description.content}
-                                </label>                    
-                      </div>
-                        </div>
-  
-                ))}
-
-                      
+                {(bruh2 === 6) ? <button onClick={showmore} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600">Show More</button>: <button onClick={showless} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600">Show Less</button>}
                  
             </div>
             <br></br>
-            <label htmlFor="message" className="block mb-2 bg-blue-200  font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">ROOMS</label>
-         
-         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
-         {status.status.hotel.rooms.map((hotell)=>(
-                       <div key={hotell.code}>
-                            <div className="flex items-center mb-1"  >
-                                <FontAwesomeIcon icon={faSquareCheck} />
-                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
-                            {hotell.code } - {hotell.description.content}
-                            {hotell.code } - {hotell.characteristic.code}
-                            {hotell.code } - {hotell.characteristic.code}
-                                </label>                    
-                      </div>
-                        </div>
-  
-                ))}
-
-                      
-                 
-            </div>
-            <br></br>
-            <label htmlFor="message" className="block mb-2 bg-blue-200 font-large font-extrabold text-gray-900 dark:text-gray-400 text-left pb-2">SEGMENTS</label>
-         
-         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
-         {status.status.hotel.segments.map((hotell)=>(
-                       <div key={hotell.code}>
-                            <div className="flex items-center mb-1"  >
-                                <FontAwesomeIcon icon={faSquareCheck} />
-                                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
-                            {hotell.code } - {hotell.description.content}
-                          
-                                </label>                    
-                      </div>
-                        </div>
-  
-                ))}
-
-                      
-                 
-            </div>
+            
             </div>
              <br></br>
-        
 
-            <div className='bg-blue-100 p-3 mt-4 shadow-lg' >
+             
+
+            <div className='p-3 mt-4 shadow-lg' id="map" >
             <label htmlFor="message" className="block mb-2   font-medium text-gray-900 dark:text-gray-400 text-left">Map</label>
            
-            <a
-                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-center text-white bg-indigo-600 border border-indigo-600 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
-                                            href="/contact"
-                                        >
-                                            <FontAwesomeIcon icon={faMapLocation} /> 
-                                            Location
-                                        </a>            
+            <a className="inline-block px-12 py-3 mt-5 text-sm font-medium text-center text-white"
+                href="/contact">
+                
+                {/*start of google maps code*/}
+                <div className="mapouter">
+                    <div className="gmap_canvas">
+                        <iframe width="950" height="500" id="gmap_canvas" src={coords} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
+                    </div>
+                </div>
+                {/*end of google maps code*/}
+                    
+                    <FontAwesomeIcon icon={faMapLocation} /> 
+                    Location
+            </a>            
             
  
             </div>
             
 
-            
-
-            <div className='pt-16 mx-4 '>
-   </div>
-   {/*<Nearby/> */}
-            <Footer />
-    </div>
+            <div className='pt-16 mx-4'>
+            </div>
+        </div>
+        <div>
+            <Footer/>
+        </div>
     </div>
   )
 }

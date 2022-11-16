@@ -10,10 +10,11 @@ import Img6 from "./../public/images/pic-thumb6.jpg";
 class Footer extends Component {
     render() {
         return (
-            <footer >
-              <div className="text-white bg-gray-900 lg:grid lg:grid-cols-5 @media screen and (min-width: 480px)" >
+            <footer className='w-full'>
+              <div className="w-full text-white bg-gray-900 lg:grid lg:grid-cols-5 @media screen and (min-width: 480px)" >
   <aside className="lg:relative lg:col-span-2 lg:block">
-  <div className="grid grid-flow-row-dense grid-cols-3 grid-rows-2 gap-x-1 m-3">
+  <p className="px-4 py-4 sm:px-6 lg:px-8 lg:col-span-3">Gallery</p>
+  <div className="grid grid-flow-row grid-cols-3 grid-rows-2 gap-x-1 m-3">
   <div><Image
       src={Img1}
       alt="Gallery"

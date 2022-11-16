@@ -1,7 +1,7 @@
 import React, { Component, useContext } from "react";
 import Image from "next/image";
 import { useState ,useEffect} from "react";
-import { cartContext } from "../Helper/Context";
+import { cartContext, hotelContext } from "../Helper/Context";
 
 
 
@@ -12,6 +12,8 @@ const CartComp = () => {
   const[live, setLive] = useState([]);
   const [someVar, setSomeVar] = useState(null); //force refresh component
   const cartHotel = [];
+
+  const {hoteCode, setHoteCode} = useContext(hotelContext);
 
   if (process.browser){
     cartHotel = JSON.parse(localStorage.getItem("cart"));
@@ -94,7 +96,7 @@ const view =(code) =>{
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-semibold mr-2">$559.99</p>
+                  <p className="text-sm font-semibold mr-2"></p>
                 </div>
               </div>
               <div className="flex text-sm divide-x">

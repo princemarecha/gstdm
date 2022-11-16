@@ -186,7 +186,7 @@ class Tab extends Component {
             role="tabpanel"
             aria-labelledby="tabs-profile-tab"
           >
-            <SearchPackages />
+            <SearchPackages />  
           </div>
           <div
             className="tab-pane fade"
@@ -194,7 +194,7 @@ class Tab extends Component {
             role="tabpanel"
             aria-labelledby="tabs-contact-tab"
           >
-            <SearchTransfers />
+            {/* <SearchTransfers /> */}
           </div>
         </div>
       </div>

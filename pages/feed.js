@@ -30,7 +30,7 @@ var requestOptions = {
 };
 
 
-  const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=100&useSecondaryLanguage=false", requestOptions);
+  const res = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=2001&to=2010&useSecondaryLanguage=false", requestOptions);
   const data = await res.json();
       // .then((response) => response.json())
       // .then(result => setData(result))
@@ -43,7 +43,7 @@ var requestOptions = {
     }
 }
 
-const rice = ({status}) => {
+const feed = ({status}) => {
 
 function porri (){
 for (let i=0; i < status.hotels.length; i++)
@@ -71,4 +71,4 @@ for (let i=0; i < status.hotels.length; i++)
   )
 }
 
-export default rice
+export default feed

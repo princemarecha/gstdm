@@ -114,7 +114,7 @@ const singleHotelSchema = new mongoose.Schema({
     categoryGroupCode: {type:String, require:true},
     chainCode: {type:String, require:true},
     city: [city],
-    code:  {type:Number, require:true, default: 0},
+    code:  {type:Number, require:true,unique:true, default: 0},
     coordinates: [coordinates],
     countryCode: {type:String, require:true},
     description: [description],

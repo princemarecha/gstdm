@@ -18,100 +18,6 @@ if (process.browser){
 
     const [searchRes, setSearchRes] = useState(props.status)
 
-    const [showHotel, setHotel] = useState(
-        [
-            {
-                url: "images/slide-01-copy.jpg",
-                title: "Victoria Falls",
-                rating: 4.7,
-                rate: 1999.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Mosi oa Tunya",
-                place: "Victoria Falls",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-
-            },
-            {
-                url: "images/slide-02-copy.jpg",
-                title: "Maldives",
-                rating: 4.2,
-                rate: 1799.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Beach of Hope",
-                place: "Maldives",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-03-copy.jpg",
-                title: "Sweden",
-                rating: 4.3,
-                rate: 2599.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Geneva",
-                place: "Sweden",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-04-copy.jpg",
-                title: "Toronto",
-                rating: 4.2,
-                rate: 999.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Lakeside",
-                place: "Toronto",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-05-copy.jpg",
-                title: "Kariba",
-                rating: 4.1,
-                rate: 1999.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Mabvuku",
-                place: "Kariba",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-06-copy.jpg",
-                title: "Great Pyramids",
-                rating: 4.6,
-                rate: 2999.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Pyramid of Giza",
-                place: "Egypt",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-07-copy.jpg",
-                title: "Norway",
-                rating: 4.8,
-                rate: 975.95,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Oslo",
-                place: "Norway",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-            {
-                url: "images/slide-08-copy.jpg",
-                title: "Mexico",
-                rating: 4.3,
-                rate: 899.99,
-                currency: "$US",
-                perks: ['Wifi','Car Park','Restaurant'],
-                city: "Encanto",
-                place: "Mexico",
-                icons: [<i className="fas fa-wifi" key={"wifi"}></i>, <i className="fas fa-parking" key={"parking"}></i>,  <i className="fa fa-cutlery" key={"restaurant"}></i> ],
-            },
-          
-        ]
-    )
     return (
         <div>
         <div>
@@ -128,7 +34,6 @@ if (process.browser){
       
     </div>
     <Header/>
-    <Result/>
     <div className="flex">
             <Filters/>
               <ResultsContainer hotels={searchRes} />

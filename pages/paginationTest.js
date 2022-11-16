@@ -29,7 +29,7 @@ export async function getStaticProps(){
     }
 }
 
-const Nyama = ({status}) => {
+const PaginationTest = ({status}) => {
   console.log(status);
   if (process.browser){
     //localStorage.setItem("hotData2", JSON.stringify(status));
@@ -64,4 +64,4 @@ const Nyama = ({status}) => {
   )
 }
 
-export default Nyama
+export default PaginationTest

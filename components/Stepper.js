@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
-import Steppers from '../components/Steppers'
-import StepperControl from '../components/StepperControl'
-import CheckAvailability from '../components/steps/CheckAvailability'
-import Booking from '../components/steps/Booking'
-import PaymentDetails from '../components/steps/PaymentDetails'
+import React, { useContext, useState } from 'react'
+import Steppers from './Steppers'
+import StepperControl from './StepperControl'
+import CheckAvailability from './steps/CheckAvailability'
+import Booking from './steps/Booking'
+import PaymentDetails from './steps/PaymentDetails'
 import { StepperContext } from '../Helper/Context'
 
-const stepper = () => {
+
+const Stepper = () => {
 
     const [currentStep, setCurrentStep] = useState(1);
     const [userData, setUserData] = useState('');
     const [finalData, setFinalData] = useState([]);
+
+
 
     const steps = [
         "Check Availability",
@@ -39,7 +42,9 @@ const stepper = () => {
     }
 
   return (
-    <div className='md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white'>
+<div id="stepper">
+
+    <div className=' mx-5 shadow-xl my-3 rounded-2xl py-2 bg-white'>
     <div className='container horizontal mt-5'>
         <Steppers
         steps ={steps}
@@ -63,7 +68,8 @@ const stepper = () => {
     steps ={steps}
     currentStep = {currentStep}/>
     </div>
+    </div>
   )
 }
 
-export default stepper
+export default Stepper
