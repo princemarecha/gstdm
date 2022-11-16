@@ -424,7 +424,7 @@ function amalgamate(){
           </div>
           <hr/>
         
-            <p className='text-md grid grid-cols-5 py-4'>holder's Name : <span className='font-semibold text-xl '>{result.booking.holder.name}</span>  <span className='text-xl'>{result.booking.holder.surname}</span> </p>
+            <p className='text-md grid grid-cols-5 py-4'>holder&apos;s Name : <span className='font-semibold text-xl '>{result.booking.holder.name}</span>  <span className='text-xl'>{result.booking.holder.surname}</span> </p>
             <hr/>
             <p className='grid grid-cols-5 py-4'>booking status : <span className='text-xl text-white'> <span className='bg-green-600 p-1 rounded-md'>{result.booking.status}</span></span> </p>
 <br/>
