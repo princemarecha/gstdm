@@ -273,7 +273,7 @@ function amalgamate(){
 
       <div className='col-span-1 '>
               <form className='bg-grey-50 text-left pt-4 border rounded-2xl pl-3' id='bookingForm' onSubmit={(e) =>{e.preventDefault()}} style={{backgroundColor: "rgba(255,255,255,0.8)"}} >
-        <label className='text-xl ml-2 font-semibold'>Holder's Information</label>
+        <label className='text-xl ml-2 font-semibold'>Holder&apos;s Information</label>
         <div className='grid grid-cols-2 mt-2 pl-6'>
         <div className='col-span-1'>
           <label className='ml-2 mr-2'>Name</label>
