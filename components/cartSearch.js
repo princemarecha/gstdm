@@ -304,7 +304,7 @@ const CheckAvailability = () => {
             localStorage.setItem("child", rate.children);
             localStorage.setItem("rooms", rate.rooms);
             }}>{rateKey != rate.rateKey? <span>BOOK NOW</span>:<span>SELECTED</span>}</button>:
-            <p>{rateKey != rate.rateKey?<span>CAN'T BOOK</span>:<span>SELECTED</span>}</p>}</div>
+            <p>{rateKey != rate.rateKey?<span>CAN&apos;T BOOK</span>:<span>SELECTED</span>}</p>}</div>
         </div>
       </div>
       ): ""}
