@@ -11,8 +11,8 @@ const CheckAvailability = () => {
   const [start, setStart] = useState([]);
   const [stop, setStop] = useState([]);
   const [live, setLive] = useState(1);
-  const [grown, setGrown] = useState([]);
-  const [small, setSmall] = useState([]);
+  const [grown, setGrown] = useState(1);
+  const [small, setSmall] = useState(0);
   const [childAge, setChildAge]  = useState([]);
 
 
