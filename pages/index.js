@@ -8,24 +8,25 @@ import { hotelContext } from '../Helper/Context';
 import { searchContext } from '../Helper/Context';
 
 
-export async function getStaticProps(){
 
-
-  const res = await fetch("/api/hotels");
-  const data = await res.json();
-      // .then((response) => response.json())
-      // .then(result => setData(result))
-      // .catch(error => console.log('error', error));
-
-    return{
-      props:{
-        status:data
-      }
-    }
-}
-
-const Index = (status) => {
+const Index = () => {
   
+  const allData = async ()=>{
+    let inDevEnvironment = "https://google.com";
+
+  if (process && process.env.NODE_ENV === 'development') {
+        inDevEnvironment = "http://localhost:3000";
+        console.log(inDevEnvironment);
+    }
+  else {
+    inDevEnvironment = "https://google.com";
+  }
+
+
+  const res = await fetch(`${inDevEnvironment}/api/hotels`);
+  const data = await res.json();
+  }
+
   const search = async (num)=>{
 
   const temp = num;

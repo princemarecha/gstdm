@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { hotelData } from "../Helper/Context";
 import ListItems from "./listitems";
 
-const ListingsContainer = ({ status }) => {
-  console.log(status);
+const ListingsContainer = () => {
+  const {status, setStatus} = useContext(hotelData);
+  console.log(status +"yepo");
   return (
     <div>
       <div className="w-full flex flex-col lg:flex-row lg:px-6 mb-10">

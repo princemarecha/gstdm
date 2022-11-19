@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FetchingData from '../components/FetchingData'
 import WithAxios from '../components/WithAxios'
 import Integrate from '../components/Integrate'
@@ -9,34 +9,33 @@ import data from '../utils/data'
 
 import Head from "next/head"
 import Pagination from '../components/Pagination'
+import { hotelData } from '../Helper/Context'
 
 
 
+const PaginationTest = () => {
 
-export async function getStaticProps(){
+const [status, setStatus] = useState([]);
 
+  useEffect(()=>{
+    allData();
+},[])
 
-  const res = await fetch("http://localhost:3000/api/hotels");
-  const data = await res.json();
-      // .then((response) => response.json())
-      // .then(result => setData(result))
-      // .catch(error => console.log('error', error));
+  const allData = async ()=>{
+    let inDevEnvironment = "https://google.com";
 
-    return{
-      props:{
-        status:data
-      }
+  if (process && process.env.NODE_ENV === 'development') {
+        inDevEnvironment = "http://localhost:3000";
+        console.log(inDevEnvironment);
     }
-}
-
-const PaginationTest = ({status}) => {
-  console.log(status);
-  if (process.browser){
-    //localStorage.setItem("hotData2", JSON.stringify(status));
-    //console.log(JSON.parse(localStorage.getItem("hotData")));
+  else {
+    inDevEnvironment = "https://google.com";
   }
-  
 
+  const res = await fetch(`${inDevEnvironment}/api/hotels`);
+  const data = await res.json();
+  setStatus(data);
+  }
 
 
   return (
@@ -53,11 +52,15 @@ const PaginationTest = ({status}) => {
         </Head>
       
     </div>
+    {status.length!=0?<div>
+      {console.log(status)}
 
-
-     {/*<Integrate status = {status}/>*/}
-     <ListingsContainer status={status} />
-
+      <hotelData.Provider value={{status, setStatus}}>
+        <Integrate />
+        <ListingsContainer/> 
+     </hotelData.Provider>
+    </div>:<div></div>}
+   
       <Pagination />
     </div>
     

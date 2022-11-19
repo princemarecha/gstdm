@@ -1,9 +1,14 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect, useContext } from 'react';
 import CryptoJS from 'crypto-js'
+import { hotelData } from '../Helper/Context';
 
-  const Integrate = ({status}) => {
+  const Integrate = () => {
 
-    const [Hote, setHote] = useState([status.hotels]);
+    const {status, setStatus} = useContext(hotelData);
+   // const [dummy, setDummy] = useState(JSON.parse(JSON.stringify(status)));
+
+    console.log((status) )
+    const [Hote, setHote] = useState([status]);
 
     return (
       <div>
