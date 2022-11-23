@@ -1,28 +1,27 @@
 import React, { Component, useState } from "react";
-import Footer from "../../components/footer";
-import Header from "../../components/header";
+import Footer from "../components/footer";
+import Header from "../components/header";
 import Image from "next/image";
-import img1 from "./../../public/images/slide-01-copy.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
-import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faCalendar,
   faHouse,
   faLocation,
 } from "@fortawesome/free-solid-svg-icons";
-import CartComp from "../../components/CartComp";
+import CartComp from "../components/CartComp";
 import NextLink from "next/link";
-import Passenger from "../../components/Passenger";
+import Passenger from "../components/Passenger";
 import Head from "next/head";
-import Payment from "../../components/Payment";
+import Payment from "../components/Payment";
 import CryptoJS from "crypto-js";
-import Tab from "../../components/tab-3";
-import { cartContext, RateURL } from "../../Helper/Context";
+import Tab from "../components/tab-3";
+import { cartContext, RateURL } from "../Helper/Context";
 import { useContext } from "react";
 import Link from "next/link"
-import Stepper from "../../components/Stepper";
-import { NextOO, hotelContext } from "../../Helper/Context";
+import Stepper from "../components/Stepper";
+import { NextOO, hotelContext } from "../Helper/Context";
 
 
 const Cart = (status) => {
@@ -65,9 +64,10 @@ const Cart = (status) => {
               />
               <script async src="https://cdn.tailwindcss.com"></script>
             </Head>
-
-            <Header />
-            <div className="grid grid-cols-12 ">
+            <div className="sticky top-0 z-10">
+            <Header/>
+            </div>
+            <div className="grid grid-cols-12 mt-5 ">
               <div className="xs:col-span-12 md:col-span-9 ">
                 <header className="bg-gray-50">
                   <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 shadow-xl">
@@ -229,39 +229,39 @@ const Cart = (status) => {
 export default Cart;
 
 
-export async function getServerSideProps(context){
+// export async function getServerSideProps(context){
     
-  var time = (Math.round(Date.now()/1000));
-  let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
-  let b = CryptoJS.SHA256(soup);
-  let x_sig = b.toString(CryptoJS.enc.Hex);
+//   var time = (Math.round(Date.now()/1000));
+//   let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+//   let b = CryptoJS.SHA256(soup);
+//   let x_sig = b.toString(CryptoJS.enc.Hex);
   
-  //end x-sig gen
+//   //end x-sig gen
   
-  var myHeaders = new Headers();
-  myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
-  myHeaders.append("X-Signature", x_sig);
-  myHeaders.append("Accept", "application/json");
-  myHeaders.append("Accept-Encoding", "gzip");
+//   var myHeaders = new Headers();
+//   myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+//   myHeaders.append("X-Signature", x_sig);
+//   myHeaders.append("Accept", "application/json");
+//   myHeaders.append("Accept-Encoding", "gzip");
   
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow',
-    mode: 'no-cors'
-  };
+//   var requestOptions = {
+//     method: 'GET',
+//     headers: myHeaders,
+//     redirect: 'follow',
+//     mode: 'no-cors'
+//   };
   
-    const code = context.params.code;
-    const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
-    const data = await res.json();
-        // .then((response) => response.json())
-        // .then(result => setData(result))
-        // .catch(error => console.log('error', error));
+//     const code = context.params.code;
+//     const res = await fetch(`https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels/${code}/details?language=ENG&useSecondaryLanguage=False`, requestOptions);
+//     const data = await res.json();
+//         // .then((response) => response.json())
+//         // .then(result => setData(result))
+//         // .catch(error => console.log('error', error));
   
-      return{
-        props:{
-          status:data
-        }
-      }
-  }
+//       return{
+//         props:{
+//           status:data
+//         }
+//       }
+//   }
   

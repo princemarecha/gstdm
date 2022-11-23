@@ -33,7 +33,9 @@ if (process.browser){
         </Head>
       
     </div>
-    <Header/>
+    <div className="sticky top-0 z-10">
+            <Header/>
+            </div>
     <div className="flex">
             <Filters/>
               <ResultsContainer hotels={searchRes} />

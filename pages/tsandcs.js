@@ -8,7 +8,9 @@ class Tsandcs extends Component {
         return (
             <div>
                 <div>
-                    <Header/>
+                <div className="sticky top-0 z-10">
+                <Header/>
+                </div>
                 </div>
 
                 <div className="w-2/3 m-auto pb-20">

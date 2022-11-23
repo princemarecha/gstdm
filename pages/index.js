@@ -51,10 +51,9 @@ const Index = () => {
           
       </Head>
       
-    <div>
-    <Header/>
-    
-</div>
+    <div className="sticky top-0">
+            <Header/>   
+    </div>
     <Search/>
 <Listings/>
 

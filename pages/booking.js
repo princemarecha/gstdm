@@ -340,7 +340,7 @@ function amalgamate(){
               </form>
               
      </div>
-
+        {console.log(rateRes)}
      {rateRes.length != 0 && rateRes.hotel?<div className='col-span-1 rounded-xl 'style={{backgroundColor: "rgba(0,0,0,0.8)"}}>
           <div className='grid grid-cols-3 gap-6 text-white'>
               <div className=' col-span-1 bg-black p-6 m-6 text-center rounded-tl-lg'>

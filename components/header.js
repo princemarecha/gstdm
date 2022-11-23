@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 import Head from 'next/head';
+import Nav2 from './Nav2';
 
 
 class Header extends Component {
@@ -12,7 +13,8 @@ class Header extends Component {
             <Head>
             <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
             </Head>
-<Nav/>
+{/* <Nav/> */}
+<Nav2/>
 <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js" async></script>
 </header>
 

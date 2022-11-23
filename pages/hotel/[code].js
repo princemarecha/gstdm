@@ -75,7 +75,9 @@ const HotelScreen = (status) => {
   return (
     <div>
     <div>
-        <Header />
+    <div className="sticky top-0 z-10">
+            <Header/>
+            </div>
         </div>
         <div className='px-24'>
         

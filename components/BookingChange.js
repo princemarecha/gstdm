@@ -23,8 +23,9 @@ const BookingChange = () => {
         <script async src="https://cdn.tailwindcss.com"></script>
         <script async src="./../scripts/add.js"></script>
       </Head>
-
-      <Header />
+      <div className="sticky top-0 z-10">
+            <Header/>
+            </div>
 
       <div>
         <form className="m-8">

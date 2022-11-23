@@ -26,7 +26,9 @@ const booking_list = () => {
           />
           <script async src="https://cdn.tailwindcss.com"></script>
       </Head>
-      <Header/>
+      <div className="sticky top-0 z-10">
+            <Header/>
+      </div>
         <PostSearch/>
       <Footer/>
       <script

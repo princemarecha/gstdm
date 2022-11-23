@@ -13,7 +13,9 @@ class Hotel extends Component {
     render() {
         return (
     <div>
-                <Header />
+                <div className="sticky top-0 z-10">
+            <Header/>
+            </div>
                 <div >
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
