@@ -63,6 +63,7 @@ const Cart = (status) => {
                 href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
               />
               <script async src="https://cdn.tailwindcss.com"></script>
+              
             </Head>
             <div className="sticky top-0 z-10">
             <Header/>
@@ -72,6 +73,9 @@ const Cart = (status) => {
                 <header className="bg-gray-50">
                   <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 shadow-xl">
                     <div className="sm:justify-between sm:items-center sm:flex ">
+                    <div className=" md:hidden lg:pb-40 border-y-2 border-dashed mt-10">
+                    <CartComp thisCartHotel = {thisCartHotel}/>
+                  </div>
                       <div className="text-center sm:text-left flex ">
                         {current.code !=hoteCode? setHoteCode(current.code):""}
                         {current.length!=0?<div className="pr-4">
@@ -83,6 +87,7 @@ const Cart = (status) => {
                             className="rounded"
                           />
                         </div>: <div></div>}
+                        
                         {current.length!=0?<div>
                           <h1 className="text-sm md:text-1xl font-bold text-green-600 light:text-green-200  pt-1 md:pt-3">
                             <FontAwesomeIcon icon={faHouse} />
@@ -153,16 +158,14 @@ const Cart = (status) => {
 
                   <br></br>
 
-                  <div className=" md:hidden lg:pb-40 border-y-2 border-dashed mt-10">
-                    <CartComp thisCartHotel = {thisCartHotel}/>
-                  </div>
+
 
                   <br></br>
                   <div className="border-b"></div>
                   <br></br>
                   <NextOO.Provider value = {{nextCon, setNextCon}}>
                     <RateURL.Provider value={{rateU, setRateU}} >
-                  {current.length!=0?<Stepper/>:<div></div>}
+                  {current.length!=0?<div id="stepper_div"><Stepper/></div>:<div></div>}
                   {current.length!=0?
                   <div className="bg-white py-6 sm:py-8 lg:py-12">
                     <label

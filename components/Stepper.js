@@ -45,7 +45,7 @@ const Stepper = () => {
 <div id="stepper">
 
     <div className=' mx-5 shadow-xl my-3 rounded-2xl py-2 bg-white'>
-    <div className='container horizontal mt-5'>
+    <div className='    horizontal mt-5'>
         <Steppers
         steps ={steps}
         currentStep = {currentStep}

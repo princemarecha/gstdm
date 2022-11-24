@@ -3,6 +3,8 @@ import CryptoJS from "crypto-js";
 import { hotelContext, NextOO, RateURL } from "../Helper/Context";
 import { useContext } from "react";
 import childrenCustom from "../scripts/children"
+import ErrorModal from "./errorModal";
+import { errorState } from "../Helper/Context";
 
 
 
@@ -133,7 +135,7 @@ const CheckAvailability = () => {
     <div>
       
       <form id="form">
-        <div className="max-w-screen-md md:w-1/2 grid sm:grid-cols-4 gap-4 mx-auto bg-white p-10 rounded-xl" id="allOptions">
+        <div className="max-w-screen-md md:w-1/2 grid sm:grid-cols-4 gap-4 mx-auto bg-white md:p-10 rounded-xl" id="allOptions">
 
         <div className="sm:col-span-2">
           <label
@@ -146,7 +148,9 @@ const CheckAvailability = () => {
             name="fromDate"
             type="date"
             id="fromDate"
-            onChange={event => setStart(event.target.value)}
+            onChange={(event) => {
+             if (errorr){ if (errorr.length !=0){setError(null)}}
+              setStart(event.target.value)}}
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
@@ -162,7 +166,9 @@ const CheckAvailability = () => {
             name="toDate"
             type="date"
             id="toDate"
-            onChange={event => setStop(event.target.value)}
+            onChange={(event) => {
+              if (errorr){ if (errorr.length !=0){setError(null)}}
+              setStop(event.target.value)}}
             className="w-full bg-gray-50 text-gray-800 border border-gray-500 focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
           />
         </div>
@@ -187,6 +193,7 @@ const CheckAvailability = () => {
             onChange={event => {
               document.getElementById("adults").value = parseInt(live)+1;
               setLive(event.target.value);
+              if (errorr){ if (errorr.length !=0){setError(null)}}
             }}
             className="border border-gray-500 ml-2"></input>
           </div>
@@ -209,7 +216,7 @@ const CheckAvailability = () => {
             defaultValue={live}
             onChange={(event) => {
               setGrown(event.target.value);
-              
+              if (errorr){ if (errorr.length !=0){setError(null)}}
             }}
             className="border border-gray-500 ml-2"></input>
             </div>
@@ -232,7 +239,7 @@ const CheckAvailability = () => {
             defaultValue="0" 
             onChange={(event) => {
               setSmall(event.target.value);
-
+              if (errorr){ if (errorr.length !=0){setError(null)}}
               var num = parseInt(event.target.value);
 
               childrenCustom(num)
@@ -245,12 +252,19 @@ const CheckAvailability = () => {
           </div>
         
 </div>
-<p><span className="text-red-600">{errorr?<p>Error</p>:""}</span><span className="text-red-400 italic">  {errorr}</span></p>
+<errorState.Provider value={{errorr, setError}}><p><span className="text-red-600">{errorr?<p><ErrorModal/></p>:""}</span><span className="text-red-400 italic"> </span></p></errorState.Provider>
+
       </form>
       
  <button 
-        onFocus={feedChild}
-        onMouseOver ={feedChild}
+        onFocus={()=>{
+          feedChild();
+          if (errorr!=null){setError(null)};
+        }}
+        onMouseOver ={()=>{
+          feedChild();
+          if (errorr!=null){setError(null)};
+        }}
         className="inline-block bg-cyan-500 hover:bg-cyan-700 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3 mt-5" onClick={py}>
               Check Availability
             </button>

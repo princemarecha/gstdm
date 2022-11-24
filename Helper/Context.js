@@ -17,3 +17,5 @@ export const BookRes = createContext();
 export const hoteCode = createContext();
 
 export const hotelData = createContext();
+
+export const errorState = createContext();
