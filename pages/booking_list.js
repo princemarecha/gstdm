@@ -8,7 +8,7 @@ import Search from "../components/search";
 import PostSearch from "../components/PostSearch";
 import { cartNum } from "../Helper/Context";
 
-const booking_list = () => {
+const Booking_list = () => {
   const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
@@ -43,5 +43,5 @@ const booking_list = () => {
   )
 }
 
-export default booking_list
+export default Booking_list
 

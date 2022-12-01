@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 import { cartNum } from '../Helper/Context';
 
 
-const terms = () => {
+const Terms = () => {
     const [cartNumber, setCartNumber] = useState([]);
   return (
     
@@ -196,4 +196,4 @@ const terms = () => {
   
 }
 
-export default terms
+export default Terms

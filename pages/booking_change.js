@@ -3,7 +3,7 @@ import BookingChange from "../components/BookingChange";
 import React, { useState } from 'react'
 import { cartNum } from "../Helper/Context";
 
-const booking_change = () => {
+const Booking_change = () => {
   const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
@@ -15,4 +15,4 @@ const booking_change = () => {
   )
 }
 
-export default booking_change
+export default Booking_change

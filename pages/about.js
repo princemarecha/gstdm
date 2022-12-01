@@ -3,7 +3,7 @@ import Nav2 from '../components/Nav2'
 import Head from 'next/head'
 import { cartNum } from '../Helper/Context'
 
-const about = () => {
+const About = () => {
   const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
@@ -23,4 +23,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About

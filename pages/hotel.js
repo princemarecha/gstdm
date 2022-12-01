@@ -10,7 +10,7 @@ import { faCalendar, faDotCircle, faHouse, faLocation, faMap } from '@fortawesom
 import { cartNum } from '../Helper/Context';
 
 
-const hotel = () => {
+const Hotel = () => {
     const [cartNumber, setCartNumber] = useState([]);
   return (
 
@@ -134,5 +134,5 @@ const hotel = () => {
   )
 }
 
-export default hotel
+export default Hotel
 

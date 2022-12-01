@@ -92,7 +92,7 @@ const ResultsItems = ({ hotel }) => {
   return (
     <div>
 
-      <a href="#">
+      <a href={`/hotel/${hotel.code}`}>
         <div className="md:grid grid-flow-row-dense grid-cols-4 grid-row-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white">
           <div className="w-full mt-1 ml-1 flex">
             <Image
@@ -131,8 +131,8 @@ const ResultsItems = ({ hotel }) => {
                 Description
               </Link>
               </div>
-              <div className="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
-                Opinions
+              <div className="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1" onClick={console.log("clicked")}>
+                View
               </div>
             </div>
           </div>

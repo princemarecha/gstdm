@@ -18,7 +18,6 @@ const testpage = () => {
       </Head>
 
 
-        <Nav2/>
           
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
         <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js" async></script>

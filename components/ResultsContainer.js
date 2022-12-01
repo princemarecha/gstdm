@@ -26,6 +26,7 @@ const ResultsContainer = ({hotels}) => {
                         <h1 className="text-3xl font-bold italic">search Results ({hotels.length})</h1>
                             <div className="mt-12">
                             {hotels.map( (hotel) => (
+                                
                                 <div key={hotel}>
                                 <ResultsItems hotel={hotel}/>
                                 </div>
