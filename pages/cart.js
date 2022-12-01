@@ -7,8 +7,15 @@ import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faCalendar,
+  faCalendarDays,
+  faCity,
+  faHotel,
   faHouse,
   faLocation,
+  faPeopleRoof,
+  faPlane,
+  faPlaneArrival,
+  faRankingStar,
 } from "@fortawesome/free-solid-svg-icons";
 import CartComp from "../components/CartComp";
 import NextLink from "next/link";
@@ -17,11 +24,12 @@ import Head from "next/head";
 import Payment from "../components/Payment";
 import CryptoJS from "crypto-js";
 import Tab from "../components/tab-3";
-import { cartContext, RateURL } from "../Helper/Context";
+import { cartContext, cartNum, RateURL } from "../Helper/Context";
 import { useContext } from "react";
 import Link from "next/link"
 import Stepper from "../components/Stepper";
 import { NextOO, hotelContext } from "../Helper/Context";
+
 
 
 const Cart = (status) => {
@@ -30,6 +38,7 @@ const Cart = (status) => {
   const [nextCon, setNextCon] = useState(false);
   const [rateU, setRateU] = useState("sadza szadasdasldjl");
   const [hoteCode, setHoteCode] = useState(1533);
+  const [cartNumber, setCartNumber] = useState([]);
 
   const [hydrated, setHydrated] = React.useState(false);
     React.useEffect(() => {
@@ -65,9 +74,11 @@ const Cart = (status) => {
               <script async src="https://cdn.tailwindcss.com"></script>
               
             </Head>
+              <cartNum.Provider value={{cartNumber, setCartNumber}}>
             <div className="sticky top-0 z-10">
             <Header/>
             </div>
+              </cartNum.Provider>
             <div className="grid grid-cols-12 mt-5 ">
               <div className="xs:col-span-12 md:col-span-9 ">
                 <header className="bg-gray-50">
@@ -89,25 +100,33 @@ const Cart = (status) => {
                         </div>: <div></div>}
                         
                         {current.length!=0?<div>
-                          <h1 className="text-sm md:text-1xl font-bold text-green-600 light:text-green-200  pt-1 md:pt-3">
-                            <FontAwesomeIcon icon={faHouse} />
-                            {current.name[0].content}
+                          <h1 >
+                            <FontAwesomeIcon icon={faHotel} className="text-yellow-900 mr-5" />
+                           <span className="text-2xl md:text-1xl font-bold text-yellow-900 light:text-green-200  pt-1 md:pt-3 nameStyle">{current.name[0].content}</span> 
                           </h1>
-                          <div className="pb-1 md:pb-0            "></div>
-                          <p className="pb-2 text-xs sm:text-sm">
-                            <FontAwesomeIcon icon={faLocation} className="mr-2" />
-                            {current.address[0].content}
+                          <div className="pb-1 md:pb-0 mb-6"></div>
+                          <p className="pb-1 text-xs sm:text-sm font-bold">
+                            <FontAwesomeIcon icon={faPlaneArrival} className="mr-2 text-yellow-700 mr-5 " />
+                            <span className="font-bold text-yellow-700">{current.address[0].content}</span>
+                          </p>
+                          <p className="pb-1 text-xs sm:text-sm ">
+                            <FontAwesomeIcon icon={faCity} className="mr-2 text-slate-700 mr-5" />
+                            {current.city[0].content} <span className="font-bold text-yellow-700">(City)</span>, County Code <span className="font-bold text-yellow-700">({current.countryCode})</span>
+                          </p>
+                          <p className="pb-1 text-xs sm:text-sm">
+                            <FontAwesomeIcon icon={faRankingStar} className="mr-2 text-yellow-700 mr-5 text-center font-bold" />
+                           <span >Hotel Ranking <span className="font-bold text-yellow-700">({current.ranking})</span></span> 
                           </p>
                           <p className="pb-2 text-xs sm:text-sm">
-                            <FontAwesomeIcon icon={faCalendar} className="mr-2" />
-                            From 08/17/21(Wednesday) - 08/28/21(Wednesday)
+                            <FontAwesomeIcon icon={faPeopleRoof} className="mr-2 text-gray-700 mr-5 text-center font-bold" />
+                           <span >Rooms Available <span className="font-bold text-yellow-700">({current.rooms.length})</span></span> 
                           </p>
                         </div>:<div>Click hotel in cart to view</div>}
                       </div>
 
                       <div className="flex flex-col gap-4 mt-4 sm:flex-row sm:mt-0 sm:items-center">
                     <Link
-                      href="/">
+                      href={(`/hotel/${current.code}`)}>
                         <button
                           className="inline-flex items-center justify-center px-5 py-3 text-gray-500 transition bg-white border border-gray-200 rounded-lg hover:text-gray-700 focus:outline-none focus:ring"
                           type="button"
@@ -144,12 +163,12 @@ const Cart = (status) => {
                 {current.length!=0?<div className="pt-6 pl-3">
                   <label
                     htmlFor="message"
-                    className="block mb-2 font-medium text-gray-900 dark:text-gray-400 "
+                    className="block mb-2 font-extrabold text-yellow-900 "
                   >
                     Remarks{" "}
                   </label>
 
-                  {<p className="text-sm mr-5">
+                  {<p className="text-sm mr-5 nameStyle font-semibold text-yellow-900">
                   {current.description[0].content}
                   </p>}
                 </div>:<div></div>}

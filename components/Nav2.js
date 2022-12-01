@@ -1,21 +1,34 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Badge } from '@mui/material';
 import Link from 'next/link';
+import { cartNum } from '../Helper/Context';
 
 const Nav2 = () => {
-
+   
+    const [cartItems,setCartItems] = useState([]);
+  useEffect(() =>{
+   
+    setCartNumber(  JSON.parse(localStorage.getItem("cart")).length);     }
+    
+    ,[])
+    
     const [home, setHome] = useState(false);
     const [about, setAbout] = useState(false);
     const [cart, setCart] = useState(false);
     const [terms, setTerms] = useState(false);
+    
+    const {cartNumber, setCartNumber} = useContext(cartNum);
+
+
 
     const navigation = [
     { name: 'Home', href: '/', current: home },
     { name: 'About', href: '/about', current: about },
-    { name: 'Terms', href: '/tsandcs', current: terms },
+    { name: 'Terms', href: '/terms', current: terms },
     { name: 'Cart', href: '/cart', current: cart },
   ]
 
@@ -41,7 +54,7 @@ const Nav2 = () => {
 
   return (
     <div>
-
+<p>{cartNumber.length}</p>
 <Disclosure as="nav" className="bg-white shadow-xl">
       {({ open }) => (
         <>
@@ -95,7 +108,11 @@ const Nav2 = () => {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <Link href="/cart"><ShoppingCartIcon className="h-6 w-6" aria-hidden="true" /></Link>
+                  <Link href="/cart">
+                    <Badge badgeContent={JSON.stringify(cartNumber)} color='primary'>
+                    <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                    </Badge>
+                    </Link>
                 </button>
 
        

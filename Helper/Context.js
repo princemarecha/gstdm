@@ -19,3 +19,9 @@ export const hoteCode = createContext();
 export const hotelData = createContext();
 
 export const errorState = createContext();
+
+export const notifiContext = createContext();
+
+export const cartNum = createContext();
+
+export const checkBoxContext = createContext();

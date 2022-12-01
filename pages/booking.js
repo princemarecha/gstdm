@@ -8,6 +8,8 @@ import { NextOO } from '../Helper/Context';
 import { useContext } from 'react';
 import adultBooking from "../scripts/adultBooking";
 import childrenBooking from "../scripts/childrenB";
+import Checkboxes from '../components/Checkboxes';
+import { checkBoxContext } from '../Helper/Context';
 
 const Booking = () => {
 
@@ -16,6 +18,7 @@ useEffect(()=>{
     if (!(document.getElementById("divStart"))) {
     var temp = localStorage.getItem("adult");
     var temp2 = localStorage.getItem("child");
+    setChildTemp(temp2);
     var rooms = localStorage.getItem("rooms");
      adultBooking(parseInt(temp), parseInt(rooms));
      childrenBooking(parseInt(temp2), parseInt(rooms));
@@ -23,11 +26,13 @@ useEffect(()=>{
  }
 },[])
 
-
+    const [childTemp, setChildTemp] = useState([]);
     const [surname, setSurname] = useState([]);
     const [name, setName] = useState([]);
     const [asurname, setASurname] = useState([]);
     const [aname, setAName] = useState([]);
+    const [remarkCH, setRemarkCH] = useState([]);
+    const [str, setStr] = useState();
 
     const [sasurname, setSASurname] = useState([]);
     const [saname, setSAName] = useState([]);
@@ -278,7 +283,7 @@ function amalgamate(){
         <div className='col-span-1'>
           <label className='ml-2 mr-2'>Name</label>
           <input required type="text" placeholder='Name' id='name' className='p-2 mr-3 rounded-md text-sm'   onChange={e=> setName(e.target.value) }/>
-          </div>
+          </div>  
         <div>
           <label className='ml-2 mr-2'>Surname</label>
           <input required type="text" placeholder='Surname' className='p-2 mr-3 rounded-md text-sm' id='surname' onChange={e=> setSurname(e.target.value)}/>
@@ -293,14 +298,26 @@ function amalgamate(){
 
         </div>
         
-        <label className='ml-2 mr-2 text-xl font-semibold'>Passenger Information (Children)</label> 
-        <div id="children">
+       {childTemp != "0"? <label className='ml-2 mr-2 text-xl font-semibold'>Passenger Information (Children)</label>:''} 
+        <div id="children" className='mt-2'>
 
         </div>
-
-        <div className='mx-6' >
-          <textarea required className='w-full ml-2 my-6 h-32 p-2 mr-3 mb-3 rounded-md text-sm' placeholder='Remarks' onChange={e=> setRemarks(e.target.value)}></textarea>
+      <checkBoxContext.Provider value={{remarkCH, setRemarkCH, str, setStr}}>
+      <div className='mx-2'><Checkboxes/></div>
+     
+        <div className='mx-6' > 
+        <span className='text-gray-700 text-sm italic'>({str})</span>
+          <textarea required className='w-full ml-2 mb-6 h-32 p-2 mr-3 mb-3 rounded-md text-sm' placeholder='Additional Remarks' id='remark' onChange={e=> {
+            
+            
+            setRemarks(str + " (and also) " +e.target.value)
+            console.log(remarks);
+            }}>
+            
+          </textarea>
         </div>
+
+      </checkBoxContext.Provider>
      <div className='grid grid-cols-1 p-4'>
         <button type='submit' id='bookButton' 
         onFocus={()=>{
@@ -340,7 +357,7 @@ function amalgamate(){
               </form>
               
      </div>
-        {console.log(rateRes)}
+       
      {rateRes.length != 0 && rateRes.hotel?<div className='col-span-1 rounded-xl 'style={{backgroundColor: "rgba(0,0,0,0.8)"}}>
           <div className='grid grid-cols-3 gap-6 text-white'>
               <div className=' col-span-1 bg-black p-6 m-6 text-center rounded-tl-lg'>
@@ -384,7 +401,7 @@ function amalgamate(){
             <p className='col-span-1 py-3 bg-gray-900 mx-auto px-2 font-semibold'>{rateRes.hotel.rooms[0].rates[0].rateType == "BOOKABLE"? <span>BOOKABLE</span>:<span className='text-sm'>NOT BOOKABLE</span>}</p>
           </div>
           <div className='text-white text-lg bg-black mx-6 grid grid-cols-5'>
-            <p className='col-span-3 p-3'><span className='text-4xl my-auto fa-solid fa-money-check-dollar'></span><span className='text-8xl my-auto font-semibold'> {rateRes.hotel.totalNet} </span></p>
+            <p className='col-span-3 p-3'><span className='text-4xl my-auto fa-solid fa-money-check-dollar'></span><span className='text-6xl my-auto font-semibold'> {rateRes.hotel.totalNet} </span></p>
             <div className= "col-span-2 p-3 my-auto">
             <p className='italic text-sm'><span className='fa-solid fa-wallet'></span> Currency (<span className='text-yellow-300'>{rateRes.hotel.currency}</span>) </p>
             <p className='text-sm'>+ <span className='font-semibold text-yellow-300'>{rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].amount}</span> ({rateRes.hotel.currency}) applicable tax, {rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].included?<span className='font-semibold'>included</span>:<span className='font-semibold'>not included</span>}  </p>

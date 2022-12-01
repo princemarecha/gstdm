@@ -6,8 +6,12 @@ import Filters from '../../components/filters';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Result from '../../components/Result';
+import { notifiContext } from '../../Helper/Context';
+import { cartNum } from '../../Helper/Context';
 
 const Results = (props) => {
+
+  const [show, setShow] = useState(false);
 
 
 
@@ -17,6 +21,7 @@ if (process.browser){
 }
 
     const [searchRes, setSearchRes] = useState(props.status)
+    const [cartNumber, setCartNumber] = useState(0)
 
     return (
         <div>
@@ -33,13 +38,22 @@ if (process.browser){
         </Head>
       
     </div>
-    <div className="sticky top-0 z-10">
+
+    <notifiContext.Provider value={{show, setShow}}>
+      <cartNum.Provider value={{cartNumber, setCartNumber}}>
+        <div className="sticky top-0 z-10">
             <Header/>
-            </div>
+            {show?<div id="toast-top-right" className="notification  bg-green-500 flex absolute top-20 right-5 items-center p-4 space-x-4 w-full max-w-xs text-gray-500 bg-white rounded-lg divide-x divide-gray-200 shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
+              <div className="text-sm font-normal text-white justify-even flex"><div>Product added to cart successfully</div></div>
+            </div>:<div></div>}
+        </div>
+  
     <div className="flex">
-            <Filters/>
+            <div className='sticky top-0'><Filters/></div>
               <ResultsContainer hotels={searchRes} />
-    </div>
+    </div>  
+    </cartNum.Provider>
+    </notifiContext.Provider>
     <Footer/>
         </div>
     )

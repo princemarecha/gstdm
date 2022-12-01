@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-font-family: Roboto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Grand+Hotel&family=Josefin+Sans:wght@700&family=Patrick+Hand&family=Roboto+Condensed&family=Roboto:wght@400;500&family=Secular+One&display=swap');
 
 .background-image {
   background-image: url(./../public/images/bnr1.jpg);
@@ -13,13 +11,49 @@ font-family: Roboto;
 
 body, html {
   height: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
 }
+
+.nameStyle{
+  font-family: 'Patrick Hand', cursive;
+}
+
+.locationTag{
+  font-family: 'Dancing Script', cursive;
+}
+
+.mapBanner{
+  font-family: 'Secular One', sans-serif;
+}
+
+
+.visitLine{
+  width: 10%;
+  
+}
+
+.visitLine:hover{
+  animation: widen 2s ease-in   ;
+}
+
+@keyframes widen {
+
+  50%{
+    width: 50%;
+  }
+}
+
+
+
+
+
 
 .booking-image {
   background-image: url(./../public/images/bookingPic.jpg);
   background-position: center;
   background-size: cover;
-  height: 150vh;
+  height: 100%;
 }
 
 .container-custom {
@@ -34,6 +68,28 @@ body, html {
   margin-right: 10px;
   margin-left:10px;
 }
+
+.notification {
+  animation: show_notification 2s ease-in-out forwards ;
+  opacity: 0;
+}
+@keyframes show_notification {
+
+  0%{
+    opacity: 1;
+    
+  }
+  25%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
 
 
 /*html,

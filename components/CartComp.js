@@ -7,6 +7,14 @@ import { cartContext, hotelContext } from "../Helper/Context";
 
 const CartComp = () => {
 
+  useEffect(()=>{
+    if (cartHotel.length!=0){
+      setPrep(cartHotel[0]);
+      setCurrent(cartHotel[0]);
+    }
+  },[])
+  
+  
   const [prep, setPrep] = useState([]);
   const {current, setCurrent} = useContext(cartContext);
   const[live, setLive] = useState([]);
@@ -25,6 +33,8 @@ const removeAll =()=>{
     else if(someVar){
       setSomeVar(false)}
 }
+
+
 
 const remove =(code) =>{
 
@@ -45,6 +55,9 @@ const remove =(code) =>{
       localStorage.setItem("cart", JSON.stringify(cartHotel));
     }
 }
+
+
+
 
 const view =(code) =>{
  

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { cartNum, notifiContext } from "../Helper/Context";
+import {ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ResultsItems = ({ hotel }) => {
   // const perks = hotel.perks;
   // const icons = hotel.icons;
+
+  const {cartNumber, setCartNumber} = useContext(cartNum);
+  const notify = () => toast.success("Hotel Successfully Added to Cart", {position: toast.POSITION.TOP_RIGHT});
 
   const [cart, setCart] = useState([]);
 
@@ -38,13 +44,15 @@ const ResultsItems = ({ hotel }) => {
              
               console.log("pushed regardless")
               console.log("hotel already added")
-              console.log(fromC)
+              
+             
         }
         else if (!(checker.includes(hotel.code))){
            analyser = [...fromC, hotel];
            console.log(analyser);
            localStorage.setItem("cart", JSON.stringify(analyser));
-
+           console.log(fromC.length);
+          setCartNumber(  JSON.parse(localStorage.getItem("cart")).length);
         }
         
         
@@ -52,9 +60,11 @@ const ResultsItems = ({ hotel }) => {
 
     }
   };
+  
 
   const rating = [];
-  for (let i = 0; i < parseInt(hotel.S2C[0]); i++) {
+  if (hotel.S2C)
+  {for (let i = 0; i < parseInt(hotel.S2C[0]); i++) {
     rating.push(<svg
       aria-hidden="true"
       focusable="false"
@@ -70,6 +80,9 @@ const ResultsItems = ({ hotel }) => {
         d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
       ></path>
     </svg>);
+  }}
+  else{
+    rating.push("(Rating (N/A) ) ")
   }
 
   var map = "/hotel/"+hotel.code+"/#map";
@@ -78,6 +91,7 @@ const ResultsItems = ({ hotel }) => {
 
   return (
     <div>
+
       <a href="#">
         <div className="md:grid grid-flow-row-dense grid-cols-4 grid-row-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white">
           <div className="w-full mt-1 ml-1 flex">
@@ -137,7 +151,11 @@ const ResultsItems = ({ hotel }) => {
             <div className="flex justify-between items-center">
               <button
                 className="m-auto inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center outline-none transition duration-100 px-8 py-2 mt-2"
-                onClick={(e) => add(e)}
+                onClick={(e) => {
+                  add(e);
+                  notify();
+                  
+                }}
               >
                 Add to cart
               </button>
@@ -146,6 +164,9 @@ const ResultsItems = ({ hotel }) => {
           </div>
         </div>
       </a>
+      <ToastContainer
+      autoClose={1000}
+      />
     </div>
   );
 };

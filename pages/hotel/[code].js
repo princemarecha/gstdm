@@ -1,13 +1,14 @@
 import React,{useState} from 'react';
 import CryptoJS from 'crypto-js';
 import Header from '../../components/header';
-import {faLocation, faMapLocation, faPhone, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
+import {faLocation, faLocationPin, faMapLocation, faPhone, faPhoneSquareAlt, faPlaneArrival, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Footer from '../../components/footer';
 import LeftArrow from './../../public/images/left-arrow.png';
 import RightArrow from './../../public/images/right-arrow.png';
 import Link from 'next/link';
+import { cartNum } from '../../Helper/Context';
 
 
 const HotelScreen = (status) => {
@@ -16,6 +17,8 @@ const HotelScreen = (status) => {
     const[bruh2, setBruh2]=useState(6);
 
     const[pics, setPics] = useState(path0);
+
+    const [cartNumber, setCartNumber] = useState([]);
  
 
     function Pictures(arg) {
@@ -59,7 +62,7 @@ const HotelScreen = (status) => {
 
     const rating = [];
     for (let i = 0; i < parseInt(status.status.hotel.S2C[0]); i++) {
-        rating.push(<FontAwesomeIcon icon={faStar} />);
+        rating.push(<FontAwesomeIcon icon={faStar} className="text-yellow-400 text-xl px-1" />);
     }
 
     
@@ -74,10 +77,13 @@ const HotelScreen = (status) => {
 
   return (
     <div>
-    <div>
-    <div className="sticky top-0 z-10">
+    <cartNum.Provider value={{cartNumber, setCartNumber}}>
+    <div className="sticky top-0 z-20">
             <Header/>
             </div>
+    </cartNum.Provider>
+    <div>
+    
         </div>
         <div className='px-24'>
         
@@ -97,7 +103,7 @@ const HotelScreen = (status) => {
                                             height="200px"
                                         />
                                     </button>
-                                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm" >
+                                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm"  >
                                     {/* start of map images code */}
 
                                     {status.status.hotel.images.slice(left, right).map((hotell)=>(
@@ -130,7 +136,7 @@ const HotelScreen = (status) => {
                                     ></span>
 
                                     <div className="p-8">
-                                        <h2 className="text-4xl font-bold ">
+                                        <h2 className="text-4xl font-bold nameStyle">
                                         {status.status.hotel.name.content}
                                         </h2>
 
@@ -142,19 +148,17 @@ const HotelScreen = (status) => {
 
                                    <br></br>
 
-                                     <FontAwesomeIcon icon={faLocation} />   {status.status.hotel.city .content}
+                                     <FontAwesomeIcon icon={faLocation} className="text-blue-300 text-2xl "/>   <span className='locationTag'>{status.status.hotel.city .content}</span>
 
-                                        <p className="mt-4 text-gray-600 text-justify overflow-y-scroll h-72 pr-3">
+                                        <p className="mt-4 text-gray-600 text-justify overflow-y-scroll h-72 pr-3 locationTag">
                                         {status.status.hotel.description.content}
                                         </p>
+                                        <a  href="/cart">
 
-                                        <a
-                                            className="inline-block px-12 py-3 mt-24 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600"
-                                            href="/contact"
-                                        >
+                                        <button class="mt-3 bg-gray-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-yellow-500 rounded">
                                             <FontAwesomeIcon icon={faTicket} />
                                             &nbsp; Check Availability 
-                                        </a>
+                                        </button> </a>
                                     </div>
                                 </div>
                             </div>
@@ -165,13 +169,13 @@ const HotelScreen = (status) => {
     
 
             <div className='bg-white-200 shadow-2xl' id="description">
-            <label htmlFor="message" className="block mb-2 font-medium bg-yellow-500 text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
+            <label htmlFor="message" className="block mb-2 font-medium bg-yellow-500 nameStyle text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
             <div className='grid grid-cols-12'>
                 <div className='p-3 col-span-8'>
-            <p className='mx-12 text-slate-500 mb-4 text-sm text-justify'>
+            <p className='mx-12 text-slate-500 mb-4 text-sm text-justify nameStyle'>
             {status.status.hotel.description.content}
              </p> </div>
-                  <div className='ml-24 p-3 col-span-4 text-sm text-slate-500'>
+                  <div className='ml-24 p-3 col-span-4 text-sm text-slate-500 font-bold mapBanner'>
                   <ul>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.city.content}</li>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.country.code}</li>
@@ -184,30 +188,28 @@ const HotelScreen = (status) => {
             <br></br>
 
 
-            <div className='bg-blue-50 p-3 mt-4 shadow-lg' >
-            <label htmlFor="message" className="block mb-2 bg-yellow-500 font-large font-extrabold text-gray-100 text-left pb-2 pl-2">CONTACT DETAILS</label>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-y-5 sm:gap-y-6 lg:divide-x">
+            <label htmlFor="message" className="block mb-2 mapBanner text-center text-4xl font-bold mt-6 text-left pl-2">Contact Details</label>
+            <div className='pb-4'>
+                    <hr className='visitLine mx-auto border-2 border-black'></hr>
+             </div>
+            <div className='bg-white p-3 mt-4 shadow-lg' >
+         
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-y-3 sm:gap-y-3 lg:divide-x">
 
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faSquareCheck} />
-                <label className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"> {status.status.hotel.categoryGroup.description.content}</label>
+                    
+            <div className="flex items-center "  >
+                <FontAwesomeIcon icon={faPlaneArrival} />
+                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80"> {status.status.hotel.destination.name.content} <span className='italic text-xs'>(Destination)</span></label>
                     </div>
-            <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faSquareCheck} />
-                <label  className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.destination.name.content}</label>
+                    <div className="flex items-center "  >
+                <FontAwesomeIcon icon={faLocationPin} />
+                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.description.content} <span className='italic text-xs'>(Zone Code ({status.status.hotel.zone.zoneCode}))</span></label>
                     </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faSquareCheck} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.description.content}</label>
-                    </div>
-                    <div className="flex items-center mb-1"  >
-                <FontAwesomeIcon icon={faSquareCheck} />
-                <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">{status.status.hotel.zone.zoneCode}</label>
-                    </div>
+                    {console.log(status.status.hotel.facilities)}
                     {status.status.hotel.phones.map((hotell)=>(
                        <div key={hotell.code}>
                             <div className="flex items-center mb-1"  >
-                                <FontAwesomeIcon icon={faPhone} />
+                                <FontAwesomeIcon icon={faPhoneSquareAlt} />
                                 <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
                             {hotell.code }  {hotell.phoneNumber}
                             
@@ -220,18 +222,21 @@ const HotelScreen = (status) => {
                     </div>               
             </div>
             <br></br>
-
-            <div className='bg-blue-50 p-3 shadow-xl' >
-
-         <label htmlFor="message" className="block mb-2 bg-yellow-500 font-large font-extrabold text-gray-100 text-left pb-2 pl-2">FACILITIES</label>
+   
+        <label htmlFor="message" className="block mb-2 mapBanner text-center text-4xl font-bold  text-left pl-2">Facilities</label>
+         <div className='pb-4'>
+                    <hr className='visitLine mx-auto border-2 border-black'></hr>
+        </div>
+            <div className='bg-white p-3 shadow-xl' >
          
-         <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5 sm:gap-y-6 lg:divide-x">
+         <div className="grid sm:grid-cols-1 lg:grid-cols-4 gap-y-4 sm:gap-y-4 lg:divide-x">
          {status.status.hotel.facilities.slice(0,bruh2).map((hotell)=>(
                        <div key={hotell.code}>
                             <div className="flex items-center mb-1"  >
                                 <FontAwesomeIcon icon={faSquareCheck} />
                                 <label htmlFor="default-checkbox" className="ml-2 text-sm font-small text-gray-450 light:text-gray-80">
                              {hotell.description.content}
+                             {hotell.description.number?hotell.description.number:""}
                                 </label>                
                       </div>
                         </div>
@@ -242,7 +247,7 @@ const HotelScreen = (status) => {
                 <div>
 
                 </div>
-                {(bruh2 === 6) ? <button onClick={showmore} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600">Show More</button>: <button onClick={showless} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600">Show Less</button>}
+                {(bruh2 === 6) ? <button onClick={showmore} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-gray-400 border  rounded active:text-indigo-500 hover:bg-transparent hover:text-black">Show More</button>: <button onClick={showless} className="inline-block px-12 py-3 mt-5 text-sm font-medium text-white bg-yellow-500 border border-indigo-500 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600">Show Less</button>}
                  
             </div>
             <br></br>
@@ -252,25 +257,16 @@ const HotelScreen = (status) => {
 
              
 
-            <div className='p-3 mt-4 shadow-lg' id="map" >
-            <label htmlFor="message" className="block mb-2   font-medium text-gray-900 dark:text-gray-400 text-left">Map</label>
-           
-            <a className="inline-block px-12 py-3 mt-5 text-sm font-medium text-center text-white"
-                href="/contact">
-                
-                {/*start of google maps code*/}
-                <div className="mapouter">
-                    <div className="gmap_canvas">
-                        <iframe width="950" height="500" id="gmap_canvas" src={coords} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
+
+
+            <div className='text-center py-6 mapBanner text-4xl font-bold' id='map'> 
+                    <span >Visit Us</span>
+                    <div className='py-3'>
+                    <hr className='visitLine mx-auto border-2 border-black'></hr>
                     </div>
-                </div>
-                {/*end of google maps code*/}
-                    
-                    <FontAwesomeIcon icon={faMapLocation} /> 
-                    Location
-            </a>            
-            
- 
+            </div>
+            <div >
+            <iframe width="100%" height="400px" id="gmap_canvas" src={coords} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
             </div>
             
 

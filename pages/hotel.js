@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Image from 'next/image';
@@ -7,15 +7,19 @@ import Nearby from './../components/nearby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 import { faCalendar, faDotCircle, faHouse, faLocation, faMap } from '@fortawesome/free-solid-svg-icons';
+import { cartNum } from '../Helper/Context';
 
 
-class Hotel extends Component {
-    render() {
-        return (
+const hotel = () => {
+    const [cartNumber, setCartNumber] = useState([]);
+  return (
+
     <div>
+        <cartNum.Provider value={{cartNumber, setCartNumber}}>
                 <div className="sticky top-0 z-10">
             <Header/>
             </div>
+        </cartNum.Provider>
                 <div >
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
@@ -127,8 +131,8 @@ class Hotel extends Component {
             <Footer />
           </div>
  
-        );
-    };
-};
-export default Hotel;
+  )
+}
+
+export default hotel
 

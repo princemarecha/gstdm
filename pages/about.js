@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav2 from '../components/Nav2'
 import Head from 'next/head'
+import { cartNum } from '../Helper/Context'
 
 const about = () => {
+  const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
         <Head>
@@ -14,7 +16,9 @@ const about = () => {
           <script src="https://cdn.tailwindcss.com" async></script>
           <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
         </Head>
+        <cartNum.Provider value={{cartNumber, setCartNumber}}>
         <Nav2/>
+        </cartNum.Provider>
     </div>
   )
 }

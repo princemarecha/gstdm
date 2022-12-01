@@ -47,14 +47,14 @@ export default function multBookingCh(val, rooms){
         subdiv4.setAttribute("class", "col-span-1");
         
         inputA.setAttribute("class", "p-2 mr-3 mb-3 rounded-md text-sm");
-        inputA.setAttribute("placeholder", "Adult ("+i+") Name");
+        inputA.setAttribute("placeholder", "Child ("+i+") Name");
         inputA.setAttribute("id", "aname"+i);
         inputA.setAttribute("type", "text");
         inputA.setAttribute("required","");    
     
         inputB.setAttribute("class", "p-2 mr-3 mb-3 rounded-md text-sm");
         inputB.setAttribute("id", "asurname"+i); 
-        inputB.setAttribute("placeholder", "Adult ("+i+") Surname");
+        inputB.setAttribute("placeholder", "Child ("+i+") Surname");
         inputB.setAttribute("type", "text");
         inputB.setAttribute("required","");  
         

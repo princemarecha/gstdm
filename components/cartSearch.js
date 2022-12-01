@@ -272,7 +272,7 @@ const CheckAvailability = () => {
       <div className="py-5 px-8 font-semibold text-gray-600">
         <hr className="my-5"/>
         <div className="justify-end flex">
-          {lovely.length !=0?<div><span className="text-6xl">( {lovely} )</span><span className="ml-4 italic text-lg">Available Rates</span></div>:""}</div>
+          {lovely.length !=0?<div><span className="text-2xl md:text-6xl">( {lovely} )</span><span className="ml-4 italic  text-md md:text-lg">Available Rates</span></div>:""}</div>
         <hr className="my-5"/>
         
          </div>

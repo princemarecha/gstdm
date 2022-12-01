@@ -6,6 +6,7 @@ import Search from './../components/search';
 import Listings from './../components/listings';
 import { hotelContext } from '../Helper/Context';
 import { searchContext } from '../Helper/Context';
+import { cartNum } from '../Helper/Context';
 
 
 
@@ -37,9 +38,11 @@ const Index = () => {
 
   const [working, setWorking] =useState([]);
   const [results, setResults] = useState([]);
+  const [cartNumber, setCartNumber] = useState([]);
   return (
 
     <hotelContext.Provider value={{working, setWorking}}>
+     <cartNum.Provider value={{cartNumber, setCartNumber}}>
     <Head>
           <title>GSTDM | Home</title>
           <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
@@ -61,6 +64,7 @@ const Index = () => {
     <Footer/>
     </div>
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js" async></script>
+      </cartNum.Provider>
     </hotelContext.Provider>
   )
 }

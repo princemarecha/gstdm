@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import NextLink from "next/link";
@@ -6,9 +6,10 @@ import Head from "next/head";
 import Payment from "../components/Payment";
 import Search from "../components/search";
 import PostSearch from "../components/PostSearch";
-
+import { cartNum } from "../Helper/Context";
 
 const booking_list = () => {
+  const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
       <Head>
@@ -26,9 +27,12 @@ const booking_list = () => {
           />
           <script async src="https://cdn.tailwindcss.com"></script>
       </Head>
+      <cartNum.Provider value={{cartNumber, setCartNumber}}>
       <div className="sticky top-0 z-10">
             <Header/>
+   
       </div>
+      </cartNum.Provider>
         <PostSearch/>
       <Footer/>
       <script
