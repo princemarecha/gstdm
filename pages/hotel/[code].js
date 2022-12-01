@@ -153,12 +153,13 @@ const HotelScreen = (status) => {
                                         <p className="mt-4 text-gray-600 text-justify overflow-y-scroll h-72 pr-3 locationTag">
                                         {status.status.hotel.description.content}
                                         </p>
-                                        <Link  href="/cart">
-
+                                       
+                                        
                                         <button className="mt-3 bg-gray-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-yellow-500 rounded">
                                             <FontAwesomeIcon icon={faTicket} />
-                                            &nbsp; Check Availability 
-                                        </button> </Link>
+                                            &nbsp; <Link  href="/cart"> Check Availability </Link>
+                                        </button>
+                                        
                                     </div>
                                 </div>
                             </div>

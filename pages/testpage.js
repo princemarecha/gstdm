@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import ErrorModal from '../components/errorModal'
+import ErrorModal from '../components/ErrorModal'
 import Nav2 from '../components/Nav2'
 import Stepper from '../components/Stepper'
 

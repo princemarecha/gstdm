@@ -3,7 +3,7 @@ import CryptoJS from "crypto-js";
 import { hotelContext, NextOO, RateURL } from "../Helper/Context";
 import { useContext } from "react";
 import childrenCustom from "../scripts/children"
-import ErrorModal from "./errorModal";
+import ErrorModal from "./ErrorModal";
 import { errorState } from "../Helper/Context";
 
 
