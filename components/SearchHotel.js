@@ -20,11 +20,21 @@ const SearchHotel = () => {
     localStorage.setItem("mytime",JSON.stringify(hot));
   }
 
+  let inDevEnvironment = "https://google.com";
+
+  if (process && process.env.NODE_ENV === 'development') {
+    inDevEnvironment = "http://localhost:3000";
+    console.log(inDevEnvironment);
+  }
+  else if (!process && process.env.NODE_ENV === 'development'){
+    inDevEnvironment = "https://gstdm-ten.vercel.app";
+  }
+
   const search = async (num,event)=>{
 
     event.preventDefault();
     const temp = num;
-    const data = await fetch(`http://localhost:3000/api/properties?name=${temp}`);
+    const data = await fetch(`${inDevEnvironment}/api/properties?name=${temp}`);
     const res = await data.json();
     await setHot(res);
     await setWorking(res);
