@@ -20,9 +20,9 @@ const SearchHotel = () => {
     localStorage.setItem("mytime",JSON.stringify(hot));
   }
 
-  
-  const allData = async ()=>{
   let inDevEnvironment = "https://gstdm-ten.vercel.app";
+  const allData = async ()=>{
+  
 
   if (process && process.env.NODE_ENV === 'development') {
     inDevEnvironment = "http://localhost:3000";
@@ -32,6 +32,7 @@ const SearchHotel = () => {
     inDevEnvironment = "https://gstdm-ten.vercel.app";
   }
 }
+allData();
 
   const search = async (num,event)=>{
 
