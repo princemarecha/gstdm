@@ -8,10 +8,11 @@ import { cartContext, hotelContext } from "../Helper/Context";
 const CartComp = () => {
 
   useEffect(()=>{
-    if (cartHotel.length!=0){
-      setPrep(cartHotel[0]);
-      setCurrent(cartHotel[0]);
-    }
+    if (cartHotel)
+    {  if (cartHotel.length!=0){
+        setPrep(cartHotel[0]);
+        setCurrent(cartHotel[0]);
+      }}
   },[])
   
   
@@ -77,7 +78,7 @@ const view =(code) =>{
       <div className="bg-cyan-900 py-1">
         <h2 className="text-xl font-semibold ml-2 text-white ">Your cart</h2>
       </div>
-     {!cartHotel.length==0?<p></p>:<p>There are no items in the cart</p>}
+     {cartHotel? !cartHotel.length==0?<p></p>:<p>There are no items in the cart</p>:""}
       <ul className="flex flex-col divide-y h-80 overflow-y-auto ">
       {(!cartHotel)? <h1>There are no items in the Cart</h1> : cartHotel.map((cart)=>
       
@@ -159,7 +160,7 @@ const view =(code) =>{
           Cart total:
           <span className="font-semibold text-lg text-white md:text-black">
             {" "}
-            {cartHotel.length}
+            {cartHotel?cartHotel.length: "0"}
           </span>
         </p>
 

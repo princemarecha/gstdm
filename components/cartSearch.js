@@ -68,8 +68,8 @@ const CheckAvailability = () => {
         ],
         "hotels": {
           "hotel": [
-           //hoteCode
-            1533 
+           hoteCode
+            //1533 
           ]
         }
       });
@@ -282,7 +282,7 @@ const CheckAvailability = () => {
       {roomss? roomss.map((rate)=>
             
           <div key={rate.rateKey} className="my-4 grid grid-cols-9 shadow-xl rounded-xl  font-sans text-white">
-            
+            {console.log(rate)}
         <div className="col-span-2 ml-2 grid grid-rows-4 bg-sky-700 rounded-tl-lg rounded-bl-lg"> 
             <div className="pl-3 pt-2 row-span-1 bg-cyan-700 rounded-tl-lg"><p className="font-semibold">Board Code/Name</p></div>
             <div className="row-span-3 my-auto rounded-bl-lg"><p className="text-center font-bold">{rate.boardCode}/{rate.boardName}</p></div>
@@ -290,9 +290,11 @@ const CheckAvailability = () => {
         </div>
         <div className="col-span-3 grid grid-rows-4 bg-sky-600">
         <div className="row-span-1  bg-cyan-700 pl-2 pt-2"><p className="font-semibold">Cancellation Policy</p></div>
-        <div className="pl-2 row-span-3"><p>Amount ({rate.taxes.taxes[0].currency}) <span className="font-semibold">{rate.cancellationPolicies[0].amount}</span> </p>
+        {rate.taxes?<div className="pl-2 row-span-3"><p>Amount ({rate.taxes.taxes[0].currency}) <span className="font-semibold">{rate.cancellationPolicies[0].amount}</span> </p>
               <p >from <span className="font-semibold"> {rate.cancellationPolicies[0].from}</span></p>
-        </div>
+        </div>:<div className="pl-2 row-span-3"><p>Amount (N/A) <span className="font-semibold">{rate.cancellationPolicies[0].amount}</span> </p>
+              <p >from <span className="font-semibold"> {rate.cancellationPolicies[0].from}</span></p>
+        </div>}
         </div>
         <div className="col-span-2 grid grid-rows-4  ">
         <div className="row-span-1   bg-cyan-700 pt-2">
@@ -305,8 +307,8 @@ const CheckAvailability = () => {
         </div>
         </div>
         <div className="col-span-2  mr-2 text-white">
-        <div className="py-2 bg-blue-600 text-center "><p className="text-2xl font-extrabold">{rate.net} </p><p>({rate.taxes.taxes[0].currency})</p></div>
-        <div className="bg-blue-500 text-center  italic"><p className="text-sm">{rate.taxes.taxes[0].amount} ({rate.taxes.taxes[0].currency}) <span>Applicable Tax({rate.taxes.taxes[0].included ?"Included" : "Excluded"})</span></p> </div>
+        {rate.taxes?<div className="py-2 bg-blue-600 text-center "><p className="text-2xl font-extrabold">{rate.net} </p><p>({rate.taxes.taxes[0].currency})</p></div>:<div className="py-2 bg-blue-600 text-center "><p className="text-2xl font-extrabold">{rate.net} </p><p>(EUR)</p></div>}
+        {rate.taxes?<div className="bg-blue-500 text-center  italic"><p className="text-sm">{rate.taxes.taxes[0].amount} ({rate.taxes.taxes[0].currency}) <span>Applicable Tax({rate.taxes.taxes[0].included ?"Included" : "Excluded"})</span></p> </div>:<div className="bg-blue-500 text-center  italic"><p className="text-sm"> N/A <span>Applicable Tax(N/A)</span></p> </div>}
         <div className={rateKey ==rate.rateKey?"p-2 text-center font-bold bg-yellow-600":"p-2 text-center font-bold bg-green-600"}>
           {rate.rateType =="BOOKABLE"? 
             <button onClick={(e)=>{

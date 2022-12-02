@@ -10,6 +10,8 @@ import adultBooking from "../scripts/adultBooking";
 import childrenBooking from "../scripts/childrenB";
 import Checkboxes from '../components/Checkboxes';
 import { checkBoxContext } from '../Helper/Context';
+import ErrorModal from '../components/ErrorModal';
+import { errorState } from '../Helper/Context';
 
 const Booking = () => {
 
@@ -33,6 +35,7 @@ useEffect(()=>{
     const [aname, setAName] = useState([]);
     const [remarkCH, setRemarkCH] = useState([]);
     const [str, setStr] = useState();
+    const [errorr,setError] = useState();
 
     const [sasurname, setSASurname] = useState([]);
     const [saname, setSAName] = useState([]);
@@ -176,6 +179,7 @@ async function oppo (){
                .catch(error => console.log('error', error));
               
           }
+
 }
 
 if (rateRes.length == 0){
@@ -249,7 +253,10 @@ function amalgamate(){
   console.log(c);
 }
 
-
+function errorHndler(){
+  result.error? setError(result.error.message == "Insufficient allotment"?"The booking you requested is no longer available, please try another booking":result.error.message):"";
+  console.log("done")
+}
 
   return (
     <div >
@@ -270,7 +277,8 @@ function amalgamate(){
 
     <div className= {!btnClicked?'booking-image':''} >
       <div className='text-center text-white text-6xl pt-6 pb-10'> <label>Make Your Reservation</label></div>    
-
+        
+      {/* {errorr!=null?<errorState.Provider value={{errorr, setError}}><ErrorModal/></errorState.Provider>:""} */}
       <br></br>
 <br></br>
 
@@ -315,6 +323,7 @@ function amalgamate(){
             }}>
             
           </textarea>
+          <span className='text-red-400'>{result.error?result.error.message =="Insufficient allotment"?"This booking is no longer available, please try to make another":result.error.message:""}</span>
         </div>
 
       </checkBoxContext.Provider>
@@ -348,7 +357,8 @@ function amalgamate(){
               }
               if (valid )
                   {py();}
-     
+            
+              errorHndler();
         } } className="bg-cyan-900 ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg">
         Book Now
       </button>
@@ -404,7 +414,7 @@ function amalgamate(){
             <p className='col-span-3 p-3'><span className='text-4xl my-auto fa-solid fa-money-check-dollar'></span><span className='text-6xl my-auto font-semibold'> {rateRes.hotel.totalNet} </span></p>
             <div className= "col-span-2 p-3 my-auto">
             <p className='italic text-sm'><span className='fa-solid fa-wallet'></span> Currency (<span className='text-yellow-300'>{rateRes.hotel.currency}</span>) </p>
-            <p className='text-sm'>+ <span className='font-semibold text-yellow-300'>{rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].amount}</span> ({rateRes.hotel.currency}) applicable tax, {rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].included?<span className='font-semibold'>included</span>:<span className='font-semibold'>not included</span>}  </p>
+            <p className='text-sm'>+ <span className='font-semibold text-yellow-300'>{rateRes.hotel.rooms[0].rates[0].taxes?rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].amount:"(N/A)"}</span> ({rateRes.hotel.currency}) applicable tax, {rateRes.hotel.rooms[0].rates[0].taxes?rateRes.hotel.rooms[0].rates[0].taxes.taxes[0].included?<span className='font-semibold'>included</span>:<span className='font-semibold'>not included</span>:"(N/A)"}  </p>
             <p className='text-sm'><span className='fa-solid fa-credit-card'></span>Payment Type (<span className='font-bold text-yellow-300'>{rateRes.hotel.rooms[0].rates[0].paymentType}</span>)</p>
             </div>
           </div>
