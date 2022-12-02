@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Footer from './../components/footer';
 import Header from './../components/header';
@@ -11,7 +11,7 @@ import { cartNum } from '../Helper/Context';
 
 
 const Index = () => {
-  
+ 
   const allData = async ()=>{
     let inDevEnvironment = "https://google.com";
 
@@ -55,7 +55,7 @@ const Index = () => {
       </Head>
       
     <div className="sticky top-0">
-           {/* <Header/>    */}
+             <Header/>    
     </div>
     <Search/>
 {/* <Listings/> */}

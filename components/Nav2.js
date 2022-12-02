@@ -12,7 +12,13 @@ const Nav2 = () => {
     const [cartItems,setCartItems] = useState([]);
   useEffect(() =>{
    
-    setCartNumber(  JSON.parse(localStorage.getItem("cart")).length);     }
+    if (localStorage.getItem("cart"))
+    {setCartNumber(  JSON.parse(localStorage.getItem("cart")).length);}
+    else
+    {
+      setCartNumber(0);
+    }
+  }
     
     ,[])
     
