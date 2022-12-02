@@ -457,7 +457,7 @@ function amalgamate(){
     
 
 
-       </div>     <button><Link href={"../cart/1"}><p className='bg-cyan-900 ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg' onClick={yesscroll}>Make another booking</p></Link></button>
+       </div>     <button><Link href={"../cart"}><p className='bg-cyan-900 ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg' onClick={yesscroll}>Make another booking</p></Link></button>
        </div>
         </div> }
       </div>
