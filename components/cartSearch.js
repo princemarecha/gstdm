@@ -68,8 +68,8 @@ const CheckAvailability = () => {
         ],
         "hotels": {
           "hotel": [
-           hoteCode
-            //1533 
+           //hoteCode
+            1533 
           ]
         }
       });
