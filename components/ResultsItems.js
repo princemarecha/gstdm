@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cartNum, notifiContext } from "../Helper/Context";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { faPlane, faPlaneArrival } from "@fortawesome/free-solid-svg-icons";
 
 
 const ResultsItems = ({ hotel }) => {
@@ -104,16 +105,16 @@ const ResultsItems = ({ hotel }) => {
           </div>
 
           <div className="text-sm p-6 col-span-2">
-            <h3 className="font-bold text-base flex">
+            <h3 className="font-bold text-base flex nameStyle text-lg">
               {hotel.name[0].content}
               &nbsp;
-              {rating}
-              {hotel.code}
+              ({hotel.code})
             </h3>
 
-            <div className="flex items-center">
-              <span className="font-semibold">{hotel.city[0].content}, </span>
+            <div className="flex items-center locationTag">
+              <span className="font-semibold text-xs">{ hotel.city[0].content} (City) </span>
             </div>
+            <div className="flex items-center">{rating}</div>
 
             <div className="flex mb-0 bottom-0">
               <div className="bg-slate-300 mx-1 bottom-0 -mb-6 mt-3 p-1">
