@@ -63,8 +63,21 @@ export default Results
 
 export async function getServerSideProps(context){
 
+  let inDevEnvironment = "https://gstdm-ten.vercel.app";
+  const allData = async ()=>{ 
+
+  if (process && process.env.NODE_ENV === 'development') {
+        inDevEnvironment = "http://localhost:3000";
+        console.log(inDevEnvironment);
+    }
+  else {
+    inDevEnvironment = "https://gstdm-ten.vercel.app";
+  }
+  }
+  allData();
+
     const name = context.params.name
-    const res = await fetch(`http://localhost:3000/api/properties?name=${name}`);
+    const res = await fetch(`${inDevEnvironment}/api/properties?name=${name}`);
     const data = await res.json();
 
   
