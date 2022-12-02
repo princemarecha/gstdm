@@ -4,14 +4,14 @@ import Head from 'next/head';
 import { cartNum } from '../Helper/Context';
 import Image from 'next/image';
 import Logo from './../public/images/GSTDMLogo.png';
-import Footer from '../components/footer';
+import Footer from '../components/footer'; 
 
 const About = () => {
   const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
         <Head>
-        <title>GSTDM | About</title>
+        <title>GSTDM | Aboutt</title>
           <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
