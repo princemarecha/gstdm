@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import ResultsContainer from '../../components/ResultsContainer';
 import Head from 'next/head';
@@ -13,12 +13,27 @@ const Results = (props) => {
 
   const [show, setShow] = useState(false);
 
-
+  useEffect(()=>{
+    if (searchRes){
+      if (!localStorage.getItem("clump"))
+      {localStorage.setItem("clump",JSON.stringify(searchRes))}
+    else if (localStorage.getItem("clump"))
+    {
+      if (localStorage.getItem("clump").length>=0)
+      {
+        localStorage.removeItem("clump")
+        localStorage.setItem("clump",JSON.stringify(searchRes))
+      }
+    }
+    
+    }    
+  },[])
 
 var x = [];    
 if (process.browser){
     x = JSON.parse(localStorage.getItem("mytime"))
 }
+
 
     const [searchRes, setSearchRes] = useState(props.status)
     const [cartNumber, setCartNumber] = useState(0)

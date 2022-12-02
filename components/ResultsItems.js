@@ -94,7 +94,6 @@ const ResultsItems = ({ hotel }) => {
     <div>
 
       <a href={`/hotel/${hotel.code}`}>
-        {console.log(hotel)}
         <div className="md:grid grid-flow-row-dense grid-cols-4 grid-row-1 gap-x-1 m-3 cursor-pointer h-full hover:border-gray-400 transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-full max-w-full border border-gray-300 rounded-sm bg-white">
           <div className="w-full mt-1 ml-1 flex">
             <Image

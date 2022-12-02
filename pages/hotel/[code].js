@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import CryptoJS from 'crypto-js';
 import Header from '../../components/header';
 import {faLocation, faLocationPin, faMapLocation, faPhone, faPhoneSquareAlt, faPlaneArrival, faSquareCheck, faStar, faTicket } from '@fortawesome/free-solid-svg-icons';
@@ -11,15 +11,79 @@ import Link from 'next/link';
 import { cartNum } from '../../Helper/Context';
 
 
+
 const HotelScreen = (status) => {
+
+    useEffect(()=>{
+        setToCart(JSON.parse(localStorage.getItem("clump"))) 
+        
+        toCart.map(item => (
+            
+             console.log(item)
+          ))
+      },[])
 
 
     const[bruh2, setBruh2]=useState(6);
-
     const[pics, setPics] = useState(path0);
-
     const [cartNumber, setCartNumber] = useState([]);
- 
+    const [toCart, setToCart] = useState([]);
+   
+    const [cart, setCart] = useState([]);
+
+    function loop(){
+        {toCart.map(item => (
+            JSON.stringify(item.code) == JSON.stringify(status.status.hotel.code)?add(item):""
+          ))}
+        
+       
+    }
+
+    const add = async (hotel) => {
+        
+        setCart(hotel);
+    
+        if (process.browser) {
+          const temporary = [];
+          const analyser = [];
+          const checker = [];
+    
+          const fromC = JSON.parse(localStorage.getItem("cart"));
+    
+          if (!fromC) {
+            fromC = [hotel];
+            analyser = fromC;
+            console.log("pushed");
+            localStorage.setItem("cart", JSON.stringify(analyser));
+          } 
+          
+          else if (fromC) {
+    
+            fromC.map((check)=>{
+              checker.push(check.code);
+            }
+            )
+            if ((checker.includes(hotel.code))){
+                 
+                  console.log("pushed regardless")
+                  console.log("hotel already added")
+                  
+                 
+            }
+            else if (!(checker.includes(hotel.code))){
+               analyser = [...fromC, hotel];
+               console.log(analyser);
+               localStorage.setItem("cart", JSON.stringify(analyser));
+               console.log(fromC.length);
+              setCartNumber(  JSON.parse(localStorage.getItem("cart")).length);
+            }
+            
+            
+          }
+    
+        }
+      };
+
 
     function Pictures(arg) {
         setPics(arg)
@@ -73,7 +137,7 @@ const HotelScreen = (status) => {
    
     var real = 'https://photos.hotelbeds.com/giata/';
  
-    console.log(status);
+    console.log(status.status.hotel.code);
 
   return (
     <div>
@@ -155,7 +219,7 @@ const HotelScreen = (status) => {
                                         </p>
                                        
                                         
-                                        <button className="mt-3 bg-gray-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-yellow-500 rounded">
+                                        <button className="mt-3 bg-gray-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-yellow-500 rounded" onClick={loop} >
                                             <FontAwesomeIcon icon={faTicket} />
                                             &nbsp; <Link  href="/cart"> Check Availability </Link>
                                         </button>
