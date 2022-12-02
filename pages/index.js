@@ -20,7 +20,7 @@ const Index = () => {
         console.log(inDevEnvironment);
     }
   else {
-    inDevEnvironment = "https://google.com";
+    inDevEnvironment = "https://gstdm-ten.vercel.app";
   }
 
 
