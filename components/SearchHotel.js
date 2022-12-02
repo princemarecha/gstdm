@@ -34,7 +34,7 @@ const SearchHotel = () => {
 
     event.preventDefault();
     const temp = num;
-    const data = await fetch(`${inDevEnvironment}/api/properties?name=${temp}`);
+    const data = await fetch(`https://gstdm-ten.vercel.app/api/properties?name=${temp}`);
     const res = await data.json();
     await setHot(res);
     await setWorking(res);
