@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import multiplyRooms from "../scripts/homeRooms";
 import { hotelContext } from "../Helper/Context";
@@ -10,15 +10,16 @@ import Link from "next/link";
 
 const SearchHotel = () => { 
 
+  useEffect(()=>{
+      localStorage.setItem("mytime",JSON.stringify(hot));
+  },[])
+
   const [hot, setHot] = useState([]);
   const {working, setWorking} = useContext(hotelContext);
   const [que, setQue] = useState([]);
   const resultLink = (`../../results/${que}`);
   const [loading, setLoading] = useState(false);
 
-  if (process.browser){
-    localStorage.setItem("mytime",JSON.stringify(hot));
-  }
 
   let inDevEnvironment = "https://gstdm-ten.vercel.app";
   const allData = async ()=>{
