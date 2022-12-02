@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Logo from './../public/images/GSTDMLogo.png';
 import Footer from '../components/footer';
 
-const about = () => {
+const About = () => {
   const [cartNumber, setCartNumber] = useState([]);
   return (
     <div>
@@ -51,4 +51,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About
