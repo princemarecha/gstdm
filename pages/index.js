@@ -55,7 +55,7 @@ const Index = () => {
       </Head>
       
     <div className="sticky top-0">
-           <Header/>   
+           {/* <Header/>    */}
     </div>
     <Search/>
 {/* <Listings/> */}
