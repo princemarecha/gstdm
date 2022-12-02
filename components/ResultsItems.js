@@ -105,7 +105,7 @@ const ResultsItems = ({ hotel }) => {
           </div>
 
           <div className="text-sm p-6 col-span-2">
-            <h3 className="font-bold text-base flex nameStyle text-lg">
+            <h3 className="font-bold text-base flex nameStyle text-lgv">
               {hotel.name[0].content}
               &nbsp;
               ({hotel.code})
