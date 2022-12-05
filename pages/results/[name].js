@@ -6,12 +6,13 @@ import Filters from '../../components/filters';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Result from '../../components/Result';
-import { notifiContext } from '../../Helper/Context';
+import { filterContext, notifiContext } from '../../Helper/Context';
 import { cartNum } from '../../Helper/Context';
 
 const Results = (props) => {
 
   const [show, setShow] = useState(false);
+  const [filter, setFilter]=  useState("all");
 
   useEffect(()=>{
     if (searchRes){
@@ -62,11 +63,12 @@ if (process.browser){
               <div className="text-sm font-normal text-white justify-even flex"><div>Product added to cart successfully</div></div>
             </div>:<div></div>}
         </div>
-  
+  <filterContext.Provider value={{filter, setFilter}}>
     <div className="flex">
             <div className='sticky top-0'><Filters/></div>
               <ResultsContainer hotels={searchRes} />
     </div>  
+  </filterContext.Provider>
     </cartNum.Provider>
     </notifiContext.Provider>
     <Footer/>

@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { cartNum } from '../Helper/Context';
+import Link from 'next/link';
 
 
 const Terms = () => {
@@ -18,7 +19,7 @@ const Terms = () => {
                                 </cartNum.Provider>
                             </div>
     
-                            <div className="w-2/3 m-auto pb-20">
+                            <div className="w-5/6 md:w-2/3 m-auto pb-20 text-justify">
                             <h3 className="py-8"><b>LEGAL STATEMENT & PRIVACY POLICY</b></h3>
     
             <b>1.- General information on the website owner</b> <br/>
@@ -102,7 +103,7 @@ const Terms = () => {
     
             <br/>“Personal Data” refers to any information that directly or indirectly identifies or allows the identification of an individual person) (“Personal Data”
     
-                <br/>Each Party and, where applicable, its affiliates, employees, subcontractors or representative/s, shall inform the other if any  Personal Data will be processed by the other Party for the purpose of allowing the correct development, compliance and control of the agreed provision of services, with the basis of the processing being the fulfilment of the contractual relationship between the Parties. In the event that either Party processes personal data on behalf of the other as part of the provision of the services under this Agreement, the Parties shall ensure compliance with the relevant and applicable Data Protection regulations including the Regulation (EU) 2016/679, also known as “General Data Protection Regulation” or “GDPR”. The Parties shall regulate such processing by means of a Data Processing Agreement (DPA), which may be accessible through this link (http://corporate.GSTDM.com/comms/Data_Processing_Agreement_Terms_FINAL.pdf) or attached to this Agreement and shall make up part of the terms and conditions of this Agreement.
+                <br/>Each Party and, where applicable, its affiliates, employees, subcontractors or representative/s, shall inform the other if any  Personal Data will be processed by the other Party for the purpose of allowing the correct development, compliance and control of the agreed provision of services, with the basis of the processing being the fulfilment of the contractual relationship between the Parties. In the event that either Party processes personal data on behalf of the other as part of the provision of the services under this Agreement, the Parties shall ensure compliance with the relevant and applicable Data Protection regulations including the Regulation (EU) 2016/679, also known as “General Data Protection Regulation” or “GDPR”. The Parties shall regulate such processing by means of a Data Processing Agreement (DPA), which may be accessible through this <span className='text-blue-400'><Link href="http://corporate.GSTDM.com/comms/Data_Processing_Agreement_Terms_FINAL.pdf">link</Link></span> or attached to this Agreement and shall make up part of the terms and conditions of this Agreement.
     
                 <br/>The Personal Data will be kept by the relevant Party during the term of the Agreement and even once the same has been terminated, until the eventual responsibilities derived from the Agreement have prescribed. With the specific consent given by the data owner through legally acceptable ways of obtaining consent, certain relevant and limited Personal Data may be disclosed to banks and other financial entities for the management of payments to be made under the Agreement, and to Public Administrations as required by applicable Law and for the purposes contained therein.
     

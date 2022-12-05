@@ -25,3 +25,5 @@ export const notifiContext = createContext();
 export const cartNum = createContext();
 
 export const checkBoxContext = createContext();
+
+export const filterContext = createContext();

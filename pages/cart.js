@@ -128,7 +128,7 @@ const Cart = (status) => {
                     <Link
                       href={(`/hotel/${current.code}`)}>
                         <button
-                          className="inline-flex items-center justify-center px-5 py-3 text-gray-500 transition bg-white border border-gray-200 rounded-lg hover:text-gray-700 focus:outline-none focus:ring"
+                          className="inline-flex items-center justify-center px-5 py-3 text-gray-500 transition bg-white border border-gray-200 hover:bg-yellow-700 rounded-lg hover:text-white focus:outline-none focus:ring"
                           type="button"
                         >
                           <span className="text-sm font-medium"> View Hotel </span>
@@ -149,12 +149,7 @@ const Cart = (status) => {
                           </svg>
                         </button>
                     </Link>
-                        <button
-                          className="block px-5 py-3 text-sm font-medium text-white transition bg-red-600 rounded-lg hover:bg-gray-500 focus:outline-none focus:ring"
-                          type="button"
-                        >
-                          Delete Product
-                        </button>
+                       
                       </div>
                     </div>
                   </div>
