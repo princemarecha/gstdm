@@ -152,7 +152,7 @@ const HotelScreen = (status) => {
     <div>
     
         </div>
-        <div className='px-24'>
+        <div className='px-1 md:px-24'>
         
                     <section className='grid grid-cols-12'>
                         <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 col-span-12">
@@ -166,17 +166,17 @@ const HotelScreen = (status) => {
                                         <Image
                                             src={LeftArrow}
                                             alt="right"
-                                            width="200px"
-                                            height="200px"
+                                            width="60%"
+                                            height="60%"
                                         />
                                     </button>
-                                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-1 sm:gap-y-1 lg:divide-xm"  >
+                                        <div className="grid grid-cols-4 md:gap-y-2 md:gap-x-1 sm:gap-y-1 lg:divide-xm"  >
                                     {/* start of map images code */}
 
                                     {status.status.hotel.images.slice(left, right).map((hotell)=>(
                        <div key={hotell.path.visualOrder}>
-                            <div>
-                             <Image src={real + hotell.path} alt="Picture of the hotel" width="300px" height="200px" className='rounded' onClick={() => Pictures(real + hotell.path)} key={hotell.path.visualOrder}/>    
+                            <div className='mx-1'>
+                             <Image src={real + hotell.path} alt="Picture of the hotel" width="80%" height="60%" className='rounded' onClick={() => Pictures(real + hotell.path)} key={hotell.path.visualOrder}/>    
                       </div>
                         </div>
   
@@ -187,8 +187,8 @@ const HotelScreen = (status) => {
                                             <Image
                                                 src={RightArrow}
                                                 alt="right"
-                                                width="200px"
-                                                height="200px"
+                                                width="60%"
+                                                height="60%"
                                             />
                                         </button>
                                         </div>
@@ -239,11 +239,11 @@ const HotelScreen = (status) => {
             <div className='bg-white-200 shadow-2xl' id="description">
             <label htmlFor="message" className="block mb-2 font-medium bg-yellow-500 nameStyle text-zinc-50 text-left p-3">{status.status.hotel.name.content}</label>
             <div className='grid grid-cols-12'>
-                <div className='p-3 col-span-8'>
+                <div className=' p-1 md:p-3 col-span-12 md:col-span-8'>
             <p className='mx-12 text-slate-500 mb-4 text-sm text-justify nameStyle'>
             {status.status.hotel.description.content}
              </p> </div>
-                  <div className='ml-24 p-3 col-span-4 text-sm text-slate-500 font-bold mapBanner'>
+                  <div className='ml-24 p-3 col-span-12 md:col-span-4 text-sm text-slate-500 font-bold mapBanner'>
                   <ul>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.city.content}</li>
                     <li style={{listStyleType:'square'}}> {status.status.hotel.country.code}</li>

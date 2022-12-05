@@ -102,13 +102,13 @@ allData();
       </div>
 
       <div className="col-span-1  flex justify-between items-center">
-      <Link href= {resultLink}>
+    {que!=""?<Link href= {resultLink}>
             <button className="inline-block text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3"
             onClick={(event)=>load(true,event)}   
         > 
               <span className="fa fa-search text-slate-500"></span>
             </button>          
-      </Link>              
+      </Link>   :""}           
       </div>  
 
       <div className="col-span-1">
