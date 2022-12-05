@@ -125,10 +125,13 @@ const HotelScreen = (status) => {
     }
 
     const rating = [];
-    for (let i = 0; i < parseInt(status.status.hotel.S2C[0]); i++) {
-        rating.push(<FontAwesomeIcon icon={faStar} className="text-yellow-400 text-xl px-1" />);
+    if (status.status.hotel.S2C)
+        {for (let i = 0; i < parseInt(status.status.hotel.S2C[0]); i++) {
+            rating.push(<FontAwesomeIcon icon={faStar} className="text-yellow-400 text-xl px-1" />);
+        }}
+    else{
+        rating.push("(Rating (N/A) ) ")
     }
-
     
 
     var coords = "https://maps.google.com/maps?q="+status.status.hotel.coordinates.latitude+",%20"+status.status.hotel.coordinates.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed";

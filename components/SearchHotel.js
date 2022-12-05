@@ -41,8 +41,9 @@ allData();
     const temp = num;
     const data = await fetch(`${inDevEnvironment}/api/properties?name=${temp}`);
     const res = await data.json();
-    await setHot(res);
+    //await setHot(res);
     await setWorking(res);
+    await addC(res);
   
   }
 
@@ -51,6 +52,22 @@ allData();
     setLoading(true);
     window.location.href = resultLink;
     document.getElementById("searchQ").value = "";
+  }
+
+  function addC (yop){
+    if (yop){
+      if (!localStorage.getItem("clump"))
+      {localStorage.setItem("clump",JSON.stringify(yop))}
+    else if (localStorage.getItem("clump"))
+    {
+      if (localStorage.getItem("clump").length>=0)
+      {
+        localStorage.removeItem("clump")
+        localStorage.setItem("clump",JSON.stringify(yop))
+      }
+    }
+    setHot(JSON.parse(localStorage.getItem("clump")))
+    }  
   }
   
   return (
@@ -78,7 +95,9 @@ allData();
           placeholder="Search..."
             name="first-name"
             className="w-full bg-gray-50 text-gray-800 border border-gray-500  rounded outline-none transition duration-100 px-3 py-2"  
-            onChange={event =>{search(event.target.value, event), setQue(event.target.value)}}             
+            onChange={event =>{
+              search(event.target.value, event), setQue(event.target.value), addC()}
+            }             
           />
       </div>
 
@@ -98,10 +117,10 @@ allData();
       </div>:<div></div>}
       </div>
 
-          </div> <p className="italic text-slate-500 text-xs">({hot.length} matches)</p>
+          </div> <p className="italic text-slate-500 text-xs">({que !=""? hot.length :"0"} matches)</p>
           <div className="max-h-52 overflow-auto">
           <div>
-            {hot.map((hotel) => (
+            {que!=""?hot.map((hotel) => (
 
            <div key={hotel.code}>
               
@@ -129,7 +148,7 @@ allData();
                 
           </div>
         
-              ))}
+              )):<div></div>}
           </div>
           </div>
         </div>
