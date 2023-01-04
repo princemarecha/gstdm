@@ -503,7 +503,7 @@ catch{
           </div>
      </div>:<div className='col-span-1 rounded-xl spinner-grow'style={{backgroundColor: "rgba(0,0,0,0.8)"}}></div>}
 
-     <div >
+    {result.booking? <div >
     <p id='para'> <span>Consultant:</span> Mark Abrahams / Donald Hondo +263774217849 
     <br/>or 263772340485
     <br/><span>Email:</span> mark@getawayspecialisedtours.com
@@ -521,7 +521,7 @@ catch{
     <p id='remarkk' className='italic font-bold'>All additional services are for guest's own account</p>
     <p id='notes' >Notes: <br/>
     {result.booking.remark}</p>
-    </div>
+    </div>:<></>}
    
 </div>
 
