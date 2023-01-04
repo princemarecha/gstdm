@@ -12,6 +12,7 @@ import Checkboxes from '../components/Checkboxes';
 import { checkBoxContext } from '../Helper/Context';
 import ErrorModal from '../components/ErrorModal';
 import { errorState } from '../Helper/Context';
+import { image64 } from '../utils/image';
 
 const Booking = () => {
 
@@ -258,6 +259,78 @@ function errorHndler(){
   console.log("done")
 }
 
+function print(e){
+  e.preventDefault();
+  try{
+    
+  let today = new Date().toISOString().slice(0, 10)
+
+  let times = new Date().toLocaleTimeString()
+
+  // console.log(times);
+
+  // var element = document.getElementById('form');
+
+  // var opt = {
+  //   margin:       1,
+  //   filename:     `voucher(${today} ${times}).pdf`,
+  //   image:        { type: 'jpeg', quality: 0.98 },
+  //   html2canvas:  { scale: 2 },
+  //   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  // };
+
+  // html2pdf().set(opt).from(element).save();
+
+  const doc = new jsPDF("l","in","a4");
+  const para  = document.getElementById("para")
+  const provider  = document.getElementById("provider")
+  const ref  = document.getElementById("ref")
+  const location = document.getElementById("loc")
+  const services = document.getElementById("services")
+  const meal = document.getElementById("meal")
+  const remark = document.getElementById("remarkk")
+  const notes = document.getElementById("notes")
+
+  
+  
+  doc.addImage(image64, 'PNG', 0.7,1,2,2);
+
+  doc.setDrawColor('black');
+  doc.setLineWidth(1/72);
+  doc.line(0.5,0.5,0.5,7.75); //H:8.25 W:11.75
+  doc.line(11.25,0.5,11.25,7.75);
+
+  doc.line(0.5,0.5,11.25,0.5); //up
+  doc.line(0.5,7.75,11.25,7.75); //up
+  
+  doc.setFontSize(10);
+  doc.text(para.innerText, 3.5, 2);
+  
+ 
+  doc.text(location.innerText, 0.8, 4.2);
+  
+  doc.text(meal.innerText, 0.8, 5);
+  doc.setFontStyle('italic');
+  doc.text(remark.innerText, 0.8, 5.8);
+
+  doc.setFontStyle('bold');
+  doc.text(services.innerText, 0.8, 4.8);
+  doc.text(notes.innerText, 0.8, 6.4);
+  doc.text(provider.innerText, 4.4, 3.2); 
+  doc.text(ref.innerText, 0.8, 3.5);
+
+  doc.setFontSize(12);
+  doc.text("ACCOMODATION VOUCHER - OVERNIGHT", 3.75, 1);
+  
+  doc.save(`${result.booking.holder.name} ${result.booking.holder.surname}'s voucher${today} ${times}.pdf`);
+
+  
+}
+catch{
+  console.log("encountered an error making your voucher")
+}
+}
+
   return (
     <div >
       
@@ -270,7 +343,10 @@ function errorHndler(){
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
           <script src="https://cdn.tailwindcss.com" async></script>
           <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
-          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
       </Head>
 
 
@@ -427,6 +503,25 @@ function errorHndler(){
           </div>
      </div>:<div className='col-span-1 rounded-xl spinner-grow'style={{backgroundColor: "rgba(0,0,0,0.8)"}}></div>}
 
+     <div >
+    <p id='para'> <span>Consultant:</span> Mark Abrahams / Donald Hondo +263774217849 
+    <br/>or 263772340485
+    <br/><span>Email:</span> mark@getawayspecialisedtours.com
+    <br/><span>Our Ref No.:</span> MA 223
+    </p>
+    <p id='provider'>Provider:{result.booking.holder.name} {result.booking.holder.surname}</p>
+    <p id='ref'>(Adults {result.booking.hotel.rooms[0].rates[0].adults}) <span>Your Ref no.: {result.booking.reference}</span></p>
+    <p id='loc'><span>GPS:</span> Lat {result.booking.hotel.latitude}", Lon {result.booking.hotel.longitude}"<br/>
+    <span>Check In:</span> {result.booking.hotel.checkIn} <span>Check Out:</span> {result.booking.hotel.checkOut} (2 Nights) 
+    </p>
+    <p id='services'>INCLUDED SERVICES</p>
+    <p id='meal'><span>Meal Basis:</span>Fully Inclusive - Bed, All Meals, Fees and Activities<br/>
+    <span>Drinks:</span>All Local Brands (Spirits, Wine and Beers) Included <br/>
+    <span>Dietary Requirements:</span></p>
+    <p id='remarkk' className='italic font-bold'>All additional services are for guest's own account</p>
+    <p id='notes' >Notes: <br/>
+    {result.booking.remark}</p>
+    </div>
    
 </div>
 
@@ -443,7 +538,11 @@ function errorHndler(){
             <br/>
             <br/>
             <div className='flex'>
-         <div className='mx-40 shadow-2xl border rounded-tl-4xl px-10 py-8 w-150'>   
+
+
+
+
+         <div className='mx-40 shadow-2xl border rounded-tl-4xl px-10 py-8 w-150' id='bookPrint'>   
             <br/>
           <div className='font-bold text-4xl justify-between flex py-4'>
               <div>INVOICE</div> 
@@ -467,7 +566,12 @@ function errorHndler(){
     
 
 
-       </div>     <button><Link href={"../cart"}><p className='bg-cyan-900 ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg' onClick={yesscroll}>Make another booking</p></Link></button>
+       </div>
+      <div>      
+       <button><Link href={"../cart"}><p className='bg-cyan-900 ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg' onClick={yesscroll}>Make another booking</p></Link></button>
+
+       <button><p className='bg-black ml-5 mt-5 p-3 hover:bg-gray-400 hover:text-black font-bold text-white rounded-lg' onClick={e=>{print(e)}}>Download Voucher <span className='fas fa-arrow-down'></span></p></button>
+       </div>
        </div>
         </div> }
       </div>
