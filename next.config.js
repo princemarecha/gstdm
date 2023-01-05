@@ -23,6 +23,11 @@ module.exports = () => {
         source: '/hotel-api/1.0/checkrates',
         destination: 'https://api.test.hotelbeds.com/hotel-api/1.0/checkrates'
       },
+
+      {
+        source: '/hotel-api/1.0/bookings/:ref*',
+        destination: 'https://api.test.hotelbeds.com/hotel-api/1.0/bookings/:ref*?cancellationFlag=SIMULATION&language=ENG'
+      },
       
     ];
   };

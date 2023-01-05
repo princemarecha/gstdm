@@ -1,9 +1,46 @@
 import Head from 'next/head'
 import React from 'react'
+import CryptoJS from 'crypto-js'
 
 const BookingCancellation = () => {
 
-
+  async function py(event,ref){
+    event.preventDefault();
+    if (process.browser){
+            let y = (new URL(window.location)).searchParams;
+            let newRate = y.get("ratekey");
+    
+            var time = (Math.round(Date.now()/1000));
+            let soup = `e82df103ad74310fdb6a704cf460189b02d949622b${time}`;
+            let b = CryptoJS.SHA256(soup);
+            let x_sig = b.toString(CryptoJS.enc.Hex);
+            
+            //end x-sig gen
+            
+            var myHeaders = new Headers();
+            myHeaders.append("Api-key", "e82df103ad74310fdb6a704cf460189b");
+            myHeaders.append("X-Signature", x_sig);
+            myHeaders.append("Access-Control-Allow-Origin", "*");
+            myHeaders.append("Accept", "application/json");
+            myHeaders.append("Accept-Encoding", "gzip");
+            myHeaders.append("Content-Type", "application/json");
+          
+            
+            var raw = ""
+            
+            var requestOptions = {
+              method: 'DELETE',
+              headers: myHeaders,
+              redirect: 'follow',
+              body: raw
+            };
+            
+              await fetch("/hotel-api/1.0/bookings/69-43630000?cancellationFlag=SIMULATION&language=ENG", requestOptions)
+               .then(response => response.json())
+                .then(result => {console.log(result)})
+                .catch(error => console.log('error fhdhdf', error));
+                
+            }}
 
   return (
     <div>
@@ -47,7 +84,7 @@ const BookingCancellation = () => {
 
       <div className="sm:col-span-2 flex justify-between items-center">
         <button 
-        onClick={e => print(e)}
+        onClick={e => py(e, 56)}
         className="inline-block bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus-visible:ring ring-cyan-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
           Cancel
         </button>
