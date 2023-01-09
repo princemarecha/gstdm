@@ -4,7 +4,7 @@ import BookingCancellation from '../components/BookingCancellation';
 import Header from '../components/header'
 import { cartNum } from '../Helper/Context'
 
-const bookingCancellation = () => {
+const BookingCancellatio = () => {
 
 const [cartNumber, setCartNumber] = useState(1);
 
@@ -20,4 +20,4 @@ const [cartNumber, setCartNumber] = useState(1);
   )
 }
 
-export default bookingCancellation
+export default BookingCancellatio

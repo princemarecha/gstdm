@@ -26,6 +26,7 @@ const Nav2 = () => {
     const [about, setAbout] = useState(false);
     const [cart, setCart] = useState(false);
     const [terms, setTerms] = useState(false);
+    const [cancel, setCancel] = useState(false);
     
     const {cartNumber, setCartNumber} = useContext(cartNum);
 
@@ -36,6 +37,7 @@ const Nav2 = () => {
     { name: 'About', href: '/about', current: about },
     { name: 'Terms', href: '/terms', current: terms },
     { name: 'Cart', href: '/cart', current: cart },
+    { name: 'Booking Options', href: '/bookingCancellation', current: cancel },
   ]
 
   function classNames(...classes) {
@@ -55,6 +57,9 @@ const Nav2 = () => {
   }
   else if (router.pathname == "/cart"){
     if (!cart)setCart(true);
+  }
+  else if (router.pathname == "/bookingCancellation"){
+    if (!cancel)setCancel(true);
   }
 
 

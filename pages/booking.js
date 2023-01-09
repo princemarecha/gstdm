@@ -343,9 +343,9 @@ catch{
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
           <script src="https://cdn.tailwindcss.com" async></script>
           <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" async></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossOrigin="anonymous" referrerpolicy="no-referrer" async></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" async></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js" async></script>
 
       </Head>
 
@@ -511,14 +511,14 @@ catch{
     </p>
     <p id='provider'>Provider:{result.booking.holder.name} {result.booking.holder.surname}</p>
     <p id='ref'>(Adults {result.booking.hotel.rooms[0].rates[0].adults}) <span>Your Ref no.: {result.booking.reference}</span></p>
-    <p id='loc'><span>GPS:</span> Lat {result.booking.hotel.latitude}", Lon {result.booking.hotel.longitude}"<br/>
+    <p id='loc'><span>GPS:</span> Lat {result.booking.hotel.latitude}&quot;, Lon {result.booking.hotel.longitude}&quot;<br/>
     <span>Check In:</span> {result.booking.hotel.checkIn} <span>Check Out:</span> {result.booking.hotel.checkOut} (2 Nights) 
     </p>
     <p id='services'>INCLUDED SERVICES</p>
     <p id='meal'><span>Meal Basis:</span>Fully Inclusive - Bed, All Meals, Fees and Activities<br/>
     <span>Drinks:</span>All Local Brands (Spirits, Wine and Beers) Included <br/>
     <span>Dietary Requirements:</span></p>
-    <p id='remarkk' className='italic font-bold'>All additional services are for guest's own account</p>
+    <p id='remarkk' className='italic font-bold'>All additional services are for guest&apos;s own account</p>
     <p id='notes' >Notes: <br/>
     {result.booking.remark}</p>
     </div>:<></>}
