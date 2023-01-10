@@ -8,14 +8,14 @@ class Tab extends Component {
   render() {
     return (
       <div>
-        <div className="grid place-items-center">
+        <div className="grid place-items-center flex">
           <ul
-            className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+            className="nav nav-tabs flex  md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
             id="tabs-tab"
             role="tablist"
           >
             <li
-              className="nav-item bg-cyan-500 rounded-tl-lg"
+              className="nav-item bg-cyan-500 md:rounded-tl-lg"
               role="presentation"
             >
               <a
@@ -131,7 +131,7 @@ class Tab extends Component {
               </a>
             </li>
             <li
-              className="nav-item bg-cyan-500 rounded-tr-lg"
+              className="nav-item bg-cyan-500  md:rounded-tr-lg"
               role="presentation"
             >
               <a
