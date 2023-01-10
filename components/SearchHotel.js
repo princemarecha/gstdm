@@ -77,7 +77,7 @@ allData();
 
       
       <form >
-        <div className="max-w-screen-md md:w-1/2 grid sm:grid-cols-4 gap-4 mx-auto bg-white  p-10 rounded-xl">
+        <div className="max-w-screen-md md:w-4/5 lg:w-1/2 grid sm:grid-cols-4 gap-4 mx-auto bg-white  p-10 rounded-xl">
         <div className="sm:col-span-4">
           <label
             htmlFor="first-name"
